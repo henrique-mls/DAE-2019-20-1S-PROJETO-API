@@ -6,11 +6,9 @@ import entities.Administrator;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +38,22 @@ public class AdministratorController {
     public List<AdministratorDTO> all() {
         try {
             return toDTOs(administratorBean.all());
+        } catch (Exception e) {
+            throw new EJBException("ERROR_GET_STUDENTS", e);
+        }
+    }
+
+    @POST
+    @Path("/") //"/api/administrators/"
+    public Response createNewAdministrator(AdministratorDTO administratorDTO) {
+        try {
+            administratorBean.create(administratorDTO.getUsername(),administratorDTO.getName(),administratorDTO.getPassword(),
+                                    administratorDTO.getEmail());
+            Administrator administrator = administratorBean.findAdministrator(administratorDTO.getUsername());
+            if(administrator != null){
+                return Response.status(Response.Status.CREATED).entity(toDTO(administrator)).build();
+            }
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         } catch (Exception e) {
             throw new EJBException("ERROR_GET_STUDENTS", e);
         }

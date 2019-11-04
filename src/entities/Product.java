@@ -1,23 +1,23 @@
 package entities;
 
-public class Produto {
+public class Product {
     //->Produto(um tipo, descrição , um valor base associados)
     //
-    public TipoProduto tipo;
+    public ProductType tipo;
     public String descricao;
     public float valorBase;
 
-    public Produto(TipoProduto tipo, String descricao, float valorBase) {
+    public Product(ProductType tipo, String descricao, float valorBase) {
         this.tipo = tipo;
         this.descricao = descricao;
         this.valorBase = valorBase;
     }
 
-    public TipoProduto getTipo() {
+    public ProductType getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoProduto tipo) {
+    public void setTipo(ProductType tipo) {
         this.tipo = tipo;
     }
 

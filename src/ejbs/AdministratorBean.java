@@ -30,4 +30,12 @@ public class AdministratorBean {
             throw new EJBException("ERROR_RETRIEVING_STUDENTS", e);
         }
     }
+
+    public Administrator findAdministrator(String username) {
+        try{
+            return em.find(Administrator.class, username);
+        } catch (Exception e) {
+            throw new EJBException("ERROR_FINDING_STUDENT -> " + e.getMessage());
+        }
+    }
 }
