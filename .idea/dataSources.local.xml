@@ -10,7 +10,9 @@
       <user-name>sa</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="database" qname="DAE-PROJETO" />
+          <node kind="database" qname="DAE-PROJETO">
+            <node kind="schema" qname="PUBLIC" />
+          </node>
         </introspection-scope>
       </schema-mapping>
     </data-source>
