@@ -7,41 +7,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e02e22-dde6-4a98-9dd6-56adb2422981" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dab9dbd1-c966-4bfd-9241-852b0accb023.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dab9dbd1-c966-4bfd-9241-852b0accb023.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/HTTP Request.http" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/HTTP Request.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/AdministratorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/AdministratorDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/UserDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/AdministratorBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/AdministratorBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/Administrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/Administrator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/Atleta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/Modalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/Produto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/Socio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/TipoProduto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/Treinador.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/providers/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/providers/CorsFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/AdministratorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/AdministratorController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/Api.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/HTTP Request.http" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/HTTP Request.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/AdministratorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/AdministratorDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/UserDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/AdministratorBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/AdministratorBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/Administrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/Administrator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/Atleta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/Modalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/Produto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/Socio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/TipoProduto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/Treinador.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/providers/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/providers/CorsFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/AdministratorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/AdministratorController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/Api.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ejbs/ConfigBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/ConfigBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HTTP Request.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTP Request.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejbs/AdministratorBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/AdministratorBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Coach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Coach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Modality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Modality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ws/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ws/AdministratorController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +68,13 @@
         <item name="DAE-PROJETO: database" type="2aa06773:H2ImplModel$Database" />
         <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="dae-projeto" type="feb32156:DbDataSourceImpl" />
+        <item name="DAE-PROJETO: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="USERS: table" type="818c1b4a:H2ImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -98,27 +97,53 @@
     <property name="project.structure.side.proportion" value="0.28424156" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Aulas\3 Ano 1 Semestre\DAE\Projeto\DAE-2019-20-1S-PROJETO-API\src" />
-    </key>
-  </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
         <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators" />
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators/122222223" />
           <option name="urlPath" value="" />
           <option name="headers">
             <list>
               <KeyValuePair>
-                <option name="key" value="Accept" />
+                <option name="key" value="Content-Type" />
                 <option name="value" value="application/json" />
               </KeyValuePair>
             </list>
           </option>
           <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators/12222222" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators/12222222" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;password&quot;: &quot;password&quot;,&#10;  &quot;name&quot;: &quot;NomePUT&quot;,&#10;  &quot;email&quot;: &quot;dae.ei.ipleiria@gmail.com&quot;&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -135,6 +160,89 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;&quot;username&quot;: &quot;12222222&quot;,&#10;&quot;password&quot;: &quot;password&quot;,&#10;&quot;name&quot;: &quot;Nome&quot;,&#10;&quot;email&quot;: &quot;dae.ei.ipleiria@gmail.com&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators/12222222" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators/12222222" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators/12222222" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators/2222222" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/administrators/12222222" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;password&quot;: &quot;password2&quot;,&#10;  &quot;name&quot;: &quot;Nome&quot;,&#10;  &quot;email&quot;: &quot;dae.ei.ipleiria@gmail.com&quot;&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -184,14 +292,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JBoss Server.JBoss 17.0.1.Final">
+  <component name="RunManager" selected="HTTP Request.HTTP Request#5">
     <configuration name="HTTP Request#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/HTTP Request.http">
       <method v="2" />
     </configuration>
     <configuration name="HTTP Request#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/HTTP Request.http" index="2">
       <method v="2" />
     </configuration>
-    <configuration name="JBoss 17.0.1.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 17.0.1.Final" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11">
+    <configuration name="HTTP Request#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/HTTP Request.http" index="3">
+      <method v="2" />
+    </configuration>
+    <configuration name="HTTP Request#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/HTTP Request.http" index="4">
+      <method v="2" />
+    </configuration>
+    <configuration name="HTTP Request#5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/HTTP Request.http" index="5">
+      <method v="2" />
+    </configuration>
+    <configuration name="JBoss 17.0.1.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 17.0.1.Final" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/projeto" />
       <deployment>
         <artifact name="projeto:war exploded">
@@ -262,10 +379,21 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="HTTP Request.HTTP Request#1" />
+      <item itemvalue="HTTP Request.HTTP Request#2" />
+      <item itemvalue="HTTP Request.HTTP Request#3" />
+      <item itemvalue="HTTP Request.HTTP Request#4" />
+      <item itemvalue="JBoss Server.JBoss 17.0.1.Final" />
+      <item itemvalue="HTTP Request.HTTP Request#5" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.HTTP Request#1" />
+        <item itemvalue="HTTP Request.HTTP Request#5" />
+        <item itemvalue="HTTP Request.HTTP Request#4" />
+        <item itemvalue="HTTP Request.HTTP Request#3" />
         <item itemvalue="HTTP Request.HTTP Request#2" />
+        <item itemvalue="HTTP Request.HTTP Request#1" />
       </list>
     </recent_temporary>
   </component>
@@ -276,17 +404,17 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@191743c1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4bdd228f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@191743c1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@832d8d0" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4bdd228f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1ed42fe0" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@191743c1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3aeb4aa" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4bdd228f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@34e4aecf" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -312,10 +440,24 @@
       <workItem from="1572820922264" duration="504000" />
       <workItem from="1572880570317" duration="21000" />
       <workItem from="1572890066234" duration="57000" />
-      <workItem from="1572894624025" duration="882000" />
-      <workItem from="1572983084657" duration="26000" />
-      <workItem from="1572983231572" duration="576000" />
+      <workItem from="1572894624025" duration="1668000" />
+      <workItem from="1572896498877" duration="1743000" />
+      <workItem from="1572912888444" duration="796000" />
+      <workItem from="1572979992901" duration="2709000" />
+      <workItem from="1572994509781" duration="1430000" />
+      <workItem from="1573002438496" duration="581000" />
+      <workItem from="1573005132136" duration="123000" />
+      <workItem from="1573044690214" duration="2154000" />
+      <workItem from="1573060891952" duration="3375000" />
     </task>
+    <task id="LOCAL-00001" summary="Refactor and POST &quot;/api/administrators&quot;">
+      <created>1572895613314</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572895613314</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,5 +475,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Refactor and POST &quot;/api/administrators&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor and POST &quot;/api/administrators&quot;" />
   </component>
 </project>

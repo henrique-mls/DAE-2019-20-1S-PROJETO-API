@@ -7,7 +7,7 @@ public class Modality {
     //		, um horário, uma lista de
     //		Sócios/Atletas , uma lista de Treinadores);
     public String nome;
-    //ublic List<Escalao> escaloes;
+    //public List<Escalao> escaloes;
     //public Horario horario;
     public List<Partner> partners;
     public List<Coach> treinadores;
