@@ -8,17 +8,17 @@
 
 #GET ALL ADMINS
 ###
-GET http://localhost:8080/projeto/api/administrators
+GET http://localhost:8080/projeto/api/administradores
 Accept: application/json
 
 ###
 #GET ADMIN WITH ID = ....
-GET http://localhost:8080/projeto/api/administrators/12222222
+GET http://localhost:8080/projeto/api/administradores/12222222
 Accept: application/json
 
 
 ###
-POST http://localhost:8080/projeto/api/administrators
+POST http://localhost:8080/projeto/api/administradores
 Content-Type: application/json
 
 {
@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/projeto/api/administrators/12222222
+PUT http://localhost:8080/projeto/api/administradores/12222222
 Content-Type: application/json
 
 {
@@ -39,5 +39,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/projeto/api/administrators/12222222
+DELETE http://localhost:8080/projeto/api/administradores/12222222
+Content-Type: application/json
 ###

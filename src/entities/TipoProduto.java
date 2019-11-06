@@ -1,6 +1,6 @@
 package entities;
 
-public class ProductType {
+public class TipoProduto {
     //artigo desportivo, um seguro, uma graduação, uma
     //inscrição (joia), uma quota, uma aula, um estágio ou outro produto/serviço do clube.
 

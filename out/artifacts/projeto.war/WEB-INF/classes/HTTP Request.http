@@ -13,7 +13,7 @@ Accept: application/json
 
 ###
 #GET ADMIN WITH ID = ....
-GET http://localhost:8080/projeto/api/administrators/2222222
+GET http://localhost:8080/projeto/api/administrators/12222222
 Accept: application/json
 
 
@@ -38,4 +38,6 @@ Content-Type: application/json
   "email": "dae.ei.ipleiria@gmail.com"
 }
 
+###
+DELETE http://localhost:8080/projeto/api/administrators/12222222
 ###

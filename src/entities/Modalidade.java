@@ -2,13 +2,13 @@ package entities;
 
 import java.util.List;
 
-public class Modality {
+public class Modalidade {
     //->Modalidades(um nome, uma lista de Escalões
     //		, um horário, uma lista de
     //		Sócios/Atletas , uma lista de Treinadores);
     public String nome;
     //public List<Escalao> escaloes;
     //public Horario horario;
-    public List<Partner> partners;
-    public List<Coach> treinadores;
+    public List<Socio> partners;
+    public List<Treinador> treinadores;
 }

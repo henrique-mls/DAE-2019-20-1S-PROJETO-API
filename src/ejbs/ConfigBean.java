@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 @Startup
 public class ConfigBean {
     @EJB
-    private AdministratorBean administradorBean;
+    private AdministradorBean administradorBean;
 
     @PostConstruct
     public void populateDB() {

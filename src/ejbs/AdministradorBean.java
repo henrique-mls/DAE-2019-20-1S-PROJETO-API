@@ -1,6 +1,6 @@
 package ejbs;
 
-import entities.Administrator;
+import entities.Administrador;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
@@ -9,13 +9,12 @@ import exceptions.Utils;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.LockModeType;
 import javax.persistence.PersistenceContext;
 import javax.validation.ConstraintViolationException;
 import java.util.List;
 
 @Stateless(name = "AdministratorEJB")
-public class AdministratorBean {
+public class AdministradorBean {
     @PersistenceContext
     EntityManager em;
 
@@ -24,12 +23,12 @@ public class AdministratorBean {
     {
 
         try {
-            Administrator administrator = (Administrator) em.find(Administrator.class, username);
-            if(administrator != null){
+            Administrador administrador = (Administrador) em.find(Administrador.class, username);
+            if(administrador != null){
                 throw  new MyEntityExistsException("Administrator with username " + username + " already exists!");
             }
-            administrator = new Administrator(username, name, password, email);
-            em.persist(administrator);
+            administrador = new Administrador(username, name, password, email);
+            em.persist(administrador);
         }catch(ConstraintViolationException e){
             throw new MyConstraintViolationException(Utils.getConstraintViolationMessages(e));
         }catch(MyEntityExistsException e){
@@ -41,14 +40,14 @@ public class AdministratorBean {
 
     public void update(String username, String name, String password, String email) throws MyEntityNotFoundException{
         try{
-            Administrator administrator = (Administrator) em.find(Administrator.class, username);
-            if(administrator == null){
+            Administrador administrador = (Administrador) em.find(Administrador.class, username);
+            if(administrador == null){
                 throw new MyEntityNotFoundException("Administrator with username " + username + " does not exist!");
             }
             //em.lock(administrator, LockModeType.OPTIMISTIC);
-            administrator.setPassword(password);
-            administrator.setName(name);
-            administrator.setEmail(email);
+            administrador.setPassword(password);
+            administrador.setName(name);
+            administrador.setEmail(email);
 
         }catch(MyEntityNotFoundException e){
             throw e;
@@ -58,17 +57,17 @@ public class AdministratorBean {
         }
     }
 
-    public List<Administrator> all() {
+    public List<Administrador> all() {
         try {
-            return (List<Administrator>) em.createNamedQuery("getAllAdministrators").getResultList();
+            return (List<Administrador>) em.createNamedQuery("getAllAdministrators").getResultList();
         } catch (Exception e) {
             throw new EJBException("ERROR_RETRIEVING_ADMINISTRATORS", e);
         }
     }
 
-    public Administrator findAdministrator(String username) {
+    public Administrador findAdministrator(String username) {
         try{
-            return em.find(Administrator.class, username);
+            return em.find(Administrador.class, username);
         } catch (Exception e) {
             throw new EJBException("ERROR_FINDING_ADMINISTRATOR -> " + e.getMessage());
         }
@@ -76,11 +75,11 @@ public class AdministratorBean {
 
     public void remove(String username) throws MyEntityNotFoundException{
         try{
-            Administrator administrator = em.find(Administrator.class, username);
-            if(administrator == null){
+            Administrador administrador = em.find(Administrador.class, username);
+            if(administrador == null){
                 throw  new MyEntityNotFoundException("Administrator with username " + username + " does not exist!");
             }
-            em.remove(administrator);
+            em.remove(administrador);
         }catch (MyEntityNotFoundException e){
             throw e;
         }

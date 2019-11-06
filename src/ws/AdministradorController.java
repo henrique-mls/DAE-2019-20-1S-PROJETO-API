@@ -1,8 +1,8 @@
 package ws;
 
 import dtos.AdministratorDTO;
-import ejbs.AdministratorBean;
-import entities.Administrator;
+import ejbs.AdministradorBean;
+import entities.Administrador;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
@@ -15,24 +15,24 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Path("/administrators") // relative url web path of this controller
+@Path("/administradores") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
 
-public class AdministratorController {
+public class AdministradorController {
     @EJB
-    AdministratorBean administratorBean;
+    AdministradorBean administradorBean;
 
-    AdministratorDTO toDTO(Administrator administrator) {
+    AdministratorDTO toDTO(Administrador administrador) {
         return new AdministratorDTO(
-                administrator.getUsername(),
-                administrator.getName(),
-                administrator.getPassword(),
-                administrator.getEmail()
+                administrador.getUsername(),
+                administrador.getName(),
+                administrador.getPassword(),
+                administrador.getEmail()
         );
     }
 
-    List<AdministratorDTO> toDTOs(List<Administrator> students) {
+    List<AdministratorDTO> toDTOs(List<Administrador> students) {
         return students.stream().map(this::toDTO).collect(Collectors.toList());
     }
 
@@ -40,7 +40,7 @@ public class AdministratorController {
     @Path("/") //"/api/administrators/"
     public List<AdministratorDTO> all() {
         try {
-            return toDTOs(administratorBean.all());
+            return toDTOs(administradorBean.all());
         } catch (Exception e) {
             throw new EJBException("ERROR_GET_STUDENTS", e);
         }
@@ -50,9 +50,9 @@ public class AdministratorController {
     @Path("{username}")
     public Response getAdministratorDetails(@PathParam("username") String username){
         try{
-            Administrator administrator = administratorBean.findAdministrator(username);
-            if(administrator!=null){
-                return Response.status(Response.Status.OK).entity(toDTO(administrator)).build();
+            Administrador administrador = administradorBean.findAdministrator(username);
+            if(administrador !=null){
+                return Response.status(Response.Status.OK).entity(toDTO(administrador)).build();
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){
@@ -63,28 +63,28 @@ public class AdministratorController {
     @POST
     @Path("/") //"/api/administrators/"
     public Response createNewAdministrator(AdministratorDTO administratorDTO) throws MyEntityExistsException, MyConstraintViolationException {
-            administratorBean.create(administratorDTO.getUsername(),administratorDTO.getName(),administratorDTO.getPassword(),
+            administradorBean.create(administratorDTO.getUsername(),administratorDTO.getName(),administratorDTO.getPassword(),
                                     administratorDTO.getEmail());
-            Administrator administrator = administratorBean.findAdministrator(administratorDTO.getUsername());
-            return Response.status(Response.Status.CREATED).entity(toDTO(administrator)).build();
+            Administrador administrador = administradorBean.findAdministrator(administratorDTO.getUsername());
+            return Response.status(Response.Status.CREATED).entity(toDTO(administrador)).build();
     }
 
 
     @PUT
     @Path("{username}")
     public Response updateAdministrator(@PathParam("username") String username, AdministratorDTO administratorDTO) throws MyEntityNotFoundException{
-        administratorBean.update(username,
+        administradorBean.update(username,
                 administratorDTO.getName(),
                 administratorDTO.getPassword(),
                 administratorDTO.getEmail());
-        Administrator administrator = administratorBean.findAdministrator(username);
-        return Response.status(Response.Status.OK).entity(toDTO(administrator)).build();
+        Administrador administrador = administradorBean.findAdministrator(username);
+        return Response.status(Response.Status.OK).entity(toDTO(administrador)).build();
     }
 
     @DELETE
     @Path("{username}")
     public Response deleteAdministrator(@PathParam("username") String username, AdministratorDTO administratorDTO) throws MyEntityNotFoundException{
-        administratorBean.remove(username);
+        administradorBean.remove(username);
         return Response.status(Response.Status.OK).build();
     }
 

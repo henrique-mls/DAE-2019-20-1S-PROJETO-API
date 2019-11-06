@@ -8,16 +8,16 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
         @NamedQuery(
                 name = "getAllAdministrators",
-                query = "SELECT a FROM Administrator a ORDER BY a.name" // JPQL
+                query = "SELECT a FROM Administrador a ORDER BY a.name" // JPQL
         )
 })
 
 @Entity
-public class Administrator extends User {
-    public Administrator() {
+public class Administrador extends User {
+    public Administrador() {
     }
 
-    public Administrator(String username, String name, String password, String email) {
+    public Administrador(String username, String name, String password, String email) {
         super(username, name, password, email);
     }
 }
