@@ -1,26 +1,36 @@
 package entities;
 
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.LinkedList;
 import java.util.List;
 
+@Entity
 public class Modalidade{
     //->Modalidades(um nome, uma lista de Escalões
     //		, um horário, uma lista de
     //		Sócios/Atletas , uma lista de Treinadores);
-    public String nome;
-    public List<String> escaloes;
-    public String horario;
-    public List<Socio> socios;
-    public List<Atleta> atletas;
-    public List<Treinador> treinadores;
+    @Id
+    private String nome;
+    private List<Escalao> escaloes;
+    private List<Socio> socios;
+    private String horario;
+    private List<Atleta> atletas;
+    private List<Treinador> treinadores;
 
-    public Modalidade(String nome, List<String> escaloes, String horario, List<Socio> socios, List<Atleta> atletas, List<Treinador> treinadores) {
+    public Modalidade(String nome, List<Escalao> escaloes, String horario, List<Socio> socios, List<Atleta> atletas, List<Treinador> treinadores) {
         this.nome = nome;
         this.escaloes = escaloes;
         this.horario = horario;
         this.socios = new LinkedList<>();
         this.atletas = new LinkedList<>();
         this.treinadores = new LinkedList<>();
+    }
+
+    public Modalidade() {
+
     }
 
     public String getNome() {
@@ -31,11 +41,11 @@ public class Modalidade{
         this.nome = nome;
     }
 
-    public List<String> getEscaloes() {
+    public List<Escalao> getEscaloes() {
         return escaloes;
     }
 
-    public void setEscaloes(List<String> escaloes) {
+    public void setEscaloes(List<Escalao> escaloes) {
         this.escaloes = escaloes;
     }
 

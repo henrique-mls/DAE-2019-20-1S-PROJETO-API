@@ -1,16 +1,20 @@
 package entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.util.List;
 
+@Entity
 public class Atleta extends Socio {
 
     //Dados pessoais, escalões,modalidade, treinadores, graduações, mensagens, horários, pagamentos e recibos
-
     private Modalidade modalidade;
     private List<Escalao> escaloes;
     private List<Treinador> treinadores;
     private List<String> graduacoes;
     private List<String> horarios;
+
 
     public Atleta(List<String> mensagens, List<Pagamento> pagamentos, List<Recibo> recibos, Modalidade modalidade, List<Escalao> escaloes, List<Treinador> treinadores, List<String> graduacoes, List<String> horarios) {
         super(mensagens, pagamentos, recibos);
@@ -19,6 +23,10 @@ public class Atleta extends Socio {
         this.treinadores = treinadores;
         this.graduacoes = graduacoes;
         this.horarios = horarios;
+    }
+
+    public Atleta() {
+        super();
     }
 
     public List<Escalao> getEscaloes() {

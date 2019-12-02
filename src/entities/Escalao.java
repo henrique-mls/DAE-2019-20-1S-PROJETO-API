@@ -1,5 +1,6 @@
 package entities;
 
+
 public class Escalao {
     private String edicao;
     private String horario;

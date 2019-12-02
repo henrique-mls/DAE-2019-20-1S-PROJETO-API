@@ -1,7 +1,11 @@
 package entities;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.util.List;
 
+@Entity
 public class Socio extends User {
     private List<String> mensagens;
     private List<Pagamento> pagamentos;
@@ -12,6 +16,11 @@ public class Socio extends User {
         this.pagamentos = pagamentos;
         this.recibos = recibos;
     }
+
+    public Socio() {
+
+    }
+
 
     public List<String> getMensagens() {
         return mensagens;

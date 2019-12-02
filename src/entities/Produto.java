@@ -3,9 +3,9 @@ package entities;
 public class Produto {
     //->Produto(um tipo, descrição , um valor base associados)
     //
-    public TipoProduto tipo;
-    public String descricao;
-    public float valorBase;
+    private TipoProduto tipo;
+    private String descricao;
+    private float valorBase;
 
     public Produto(TipoProduto tipo, String descricao, float valorBase) {
         this.tipo = tipo;
