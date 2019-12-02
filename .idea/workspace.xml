@@ -6,34 +6,17 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1e02e22-dde6-4a98-9dd6-56adb2422981" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a1e02e22-dde6-4a98-9dd6-56adb2422981" name="Default Changelist" comment="CRUD Admistrators">
+      <change afterPath="$PROJECT_DIR$/src/entities/Escalao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Estado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Pagamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Recibo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/HTTP Request.http" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/HTTP Request.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/AdministratorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/AdministratorDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/UserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/AdministratorBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/AdministratorBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/Administrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/Administrator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/providers/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/providers/CorsFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/AdministratorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/AdministratorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/Api.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/HTTP Request.http" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/HTTP Request.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/AdministratorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/AdministratorDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/UserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/AdministratorBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/AdministratorBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/Administrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/Administrator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/providers/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/providers/CorsFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/AdministratorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/AdministratorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/Api.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTP Request.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTP Request.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ejbs/AdministratorBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/AdministratorBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Coach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Coach.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Modality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Modality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ws/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ws/AdministratorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Atleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Atleta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Modalidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Modalidade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Socio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Socio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/TipoProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/TipoProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Treinador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Treinador.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,6 +60,14 @@
       </path>
     </expand>
     <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -384,8 +375,8 @@
       <item itemvalue="HTTP Request.HTTP Request#2" />
       <item itemvalue="HTTP Request.HTTP Request#3" />
       <item itemvalue="HTTP Request.HTTP Request#4" />
-      <item itemvalue="JBoss Server.JBoss 17.0.1.Final" />
       <item itemvalue="HTTP Request.HTTP Request#5" />
+      <item itemvalue="JBoss Server.JBoss 17.0.1.Final" />
     </list>
     <recent_temporary>
       <list>
@@ -448,7 +439,10 @@
       <workItem from="1573002438496" duration="581000" />
       <workItem from="1573005132136" duration="123000" />
       <workItem from="1573044690214" duration="2154000" />
-      <workItem from="1573060891952" duration="3375000" />
+      <workItem from="1573060891952" duration="6416000" />
+      <workItem from="1573485823944" duration="17000" />
+      <workItem from="1574701077236" duration="2033000" />
+      <workItem from="1575299934704" duration="3307000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor and POST &quot;/api/administrators&quot;">
       <created>1572895613314</created>
@@ -457,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572895613314</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="CRUD Admistrators">
+      <created>1573064851872</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573064851872</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,6 +479,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactor and POST &quot;/api/administrators&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor and POST &quot;/api/administrators&quot;" />
+    <MESSAGE value="CRUD Admistrators" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD Admistrators" />
   </component>
 </project>
