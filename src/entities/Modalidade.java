@@ -1,9 +1,6 @@
 package entities;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,24 +10,27 @@ public class Modalidade{
     //		, um horário, uma lista de
     //		Sócios/Atletas , uma lista de Treinadores);
     @Id
+    private int id;
     private String nome;
     private List<Escalao> escaloes;
-    private List<Socio> socios;
-    private String horario;
-    private List<Atleta> atletas;
-    private List<Treinador> treinadores;
+//    private List<Socio> socios;
 
-    public Modalidade(String nome, List<Escalao> escaloes, String horario, List<Socio> socios, List<Atleta> atletas, List<Treinador> treinadores) {
+
+    public Modalidade(int id, String nome, List<Escalao> escaloes) {
+        this.id = id;
         this.nome = nome;
         this.escaloes = escaloes;
-        this.horario = horario;
-        this.socios = new LinkedList<>();
-        this.atletas = new LinkedList<>();
-        this.treinadores = new LinkedList<>();
     }
 
     public Modalidade() {
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -47,37 +47,5 @@ public class Modalidade{
 
     public void setEscaloes(List<Escalao> escaloes) {
         this.escaloes = escaloes;
-    }
-
-    public String getHorario() {
-        return horario;
-    }
-
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-
-    public List<Socio> getSocios() {
-        return socios;
-    }
-
-    public void setSocios(List<Socio> socios) {
-        this.socios = socios;
-    }
-
-    public List<Atleta> getAtletas() {
-        return atletas;
-    }
-
-    public void setAtletas(List<Atleta> atletas) {
-        this.atletas = atletas;
-    }
-
-    public List<Treinador> getTreinadores() {
-        return treinadores;
-    }
-
-    public void setTreinadores(List<Treinador> treinadores) {
-        this.treinadores = treinadores;
     }
 }

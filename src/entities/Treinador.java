@@ -1,15 +1,20 @@
 package entities;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
+@Entity
 public class Treinador extends User {
     //Modalidades, Escalões, Horários e Lista de Atletas das Modalidades (para saber as suas atividades no Clube)
+    @ManyToMany(mappedBy = "treinadores")
     private List<Modalidade> modalidades;
+
     private List<Escalao> escaloes;
+
     private List<String> horarios;
+
     private List<Atleta> atletas;
-
-
 
 
     public Treinador(List<Modalidade> modalidades, List<Escalao> escaloes, List<String> horarios, List<Atleta> atletas) {
@@ -17,6 +22,10 @@ public class Treinador extends User {
         this.escaloes = escaloes;
         this.horarios = horarios;
         this.atletas = atletas;
+    }
+
+    public Treinador() {
+
     }
 
     public List<Modalidade> getModalidades() {

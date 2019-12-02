@@ -7,7 +7,6 @@ import java.util.List;
 
 @Entity
 public class Atleta extends Socio {
-
     //Dados pessoais, escalões,modalidade, treinadores, graduações, mensagens, horários, pagamentos e recibos
     private Modalidade modalidade;
     private List<Escalao> escaloes;
