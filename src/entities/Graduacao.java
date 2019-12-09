@@ -2,21 +2,24 @@ package entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Escalao {
+public class Graduacao implements Serializable {
     @Id
     private int id;
     private String nome;
+    private String descricao;
 
-    public Escalao(int id, String nome) {
+    public Graduacao(int id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
+        this.descricao = descricao;
     }
 
-    public Escalao() {
-    }
+    public Graduacao() {
 
+    }
 
     public int getId() {
         return id;
@@ -32,5 +35,13 @@ public class Escalao {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

@@ -1,23 +1,26 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Atleta extends Socio {
     //Dados pessoais, escalões,modalidade, treinadores, graduações, mensagens, horários, pagamentos e recibos
-    private Modalidade modalidade;
+    @ManyToMany(mappedBy = "atletas")
+    private List<Modalidade> modalidades;
+    @OneToMany
     private List<Escalao> escaloes;
+    @ManyToMany(mappedBy = "atletas")
     private List<Treinador> treinadores;
-    private List<String> graduacoes;
-    private List<String> horarios;
+    @OneToMany
+    private List<Graduacao> graduacoes;
+    @OneToMany
+    private List<Horario> horarios;
 
 
-    public Atleta(List<String> mensagens, List<Pagamento> pagamentos, List<Recibo> recibos, Modalidade modalidade, List<Escalao> escaloes, List<Treinador> treinadores, List<String> graduacoes, List<String> horarios) {
+    public Atleta(List<String> mensagens, List<Pagamento> pagamentos, List<Recibo> recibos,List<Modalidade> modalidades, List<Escalao> escaloes, List<Treinador> treinadores, List<Graduacao> graduacoes, List<Horario> horarios) {
         super(mensagens, pagamentos, recibos);
-        this.modalidade = modalidade;
+        this.modalidades = modalidades;
         this.escaloes = escaloes;
         this.treinadores = treinadores;
         this.graduacoes = graduacoes;
@@ -36,19 +39,20 @@ public class Atleta extends Socio {
         this.escaloes = escaloes;
     }
 
-    public List<String> getGraduacoes() {
+
+    public List<Graduacao> getGraduacoes() {
         return graduacoes;
     }
 
-    public void setGraduacoes(List<String> graduacoes) {
+    public void setGraduacoes(List<Graduacao> graduacoes) {
         this.graduacoes = graduacoes;
     }
 
-    public List<String> getHorarios() {
+    public List<Horario> getHorarios() {
         return horarios;
     }
 
-    public void setHorarios(List<String> horarios) {
+    public void setHorarios(List<Horario> horarios) {
         this.horarios = horarios;
     }
 
@@ -60,11 +64,11 @@ public class Atleta extends Socio {
         this.treinadores = treinadores;
     }
 
-    public Modalidade getModalidade() {
-        return modalidade;
+    public List<Modalidade> getModalidades() {
+        return modalidades;
     }
 
-    public void setModalidade(Modalidade modalidade) {
-        this.modalidade = modalidade;
+    public void setModalidades(List<Modalidade> modalidades) {
+        this.modalidades = modalidades;
     }
 }

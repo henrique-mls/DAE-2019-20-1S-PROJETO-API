@@ -32,8 +32,8 @@ public class AdministradorController {
         );
     }
 
-    List<AdministratorDTO> toDTOs(List<Administrador> students) {
-        return students.stream().map(this::toDTO).collect(Collectors.toList());
+    List<AdministratorDTO> toDTOs(List<Administrador> administradors) {
+        return administradors.stream().map(this::toDTO).collect(Collectors.toList());
     }
 
     @GET
@@ -42,7 +42,7 @@ public class AdministradorController {
         try {
             return toDTOs(administradorBean.all());
         } catch (Exception e) {
-            throw new EJBException("ERROR_GET_STUDENTS", e);
+            throw new EJBException("ERROR_GET_ADMINISTRATORs", e);
         }
     }
 

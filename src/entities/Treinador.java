@@ -1,7 +1,7 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -9,11 +9,15 @@ public class Treinador extends User {
     //Modalidades, Escalões, Horários e Lista de Atletas das Modalidades (para saber as suas atividades no Clube)
     @ManyToMany(mappedBy = "treinadores")
     private List<Modalidade> modalidades;
-
+    @OneToMany
     private List<Escalao> escaloes;
 
     private List<String> horarios;
-
+    @ManyToMany
+    @JoinTable(name = "TREINADOR_ATLETAS",
+            joinColumns = @JoinColumn(name = "TREINADOR_USERNAME", referencedColumnName = "USERNAME"),
+            inverseJoinColumns = @JoinColumn(name = "ATLETA_USERNAME", referencedColumnName =
+                    "USERNAME"))
     private List<Atleta> atletas;
 
 
@@ -25,7 +29,10 @@ public class Treinador extends User {
     }
 
     public Treinador() {
-
+        this.modalidades = new LinkedList<>();
+        this.escaloes = new LinkedList<>();
+        this.horarios = new LinkedList<>();
+        this.atletas = new LinkedList<>();
     }
 
     public List<Modalidade> getModalidades() {
@@ -58,5 +65,19 @@ public class Treinador extends User {
 
     public void setAtletas(List<Atleta> atletas) {
         this.atletas = atletas;
+    }
+
+    public void addModalidade(Modalidade modalidade){
+        if(modalidade == null || modalidades.contains(modalidade)){
+            return;
+        }
+        modalidades.add(modalidade);
+    }
+
+    public void removeModalidade(Modalidade modalidade){
+        if(modalidade == null || !modalidades.contains(modalidade)){
+            return;
+        }
+        modalidades.remove(modalidade);
     }
 }
