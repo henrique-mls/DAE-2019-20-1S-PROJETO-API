@@ -18,6 +18,8 @@ public class ConfigBean {
     private AdministradorBean administradorBean;
     @EJB
     private ModalidadeBean modalidadeBean;
+    @EJB
+    private HorarioBean horarioBean;
 
     @PostConstruct
     public void populateDB() {
@@ -27,12 +29,13 @@ public class ConfigBean {
             administradorBean.create("3333333", "3333333", "3333333", "3333333@gmail.com");
             administradorBean.create("4444444", "4444444", "4444444", "4444444@gmail.com");
 
+            horarioBean.create(1,DayOfWeek.FRIDAY,3,2);
+//            Horario horario = new Horario(1,DayOfWeek.FRIDAY,3,2);
 
-            Horario horario = new Horario(1,DayOfWeek.FRIDAY,3,2);
-
-            modalidadeBean.create(1,"Esport",horario);
-            modalidadeBean.create(2,"basket",horario);
-            modalidadeBean.create(3,"tenis",horario);
+            modalidadeBean.create(1,"Esport");
+            modalidadeBean.enrollModalidadeInHorario(1,1);
+//            modalidadeBean.create(2,"basket",horario);
+//            modalidadeBean.create(3,"tenis",horario);
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());

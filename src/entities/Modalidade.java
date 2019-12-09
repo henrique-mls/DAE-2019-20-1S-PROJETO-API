@@ -20,8 +20,8 @@ public class Modalidade{
     @Id
     private int id;
     private String nome;
-    @OneToOne
-    private Horario horario;
+    @OneToMany
+    private List<Horario> horarios;
     @OneToMany
     private List<Escalao> escaloes;
     @ManyToMany
@@ -37,10 +37,10 @@ public class Modalidade{
                     "USERNAME"))
     private List<Treinador> treinadores;
 
-    public Modalidade(int id, String nome, Horario horario) {
+    public Modalidade(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.horario = horario;
+        this.horarios = new LinkedList<>();;
         this.escaloes = new LinkedList<>();
         this.atletas = new LinkedList<>();
         this.treinadores = new LinkedList<>();
@@ -68,12 +68,12 @@ public class Modalidade{
         this.treinadores = treinadores;
     }
 
-    public Horario getHorario() {
-        return horario;
+    public List<Horario> getHorario() {
+        return horarios;
     }
 
-    public void setHorario(Horario horario) {
-        this.horario = horario;
+    public void setHorario(List<Horario> horario) {
+        this.horarios = horario;
     }
 
     public int getId() {
@@ -140,6 +140,20 @@ public class Modalidade{
             return;
         }
         escaloes.remove(escalao);
+    }
+
+    public void addHorario(Horario horario){
+        if(horario == null || horarios.contains(horario)){
+            return;
+        }
+        horarios.add(horario);
+    }
+
+    public void removeHorario(Horario horario){
+        if(horario == null || !horarios.contains(horario)){
+            return;
+        }
+        horarios.remove(horario);
     }
 
 }

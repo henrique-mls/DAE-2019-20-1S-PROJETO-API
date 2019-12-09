@@ -7,28 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e02e22-dde6-4a98-9dd6-56adb2422981" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Modalidades.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dtos/ModalidadeDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejbs/ModalidadeBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/Graduacao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/Horario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ws/ModalidadeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejbs/HorarioBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/HTTP Request.http" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/HTTP Request.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/HTTP Request.http" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/HTTP Request.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTP Request.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTP Request.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/ModalidadeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/ModalidadeDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ejbs/ConfigBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/ConfigBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Atleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Atleta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Edicao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Escalao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Escalao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejbs/ModalidadeBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/ModalidadeBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Modalidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Modalidade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Treinador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Treinador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ws/AdministradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ws/AdministradorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ws/ModalidadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ws/ModalidadeController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +79,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DAE/AcademicManagement" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.28424156" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -510,11 +497,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JBoss Server.JBoss 17.0.1.Final">
-    <configuration name="HTTP Request#6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/HTTP Request.http" index="6">
+  <component name="RunManager" selected="HTTP Request.Modalidades#1">
+    <configuration name="Modalidades#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Modalidades.http">
       <method v="2" />
     </configuration>
-    <configuration name="HTTP Request#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/HTTP Request.http" index="7">
+    <configuration name="Modalidades#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Modalidades.http" index="2">
       <method v="2" />
     </configuration>
     <configuration name="Modalidades#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Modalidades.http" index="3">
@@ -598,20 +585,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.HTTP Request#6" />
-      <item itemvalue="HTTP Request.HTTP Request#7" />
       <item itemvalue="HTTP Request.Modalidades#3" />
       <item itemvalue="HTTP Request.Modalidades#4" />
       <item itemvalue="HTTP Request.Modalidades#5" />
       <item itemvalue="JBoss Server.JBoss 17.0.1.Final" />
+      <item itemvalue="HTTP Request.Modalidades#2" />
+      <item itemvalue="HTTP Request.Modalidades#1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.Modalidades#1" />
+        <item itemvalue="HTTP Request.Modalidades#2" />
         <item itemvalue="HTTP Request.Modalidades#5" />
         <item itemvalue="HTTP Request.Modalidades#4" />
         <item itemvalue="HTTP Request.Modalidades#3" />
-        <item itemvalue="HTTP Request.HTTP Request#7" />
-        <item itemvalue="HTTP Request.HTTP Request#6" />
       </list>
     </recent_temporary>
   </component>
@@ -671,6 +658,7 @@
       <workItem from="1574701077236" duration="2033000" />
       <workItem from="1575299934704" duration="3307000" />
       <workItem from="1575904690204" duration="8481000" />
+      <workItem from="1575919213465" duration="3470000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor and POST &quot;/api/administrators&quot;">
       <created>1572895613314</created>
@@ -693,7 +681,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575309522403</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changes missing HorarioBean for this to work i think">
+      <created>1575919312476</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1575919312476</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -716,6 +711,7 @@
     <MESSAGE value="Refactor and POST &quot;/api/administrators&quot;" />
     <MESSAGE value="CRUD Admistrators" />
     <MESSAGE value="Refactor Classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor Classes" />
+    <MESSAGE value="changes missing HorarioBean for this to work i think" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes missing HorarioBean for this to work i think" />
   </component>
 </project>

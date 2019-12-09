@@ -2,10 +2,7 @@ package ejbs;
 
 import entities.Horario;
 import entities.Modalidade;
-import exceptions.MyConstraintViolationException;
-import exceptions.MyEntityExistsException;
-import exceptions.MyEntityNotFoundException;
-import exceptions.Utils;
+import exceptions.*;
 
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
@@ -22,7 +19,7 @@ public class ModalidadeBean {
     public ModalidadeBean() {
     }
 
-    public void create(int id, String nome, Horario horario)
+    public void create(int id, String nome)
             throws MyEntityExistsException, MyConstraintViolationException
     {
 
@@ -31,7 +28,7 @@ public class ModalidadeBean {
             if(modalidade != null){
                 throw  new MyEntityExistsException("Modalidade with id " + id + " already exists!");
             }
-            modalidade = new Modalidade(id,nome, horario);
+            modalidade = new Modalidade(id,nome);
             em.persist(modalidade);
         }catch(ConstraintViolationException e){
             throw new MyConstraintViolationException(Utils.getConstraintViolationMessages(e));
@@ -42,14 +39,13 @@ public class ModalidadeBean {
         }
     }
 
-    public void update(int id, String nome, Horario horario) throws MyEntityNotFoundException {
+    public void update(int id, String nome) throws MyEntityNotFoundException {
         try{
             Modalidade modalidade = (Modalidade) em.find(Modalidade.class, id);
             if(modalidade == null){
                 throw new MyEntityNotFoundException("Modalidade  with id " + id + " does not exist!");
             }
             modalidade.setNome(nome);
-            modalidade.setHorario(horario);
         }catch(MyEntityNotFoundException e){
             throw e;
         }
@@ -86,6 +82,29 @@ public class ModalidadeBean {
         }
         catch (Exception e){
             throw new EJBException("ERROR_REMOVING_MODALIDADE -> " + e.getMessage());
+        }
+    }
+
+    public void enrollModalidadeInHorario(int modalidadeID, int horarioID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
+            Horario horario = em.find(Horario.class, horarioID);
+//            if(modalidade == null){
+//                throw  new MyEntityNotFoundException("Student with username " + username + " does not exist!");
+//            }
+//            if(horario == null){
+//                throw new MyEntityNotFoundException("Subject with code " + subjectCode + " does not exist!");
+//            }
+//            if(horario.getStudents().contains(modalidade)){
+//                throw new MyIllegalArgumentException("Student with username " + username +  "  is already enrolled in the subject " + horario.getName() + "!");
+//            }
+//            if(!modalidade.getHorario().getSubjects().contains(horario)){
+//                throw new MyIllegalArgumentException("Course with code " + modalidade.getCourse().getCode() + " does not contain the subject " + horario.getName() + "!");
+//            }
+//            horario.addStudent(modalidade);
+            modalidade.addHorario(horario);
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
         }
     }
 }

@@ -17,10 +17,9 @@ public class ModalidadeDTO implements Serializable {
     private List<Treinador> treinadores;
     private Horario horario;
 
-    public ModalidadeDTO(int id, String nome ,Horario horario) {
+    public ModalidadeDTO(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.horario = horario;
     }
 
     public ModalidadeDTO() {

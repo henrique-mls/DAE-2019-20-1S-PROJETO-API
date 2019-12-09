@@ -28,8 +28,7 @@ public class ModalidadeController {
     ModalidadeDTO toDTO(Modalidade modalidade) {
         return new ModalidadeDTO(
                 modalidade.getId(),
-                modalidade.getNome(),
-                modalidade.getHorario()
+                modalidade.getNome()
         );
     }
 
@@ -64,7 +63,7 @@ public class ModalidadeController {
     @POST
     @Path("/") //"/api/modalidades/"
     public Response createNewModalidade(ModalidadeDTO modalidadeDTO) throws MyEntityExistsException, MyConstraintViolationException {
-        modalidadeBean.create(modalidadeDTO.getId(),modalidadeDTO.getNome(),modalidadeDTO.getHorario());
+        modalidadeBean.create(modalidadeDTO.getId(),modalidadeDTO.getNome());
         Modalidade modalidade = modalidadeBean.findModalidade(modalidadeDTO.getId());
         return Response.status(Response.Status.CREATED).entity(toDTO(modalidade)).build();
     }
@@ -74,8 +73,7 @@ public class ModalidadeController {
     @Path("{id}")
     public Response updateModalide(@PathParam("id") int id, ModalidadeDTO modalidadeDTO) throws MyEntityNotFoundException {
         modalidadeBean.update(id,
-                modalidadeDTO.getNome(),
-                modalidadeDTO.getHorario());
+                modalidadeDTO.getNome());
         Modalidade modalidade = modalidadeBean.findModalidade(id);
         return Response.status(Response.Status.OK).entity(toDTO(modalidade)).build();
     }
