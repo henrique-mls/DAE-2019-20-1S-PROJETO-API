@@ -15,11 +15,12 @@ public class ModalidadeDTO implements Serializable {
     private List<Escalao> escaloes;
     private List<Atleta> atletas;
     private List<Treinador> treinadores;
-    private Horario horario;
+    private List<Horario> horarios;
 
-    public ModalidadeDTO(int id, String nome) {
+    public ModalidadeDTO(int id, String nome, List<Horario> horario) {
         this.id = id;
         this.nome = nome;
+        this.horarios = horario;
     }
 
     public ModalidadeDTO() {
@@ -65,11 +66,11 @@ public class ModalidadeDTO implements Serializable {
         this.treinadores = treinadores;
     }
 
-    public Horario getHorario() {
-        return horario;
+    public List<Horario> getHorarios() {
+        return horarios;
     }
 
-    public void setHorario(Horario horario) {
-        this.horario = horario;
+    public void setHorarios(List<Horario> horarios) {
+        this.horarios = horarios;
     }
 }

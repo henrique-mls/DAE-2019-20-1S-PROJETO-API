@@ -89,20 +89,39 @@ public class ModalidadeBean {
         try{
             Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
             Horario horario = em.find(Horario.class, horarioID);
-//            if(modalidade == null){
-//                throw  new MyEntityNotFoundException("Student with username " + username + " does not exist!");
-//            }
-//            if(horario == null){
-//                throw new MyEntityNotFoundException("Subject with code " + subjectCode + " does not exist!");
-//            }
-//            if(horario.getStudents().contains(modalidade)){
-//                throw new MyIllegalArgumentException("Student with username " + username +  "  is already enrolled in the subject " + horario.getName() + "!");
-//            }
-//            if(!modalidade.getHorario().getSubjects().contains(horario)){
-//                throw new MyIllegalArgumentException("Course with code " + modalidade.getCourse().getCode() + " does not contain the subject " + horario.getName() + "!");
-//            }
-//            horario.addStudent(modalidade);
+            if(modalidade == null){
+                throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
+            }
+            if(horario == null) {
+                throw new MyEntityNotFoundException("Horario com o ID " + horarioID + " não existe!");
+            }
+            if(modalidade.getHorario().contains(horario)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o horario com o ID " + horarioID + "!");
+            }
             modalidade.addHorario(horario);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
+        }
+    }
+
+    public void unrollModalidadeInHorario(int modalidadeID, int horarioID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
+            Horario horario = em.find(Horario.class, horarioID);
+            if(modalidade == null){
+                throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
+            }
+            if(horario == null) {
+                throw new MyEntityNotFoundException("Horario com o ID " + horarioID + " não existe!");
+            }
+            if(!modalidade.getHorario().contains(horario)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o horario com o ID " + horarioID + "!");
+            }
+            modalidade.removeHorario(horario);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
         } catch (Exception e){
             throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
         }

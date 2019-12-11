@@ -12,7 +12,7 @@ Accept: application/json
 
 ###
 #GET MODALIDADE  WITH ID = ....
-GET http://localhost:8080/projeto/api/modalidades/2
+GET http://localhost:8080/projeto/api/modalidades/4
 Accept: application/json
 
 ###

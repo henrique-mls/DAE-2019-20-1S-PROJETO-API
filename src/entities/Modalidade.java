@@ -33,7 +33,7 @@ public class Modalidade{
     @ManyToMany
     @JoinTable(name = "MODALIDADES_TREINADORES",
             joinColumns = @JoinColumn(name = "MODALIDADE_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "TREINDADOR_USERNAME", referencedColumnName =
+            inverseJoinColumns = @JoinColumn(name = "TREINADOR_USERNAME", referencedColumnName =
                     "USERNAME"))
     private List<Treinador> treinadores;
 

@@ -3,6 +3,7 @@ package ws;
 import dtos.AdministratorDTO;
 import dtos.ModalidadeDTO;
 import ejbs.ModalidadeBean;
+import entities.Horario;
 import entities.Modalidade;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
@@ -28,7 +29,8 @@ public class ModalidadeController {
     ModalidadeDTO toDTO(Modalidade modalidade) {
         return new ModalidadeDTO(
                 modalidade.getId(),
-                modalidade.getNome()
+                modalidade.getNome(),
+                modalidade.getHorario()
         );
     }
 
@@ -42,7 +44,7 @@ public class ModalidadeController {
         try {
             return toDTOs(modalidadeBean.all());
         } catch (Exception e) {
-            throw new EJBException("ERROR_GET_MODALIDADEs", e);
+            throw new EJBException("ERROR_GET_MODALIDADES", e);
         }
     }
 
@@ -56,7 +58,7 @@ public class ModalidadeController {
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){
-            throw new EJBException("ERROR_GET_Modalidade_DETAILS", e);
+            throw new EJBException("ERROR_GET_MODALIDADE_DETAILS", e);
         }
     }
 
