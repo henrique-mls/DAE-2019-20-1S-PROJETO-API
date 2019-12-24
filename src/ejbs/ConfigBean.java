@@ -1,6 +1,8 @@
 package ejbs;
 
 import entities.Horario;
+import entities.Produto;
+import entities.TipoProduto;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
@@ -20,6 +22,8 @@ public class ConfigBean {
     private ModalidadeBean modalidadeBean;
     @EJB
     private HorarioBean horarioBean;
+    @EJB
+    private ProdutoBean produtoBean;
 
     @PostConstruct
     public void populateDB() {
@@ -36,6 +40,9 @@ public class ConfigBean {
             modalidadeBean.enrollModalidadeInHorario(1,1);
 //            modalidadeBean.create(2,"basket",horario);
 //            modalidadeBean.create(3,"tenis",horario);
+            produtoBean.create(1, TipoProduto.ARTIGO_DESPORTIVO,"descricao",25);
+            produtoBean.create(2, TipoProduto.AULA,"descricao 2",2);
+
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());

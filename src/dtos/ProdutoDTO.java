@@ -1,38 +1,23 @@
-package entities;
+package dtos;
 
-import javax.persistence.Entity;
+import entities.TipoProduto;
+
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+public class ProdutoDTO implements Serializable {
 
-@Entity
-
-@NamedQueries({
-        @NamedQuery(
-                name = "getAllProdutos",
-                query = "SELECT p FROM Produto p ORDER BY p.id"
-        )
-})
-
-public class Produto implements Serializable {
-    //->Produto(um tipo, descrição , um valor base associados)
-    //
-    @Id
     private int id;
-    @NotNull
     private TipoProduto tipo;
     private String descricao;
-    @NotNull
     private float valorBase;
 
-    public Produto() {
+    public ProdutoDTO() {
 
     }
 
-    public Produto(int id, TipoProduto tipo, String descricao, float valorBase) {
+    public ProdutoDTO(int id, TipoProduto tipo, String descricao, float valorBase) {
         this.id = id;
         this.tipo = tipo;
         this.descricao = descricao;
