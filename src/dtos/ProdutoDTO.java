@@ -24,6 +24,11 @@ public class ProdutoDTO implements Serializable {
         this.valorBase = valorBase;
     }
 
+    public ProdutoDTO(TipoProduto tipo, String descricao, float valorBase) {
+        this(-1,tipo,descricao,valorBase);
+    }
+
+
     public int getId() {
         return id;
     }

@@ -1,8 +1,6 @@
 package ejbs;
 
-import entities.Horario;
-import entities.Produto;
-import entities.TipoProduto;
+import entities.*;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
@@ -24,6 +22,8 @@ public class ConfigBean {
     private HorarioBean horarioBean;
     @EJB
     private ProdutoBean produtoBean;
+    @EJB
+    private PagamentoBean pagamentoBean;
 
     @PostConstruct
     public void populateDB() {
@@ -43,6 +43,7 @@ public class ConfigBean {
             produtoBean.create(1, TipoProduto.ARTIGO_DESPORTIVO,"descricao",25);
             produtoBean.create(2, TipoProduto.AULA,"descricao 2",2);
 
+            pagamentoBean.create(1,"1111111",1,new Date(),2,99.99f, Estado.PAGO);
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());

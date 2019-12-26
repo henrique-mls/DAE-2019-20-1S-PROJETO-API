@@ -1,7 +1,17 @@
 package entities;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "getAllPagamentos",
+                query = "SELECT p FROM Pagamento p ORDER BY p.id"
+        )
+})
+
+@Entity
 public class Pagamento {
 
     //Os pagamentos deverão estar associados a determinado
@@ -9,32 +19,54 @@ public class Pagamento {
     //preço final, um estado (pago, não pago, parcial) e um recibo associado (caso já tenham
     //sido pagos). Deverá ser possível gerar um documento PDF estilo recibo que engloba um
     //ou vários Pagamentos;
-
+    @Id
+    private int id;
+    @ManyToOne
+    @JoinColumn(name = "USERNAME")
+    @NotNull
     private User utilizador;
+    @ManyToOne
+    @JoinColumn(name = "PRODUTO_ID")
+    @NotNull
     private Produto produto;
-    private Date data_lancamento;
+    private Date dataLancamento;
     private int quantidade;
-    private float preco_final;
+    private float precoFinal;
     private Estado estado;//Pago, nao pago , parcial
-    private Recibo recibo;
+//    @ManyToOne
+//    @JoinColumn(name = "RECIBO_ID")
+//    @NotNull
+//    private Recibo recibo;//caso já tenham sido pagos
 
-    public Pagamento(User utilizador, Produto produto, Date data_lancamento, int quantidade, float preco_final, Estado estado, Recibo recibo) {
+    public Pagamento(int id, User utilizador, Produto produto, Date dataLancamento, int quantidade, float precoFinal, Estado estado/*, Recibo recibo*/) {
         this.utilizador = utilizador;
         this.produto = produto;
-        this.data_lancamento = data_lancamento;
+        this.dataLancamento = dataLancamento;
         this.quantidade = quantidade;
-        this.preco_final = preco_final;
+        this.precoFinal = precoFinal;
         this.estado = estado;
-        this.recibo = recibo;
+        //this.recibo = recibo;
     }
 
-    public Recibo getRecibo() {
-        return recibo;
+    public Pagamento() {
+
     }
 
-    public void setRecibo(Recibo recibo) {
-        this.recibo = recibo;
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+//    public Recibo getRecibo() {
+//        return recibo;
+//    }
+//
+//    public void setRecibo(Recibo recibo) {
+//        this.recibo = recibo;
+//    }
 
     public User getUtilizador() {
         return utilizador;
@@ -52,12 +84,12 @@ public class Pagamento {
         this.produto = produto;
     }
 
-    public Date getData_lancamento() {
-        return data_lancamento;
+    public Date getDataLancamento() {
+        return dataLancamento;
     }
 
-    public void setData_lancamento(Date data_lancamento) {
-        this.data_lancamento = data_lancamento;
+    public void setDataLancamento(Date dataLancamento) {
+        this.dataLancamento = dataLancamento;
     }
 
     public int getQuantidade() {
@@ -68,12 +100,12 @@ public class Pagamento {
         this.quantidade = quantidade;
     }
 
-    public float getPreco_final() {
-        return preco_final;
+    public float getPrecoFinal() {
+        return precoFinal;
     }
 
-    public void setPreco_final(float preco_final) {
-        this.preco_final = preco_final;
+    public void setPrecoFinal(float precoFinal) {
+        this.precoFinal = precoFinal;
     }
 
     public Estado getEstado() {

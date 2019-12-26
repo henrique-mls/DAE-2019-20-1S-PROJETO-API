@@ -5,41 +5,22 @@
 # * 'gtrp' and 'gtr' create a GET request with or without query parameters;
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
-
-GET http://localhost:8080/projeto/api/produtos
+GET http://localhost:8080/projeto/api/pagamentos
 Accept: application/json
 
 ###
-#GET MODALIDADE  WITH ID = ....
-GET http://localhost:8080/projeto/api/produtos/3
-Accept: application/json
 
 ###
-POST http://localhost:8080/projeto/api/produtos
+POST http://localhost:8080/projeto/api/pagamentos
 Content-Type: application/json
 
 {
-  "id": "3",
-  "tipo" : "ARTIGO_DESPORTIVO",
-  "valorBase": "10",
-  "descricao": "descricao teste"
+  "id": 1,
+  "username": "2222222",
+  "produtoID": 2,
+  "dataLancamento": "2019-12-26",
+  "quantidade": 2,
+  "precoFinal": 999.9,
+  "estado": "PAGO"
 }
-
-
-
-
-
-###
-PUT http://localhost:8080/projeto/api/produtos/3
-Content-Type: application/json
-
-{
-  "tipo" : "ARTIGO_DESPORTIVO",
-  "valorBase": "12",
-  "descricao": "descricao teste 2"
-}
-
-###
-DELETE http://localhost:8080/projeto/api/produtos/3
-Content-Type: application/json
 ###
