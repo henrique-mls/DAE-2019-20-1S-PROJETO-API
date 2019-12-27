@@ -1,10 +1,8 @@
 package ws;
 
 import dtos.PagamentoDTO;
-import dtos.ProdutoDTO;
 import ejbs.PagamentoBean;
 import entities.Pagamento;
-import entities.Produto;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
@@ -69,8 +67,13 @@ public class PagamentoController {
     @POST
     @Path("/")
     public Response createNewPagamento(PagamentoDTO pagamentoDTO) throws MyEntityExistsException, MyConstraintViolationException, MyEntityNotFoundException {
-        pagamentoBean.create(pagamentoDTO.getId(),pagamentoDTO.getUsername(),pagamentoDTO.getProdutoID(),pagamentoDTO.getDataLancamento(),
-                pagamentoDTO.getQuantidade(),pagamentoDTO.getPrecoFinal(),pagamentoDTO.getEstado()/*,pagamentoDTO.getRecibo()*/);
+        pagamentoBean.create(pagamentoDTO.getId(),
+                pagamentoDTO.getUsername(),
+                pagamentoDTO.getProdutoID(),
+                pagamentoDTO.getDataLancamento(),
+                pagamentoDTO.getQuantidade(),
+                pagamentoDTO.getPrecoFinal(),
+                pagamentoDTO.getEstado()/*,pagamentoDTO.getRecibo()*/);
         Pagamento pagamento = pagamentoBean.findPagamento(pagamentoDTO.getId());
         return Response.status(Response.Status.CREATED).entity(toDTO(pagamento)).build();
     }

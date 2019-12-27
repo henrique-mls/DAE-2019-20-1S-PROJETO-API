@@ -39,6 +39,7 @@ public class Pagamento {
 //    private Recibo recibo;//caso já tenham sido pagos
 
     public Pagamento(int id, User utilizador, Produto produto, Date dataLancamento, int quantidade, float precoFinal, Estado estado/*, Recibo recibo*/) {
+        this.id =  id;
         this.utilizador = utilizador;
         this.produto = produto;
         this.dataLancamento = dataLancamento;

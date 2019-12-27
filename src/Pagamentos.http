@@ -8,7 +8,7 @@
 GET http://localhost:8080/projeto/api/pagamentos
 Accept: application/json
 ###
-GET http://localhost:8080/projeto/api/pagamentos/0
+GET http://localhost:8080/projeto/api/pagamentos/1
 Accept: application/json
 ###
 ###
@@ -16,7 +16,7 @@ POST http://localhost:8080/projeto/api/pagamentos
 Content-Type: application/json
 
 {
-  "id": 1,
+  "id": 3,
   "username": "2222222",
   "produtoID": 2,
   "dataLancamento": "2019-12-26",
@@ -27,7 +27,7 @@ Content-Type: application/json
 ###
 
 ###
-PUT http://localhost:8080/projeto/api/pagamentos/0
+PUT http://localhost:8080/projeto/api/pagamentos/1
 Content-Type: application/json
 
 {
@@ -40,6 +40,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/projeto/api/pagamentos/0
+DELETE http://localhost:8080/projeto/api/pagamentos/1
 Content-Type: application/json
 ###
