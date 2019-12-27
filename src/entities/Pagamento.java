@@ -21,11 +21,11 @@ public class Pagamento {
     //ou vários Pagamentos;
     @Id
     private int id;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "USERNAME")
     @NotNull
     private User utilizador;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "PRODUTO_ID")
     @NotNull
     private Produto produto;

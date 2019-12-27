@@ -44,6 +44,7 @@ public class ConfigBean {
             produtoBean.create(2, TipoProduto.AULA,"descricao 2",2);
 
             pagamentoBean.create(1,"1111111",1,new Date(),2,99.99f, Estado.PAGO);
+            //pagamentoBean.create(2,"2222222",1,new Date(),2,99.99f, Estado.PAGO);
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());

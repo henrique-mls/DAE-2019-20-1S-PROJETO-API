@@ -52,12 +52,47 @@ public class PagamentoController {
         }
     }
 
+    @GET
+    @Path("{id}")
+    public Response getPagamentoDetails(@PathParam("id") int id){
+        try{
+            Pagamento pagamento = pagamentoBean.findPagamento(id);
+            if(pagamento !=null){
+                return Response.status(Response.Status.OK).entity(toDTO(pagamento)).build();
+            }
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }catch (Exception e){
+            throw new EJBException("ERROR_GET_PAGAMENTO_DETAILS", e);
+        }
+    }
+
     @POST
-    @Path("/") //"/api/produtos/"
+    @Path("/")
     public Response createNewPagamento(PagamentoDTO pagamentoDTO) throws MyEntityExistsException, MyConstraintViolationException, MyEntityNotFoundException {
         pagamentoBean.create(pagamentoDTO.getId(),pagamentoDTO.getUsername(),pagamentoDTO.getProdutoID(),pagamentoDTO.getDataLancamento(),
                 pagamentoDTO.getQuantidade(),pagamentoDTO.getPrecoFinal(),pagamentoDTO.getEstado()/*,pagamentoDTO.getRecibo()*/);
         Pagamento pagamento = pagamentoBean.findPagamento(pagamentoDTO.getId());
         return Response.status(Response.Status.CREATED).entity(toDTO(pagamento)).build();
+    }
+
+    @PUT
+    @Path("{id}")
+    public Response updatePagamento(@PathParam("id") int id, PagamentoDTO pagamentoDTO) throws MyEntityNotFoundException {
+        pagamentoBean.update(id,
+                pagamentoDTO.getUsername(),
+                pagamentoDTO.getProdutoID(),
+                pagamentoDTO.getDataLancamento(),
+                pagamentoDTO.getQuantidade(),
+                pagamentoDTO.getPrecoFinal(),
+                pagamentoDTO.getEstado());
+        Pagamento pagamento = pagamentoBean.findPagamento(id);
+        return Response.status(Response.Status.OK).entity(toDTO(pagamento)).build();
+    }
+
+    @DELETE
+    @Path("{id}")
+    public Response deletePagamento(@PathParam("id") int id) throws MyEntityNotFoundException{
+        pagamentoBean.remove(id);
+        return Response.status(Response.Status.OK).build();
     }
 }

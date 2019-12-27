@@ -7,9 +7,10 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 GET http://localhost:8080/projeto/api/pagamentos
 Accept: application/json
-
 ###
-
+GET http://localhost:8080/projeto/api/pagamentos/0
+Accept: application/json
+###
 ###
 POST http://localhost:8080/projeto/api/pagamentos
 Content-Type: application/json
@@ -23,4 +24,22 @@ Content-Type: application/json
   "precoFinal": 999.9,
   "estado": "PAGO"
 }
+###
+
+###
+PUT http://localhost:8080/projeto/api/pagamentos/0
+Content-Type: application/json
+
+{
+  "username": "2222222",
+  "produtoID": 2,
+  "dataLancamento": "2019-12-26",
+  "quantidade": 2,
+  "precoFinal": 999.9,
+  "estado": "PAGO"
+}
+
+###
+DELETE http://localhost:8080/projeto/api/pagamentos/0
+Content-Type: application/json
 ###
