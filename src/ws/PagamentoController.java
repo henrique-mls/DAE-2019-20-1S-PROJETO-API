@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @Path("/pagamentos") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
+
 public class PagamentoController {
 
     public PagamentoController() {

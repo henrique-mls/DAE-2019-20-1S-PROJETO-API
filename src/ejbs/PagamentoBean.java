@@ -22,7 +22,7 @@ public class PagamentoBean {
     public PagamentoBean() {
     }
 
-    public void create(int id, String username, int produtoID, Date dataLancamento, int quantidade, float precoFinal, Estado estado/*, Recibo recibo*/)
+    public void create(int id, String username,  int produtoID,Date dataLancamento, int quantidade, float precoFinal, Estado estado/*, Recibo recibo*/)
             throws MyEntityNotFoundException, MyEntityExistsException, MyConstraintViolationException {
         try{
             Pagamento pagamento = em.find(Pagamento.class,id );
@@ -42,10 +42,10 @@ public class PagamentoBean {
 
         }catch(ConstraintViolationException e){
             throw new MyConstraintViolationException(Utils.getConstraintViolationMessages(e));
-        }
-        catch(MyEntityExistsException | MyEntityNotFoundException e){
+        }catch(MyEntityExistsException | MyEntityNotFoundException e){
             throw e;
-        }catch (Exception e){
+        }
+        catch (Exception e){
             throw new EJBException("ERROR_CREATING_PAGAMENTO -> " + e.getMessage());
         }
     }
@@ -91,8 +91,8 @@ public class PagamentoBean {
 //                pagamento.setUtilizador(user);
 //                user.addPagamento(pagamento);
 //            }
-            pagamento.setSocio(socio);
-            pagamento.setProduto(produto);
+//            pagamento.setSocio(socio);
+//            pagamento.setProduto(produto);
         }
         catch (Exception e){
             throw new EJBException("ERROR_UPDATING_PAGAMENTO -> " + e.getMessage());

@@ -1,9 +1,6 @@
 package dtos;
 
 import entities.Estado;
-import entities.Produto;
-import entities.Recibo;
-import entities.User;
 
 import java.io.Serializable;
 import java.util.Date;

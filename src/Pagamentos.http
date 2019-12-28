@@ -16,13 +16,13 @@ POST http://localhost:8080/projeto/api/pagamentos
 Content-Type: application/json
 
 {
-  "id" : 2,
-  "username": "socio2",
-  "produtoID": 2,
-  "dataLancamento": "2019-12-26",
+  "dataLancamento": "2019-12-28T16:52:21.487Z[UTC]",
+  "estado": "PAGO",
+  "id": 4,
+  "precoFinal": 99.99,
   "quantidade": 2,
-  "precoFinal": 99,
-  "estado": "PAGO"
+  "produtoID" : 1 ,
+  "username": "socio1"
 }
 ###
 
@@ -31,11 +31,12 @@ PUT http://localhost:8080/projeto/api/pagamentos/1
 Content-Type: application/json
 
 {
-  "dataLancamento": "2019-12-27",
+  "dataLancamento": "2019-12-28T16:52:21.487Z[UTC]",
   "estado": "PAGO",
+  "id": 4,
   "precoFinal": 99.99,
-  "produtoID": 1,
   "quantidade": 2,
+  "produtoID" : 1 ,
   "username": "socio2"
 }
 

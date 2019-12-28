@@ -37,12 +37,10 @@ public class ConfigBean {
             administradorBean.create("4444444", "4444444", "4444444", "4444444@gmail.com");
 
             horarioBean.create(1,DayOfWeek.FRIDAY,3,2);
-//            Horario horario = new Horario(1,DayOfWeek.FRIDAY,3,2);
 
             modalidadeBean.create(1,"Esport");
             modalidadeBean.enrollModalidadeInHorario(1,1);
-//            modalidadeBean.create(2,"basket",horario);
-//            modalidadeBean.create(3,"tenis",horario);
+
             produtoBean.create(1, TipoProduto.ARTIGO_DESPORTIVO,"descricao",25);
             produtoBean.create(2, TipoProduto.AULA,"descricao 2",2);
 

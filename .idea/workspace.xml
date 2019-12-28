@@ -6,15 +6,28 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1e02e22-dde6-4a98-9dd6-56adb2422981" name="Default Changelist" comment="added emailbean emaildto">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a1e02e22-dde6-4a98-9dd6-56adb2422981" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-12-28T050914.200.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/2019-12-28T050914.200.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/AdministratorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/AdministratorDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/dtos/UserDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/providers/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/providers/CorsFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ws/Api.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/AdministratorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/AdministratorDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/dtos/UserDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/providers/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/providers/CorsFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ws/Api.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pagamentos.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pagamentos.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/PagamentoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/PagamentoDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ejbs/ConfigBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/ConfigBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejbs/PagamentoBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/PagamentoBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Produto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Socio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Socio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ws/PagamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ws/PagamentoController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +94,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.28424156" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -94,6 +107,101 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;dataLancamento&quot;: &quot;2019-12-28T16:52:21.487Z[UTC]&quot;,&#10;  &quot;estado&quot;: &quot;PAGO&quot;,&#10;  &quot;id&quot;: 4,&#10;  &quot;precoFinal&quot;: 99.99,&#10;  &quot;quantidade&quot;: 2,&#10;  &quot;produtoID&quot; : 1 ,&#10;  &quot;username&quot;: &quot;socio2&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;dataLancamento&quot;: &quot;2019-12-28T16:52:21.487Z[UTC]&quot;,&#10;  &quot;estado&quot;: &quot;PAGO&quot;,&#10;  &quot;id&quot;: 4,&#10;  &quot;precoFinal&quot;: 99.99,&#10;  &quot;quantidade&quot;: 2,&#10;  &quot;produtoID&quot; : 1 ,&#10;  &quot;username&quot;: &quot;socio1&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;dataLancamento&quot;: &quot;2019-12-28T16:52:21.487Z[UTC]&quot;,&#10;  &quot;estado&quot;: &quot;PAGO&quot;,&#10;  &quot;id&quot;: 4,&#10;  &quot;precoFinal&quot;: 99.99,&#10;  &quot;quantidade&quot;: 2,&#10;  &quot;produtoID&quot; : 1&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;dataLancamento&quot;: &quot;2019-12-28T16:52:21.487Z[UTC]&quot;,&#10;  &quot;estado&quot;: &quot;PAGO&quot;,&#10;  &quot;id&quot;: 3,&#10;  &quot;precoFinal&quot;: 99.99,&#10;  &quot;quantidade&quot;: 2,&#10;  &quot;produtoID&quot; : 1&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;dataLancamento&quot;: &quot;2019-12-28T16:52:21.487Z[UTC]&quot;,&#10;  &quot;estado&quot;: &quot;PAGO&quot;,&#10;  &quot;id&quot;: 3,&#10;  &quot;precoFinal&quot;: 99.99,&#10;  &quot;quantidade&quot;: 2&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos" />
@@ -124,21 +232,6 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;  &quot;dataLancamento&quot;: &quot;2019-12-27&quot;,&#10;  &quot;estado&quot;: &quot;PAGO&quot;,&#10;  &quot;precoFinal&quot;: 99.99,&#10;  &quot;produtoID&quot;: 1,&#10;  &quot;quantidade&quot;: 2,&#10;  &quot;username&quot;: &quot;socio2&quot;&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/1" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -861,84 +954,6 @@
           <option name="textToSend" value="{&#10;  &quot;descricao&quot;: &quot;descricao teste com put&quot;&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="PUT" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/produtos/3" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;  &quot;descricao&quot;: &quot;descricao teste com put&quot;,&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/produtos/3" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="PUT" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/modalidades/3" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;  &quot;descricao&quot;: &quot;descricao teste com put&quot;&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/produtos" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;  &quot;id&quot;: &quot;4&quot;,&#10;  &quot;tipo&quot; : &quot;ARTIGO_DESPORTIVO&quot;,&#10;  &quot;valorBase&quot;: &quot;10&quot;,&#10;  &quot;descricao&quot;: &quot;descricao teste&quot;&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/produtos/2" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
       </list>
     </option>
   </component>
@@ -954,7 +969,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.Pagamentos#3">
+  <component name="RunManager" selected="HTTP Request.Pagamentos#4">
     <configuration name="Pagamentos#1 (1)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Pagamentos.http">
       <method v="2" />
     </configuration>
@@ -1051,8 +1066,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.Pagamentos#3" />
         <item itemvalue="HTTP Request.Pagamentos#4" />
+        <item itemvalue="HTTP Request.Pagamentos#3" />
         <item itemvalue="HTTP Request.Pagamentos#2" />
         <item itemvalue="HTTP Request.Pagamentos#1 (1)" />
         <item itemvalue="HTTP Request.Pagamentos#5" />
@@ -1102,7 +1117,7 @@
       <workItem from="1577484078316" duration="3971000" />
       <workItem from="1577489209775" duration="484000" />
       <workItem from="1577495870659" duration="158000" />
-      <workItem from="1577544024774" duration="5215000" />
+      <workItem from="1577544024774" duration="8687000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor and POST &quot;/api/administrators&quot;">
       <created>1572895613314</created>
@@ -1167,7 +1182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577548920427</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="well still not working idk">
+      <created>1577549667192</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1577549667192</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1196,7 +1218,8 @@
     <MESSAGE value="pagamentos POST E CREATE N funcionam, mas delete e get sim , a funcao create no configBean está a criar mal o pagamento  e se tentar criar 2 nao funciona" />
     <MESSAGE value="pagamentos bugfix - post and put still not worthing tho" />
     <MESSAGE value="added emailbean emaildto" />
-    <option name="LAST_COMMIT_MESSAGE" value="added emailbean emaildto" />
+    <MESSAGE value="well still not working idk" />
+    <option name="LAST_COMMIT_MESSAGE" value="well still not working idk" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="212" key="#com.intellij.ide.util.MemberChooser" timestamp="1576079174432">
@@ -1229,18 +1252,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ws/PagamentoController.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="14" />
+          <line>73</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ws/PagamentoController.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="17" />
+          <line>21</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ejbs/PagamentoBean.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="22" />
+          <url>file://$PROJECT_DIR$/src/ws/PagamentoController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ws/PagamentoController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ws/PagamentoController.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ws/PagamentoController.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

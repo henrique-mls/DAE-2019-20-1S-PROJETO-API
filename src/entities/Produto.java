@@ -26,7 +26,7 @@ public class Produto implements Serializable {
     private String descricao;
     @NotNull
     private float valorBase;
-    @OneToMany(mappedBy = "produto")
+    @OneToMany(mappedBy = "produto",cascade = CascadeType.REMOVE)
     private List<Pagamento> pagamentos;
 
     public Produto() {
