@@ -3,6 +3,7 @@ package ejbs;
 import entities.Horario;
 import entities.Modalidade;
 import entities.Treinador;
+import entities.User;
 import exceptions.*;
 
 import javax.ejb.EJBException;
@@ -44,7 +45,7 @@ public class TreinadorBean extends UserBean {
                 throw new MyEntityNotFoundException("Treinador with username " + username + " does not exist!");
             }
             treinador.setName(name);
-            treinador.setPassword(password);
+            treinador.setPassword(User.hashPassword(password));
             treinador.setEmail(email);
 
         }catch(MyEntityNotFoundException e){

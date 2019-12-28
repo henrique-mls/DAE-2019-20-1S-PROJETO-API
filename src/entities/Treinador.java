@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import java.util.LinkedList;
 import java.util.List;
 

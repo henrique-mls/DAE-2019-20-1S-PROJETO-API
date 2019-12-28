@@ -1,0 +1,41 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection) or
+# paste cURL into the file and request will be converted to HTTP Request format.
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+### GET ALL Socios
+GET http://localhost:8080/projeto/api/socios
+Accept: application/json
+
+###
+#GET Socio  WITH username = ....
+GET http://localhost:8080/projeto/api/socios/socio1
+Accept: application/json
+
+###
+POST http://localhost:8080/projeto/api/socios
+Content-Type: application/json
+
+{
+  "username": "socio3",
+  "name": "Socio 3",
+  "password": "socio3",
+  "email": "socio3@gmail.com"
+}
+###
+PUT http://localhost:8080/projeto/api/socios/socio3
+Content-Type: application/json
+
+{
+  "name": "Socio 3 PUT",
+  "password": "socio3put",
+  "email": "socio3put@gmail.com"
+}
+
+###
+DELETE http://localhost:8080/projeto/api/socios/socio3
+Content-Type: application/json
+###

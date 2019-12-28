@@ -1,6 +1,7 @@
 package ejbs;
 
 import entities.Administrador;
+import entities.User;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
@@ -45,7 +46,7 @@ public class AdministradorBean {
                 throw new MyEntityNotFoundException("Administrator with username " + username + " does not exist!");
             }
             //em.lock(administrator, LockModeType.OPTIMISTIC);
-            administrador.setPassword(password);
+            administrador.setPassword(User.hashPassword(password));
             administrador.setName(name);
             administrador.setEmail(email);
 

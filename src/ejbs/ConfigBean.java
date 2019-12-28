@@ -24,6 +24,8 @@ public class ConfigBean {
     private ProdutoBean produtoBean;
     @EJB
     private PagamentoBean pagamentoBean;
+    @EJB
+    private SocioBean socioBean;
 
     @PostConstruct
     public void populateDB() {
@@ -45,6 +47,9 @@ public class ConfigBean {
 
             pagamentoBean.create(1,"1111111",1,new Date(),2,99.99f, Estado.PAGO);
             pagamentoBean.create(2,"2222222",1,new Date(),2,99.99f, Estado.PAGO);
+
+            socioBean.create("socio1", "Socio1", "socio1", "socio1@gmail.com");
+            socioBean.create("socio2", "socio2", "socio2", "socio2@gmail.com");
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());
