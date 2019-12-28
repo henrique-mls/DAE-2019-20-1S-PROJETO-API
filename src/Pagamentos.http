@@ -16,8 +16,8 @@ POST http://localhost:8080/projeto/api/pagamentos
 Content-Type: application/json
 
 {
-  "id" : 1,
-  "username": "2222222",
+  "id" : 2,
+  "username": "socio2",
   "produtoID": 2,
   "dataLancamento": "2019-12-26",
   "quantidade": 2,
@@ -36,7 +36,7 @@ Content-Type: application/json
   "precoFinal": 99.99,
   "produtoID": 1,
   "quantidade": 2,
-  "username": "2222222"
+  "username": "socio2"
 }
 
 ###
