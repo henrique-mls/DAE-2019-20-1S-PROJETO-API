@@ -21,11 +21,11 @@ public class Pagamento {
     //ou vários Pagamentos;
     @Id
     private int id;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "USERNAME")
     @NotNull
-    private User utilizador;
-    @OneToOne
+    private Socio socio;
+    @ManyToOne
     @JoinColumn(name = "PRODUTO_ID")
     @NotNull
     private Produto produto;
@@ -33,25 +33,24 @@ public class Pagamento {
     private int quantidade;
     private float precoFinal;
     private Estado estado;//Pago, nao pago , parcial
-//    @ManyToOne
-//    @JoinColumn(name = "RECIBO_ID")
-//    @NotNull
-//    private Recibo recibo;//caso já tenham sido pagos
+//    @OneToMany(mappedBy = "pagamento")
+//    private List<Recibo> recibos;//caso já tenham sido pagos
 
-    public Pagamento(int id, User utilizador, Produto produto, Date dataLancamento, int quantidade, float precoFinal, Estado estado/*, Recibo recibo*/) {
+    public Pagamento(int id, Socio socio, Produto produto, Date dataLancamento, int quantidade, float precoFinal, Estado estado) {
         this.id =  id;
-        this.utilizador = utilizador;
+        this.socio = socio;
         this.produto = produto;
         this.dataLancamento = dataLancamento;
         this.quantidade = quantidade;
         this.precoFinal = precoFinal;
         this.estado = estado;
-        //this.recibo = recibo;
+        //this.recibos = new ArrayList<>();
     }
 
     public Pagamento() {
 
     }
+
 
     public int getId() {
         return id;
@@ -61,20 +60,14 @@ public class Pagamento {
         this.id = id;
     }
 
-//    public Recibo getRecibo() {
-//        return recibo;
-//    }
-//
-//    public void setRecibo(Recibo recibo) {
-//        this.recibo = recibo;
-//    }
 
-    public User getUtilizador() {
-        return utilizador;
+
+    public Socio getSocio() {
+        return socio;
     }
 
-    public void setUtilizador(User utilizador) {
-        this.utilizador = utilizador;
+    public void setSocio(Socio socio) {
+        this.socio = socio;
     }
 
     public Produto getProduto() {

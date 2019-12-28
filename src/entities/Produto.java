@@ -1,11 +1,10 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -27,6 +26,8 @@ public class Produto implements Serializable {
     private String descricao;
     @NotNull
     private float valorBase;
+    @OneToMany(mappedBy = "produto")
+    private List<Pagamento> pagamentos;
 
     public Produto() {
 
@@ -37,6 +38,29 @@ public class Produto implements Serializable {
         this.tipo = tipo;
         this.descricao = descricao;
         this.valorBase = valorBase;
+        this.pagamentos = new ArrayList<>();
+    }
+
+    public List<Pagamento> getPagamentos() {
+        return pagamentos;
+    }
+
+    public void setPagamentos(List<Pagamento> pagamentos) {
+        this.pagamentos = pagamentos;
+    }
+
+    public void addPagamento(Pagamento pagamento){
+        if(pagamento == null || pagamentos.contains(pagamento)){
+            return;
+        }
+        pagamentos.add(pagamento);
+    }
+
+    public void removePagamentos(Pagamento pagamento){
+        if(pagamento == null || !pagamentos.contains(pagamento)){
+            return;
+        }
+        pagamentos.remove(pagamento);
     }
 
     public int getId() {

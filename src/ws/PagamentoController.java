@@ -20,13 +20,16 @@ import java.util.stream.Collectors;
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
 public class PagamentoController {
 
+    public PagamentoController() {
+    }
+
     @EJB
     PagamentoBean pagamentoBean;
 
     PagamentoDTO toDTO(Pagamento pagamento) {
         return new PagamentoDTO(
                 pagamento.getId(),
-                pagamento.getUtilizador().getUsername(),
+                pagamento.getSocio().getUsername(),
                 pagamento.getProduto().getId(),
                 pagamento.getDataLancamento(),
                 pagamento.getQuantidade(),

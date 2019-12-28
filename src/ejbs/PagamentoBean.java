@@ -4,11 +4,13 @@ import entities.*;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
+import exceptions.Utils;
 
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.validation.ConstraintViolationException;
 import java.util.Date;
 import java.util.List;
 
@@ -23,21 +25,26 @@ public class PagamentoBean {
     public void create(int id, String username, int produtoID, Date dataLancamento, int quantidade, float precoFinal, Estado estado/*, Recibo recibo*/)
             throws MyEntityNotFoundException, MyEntityExistsException, MyConstraintViolationException {
         try{
-            Pagamento pagamento = em.find(Pagamento.class,id);
+            Pagamento pagamento = em.find(Pagamento.class,id );
             if(pagamento != null){
                 throw new MyEntityExistsException("Pagamento with id " + id + " already exists!");
             }
-            User user = em.find(User.class,username);
-            if(user == null){
+            Socio socio = em.find(Socio.class,username);
+            if(socio == null){
                 throw new MyEntityNotFoundException("User with username " + username + " doesnt exist!");
             }
             Produto produto = em.find(Produto.class,produtoID);
             if(produto == null){
                 throw new MyEntityNotFoundException("Produto with id " + produtoID + " doesnt exist!");
             }
-            pagamento = new Pagamento(id,user,produto,dataLancamento,quantidade,precoFinal,estado/*,recibo*/);
+            pagamento = new Pagamento(id,socio,produto,dataLancamento,quantidade,precoFinal,estado);
             em.persist(pagamento);
 
+        }catch(ConstraintViolationException e){
+            throw new MyConstraintViolationException(Utils.getConstraintViolationMessages(e));
+        }
+        catch(MyEntityExistsException | MyEntityNotFoundException e){
+            throw e;
         }catch (Exception e){
             throw new EJBException("ERROR_CREATING_PAGAMENTO -> " + e.getMessage());
         }
@@ -62,12 +69,12 @@ public class PagamentoBean {
     public void update(int id, String username, int produtoID, Date dataLancamento, int quantidade, float precoFinal, Estado estado)
             throws MyEntityNotFoundException {
         try{
-            Pagamento pagamento = (Pagamento) em.find(Pagamento.class, id);
+            Pagamento pagamento = em.find(Pagamento.class, id);
             if(pagamento == null){
                 throw new MyEntityNotFoundException("Pagamento  with id " + id + " does not exist!");
             }
-            User user = em.find(User.class,username);
-            if(user == null){
+            Socio socio = em.find(Socio.class,username);
+            if(socio == null){
                 throw new MyEntityNotFoundException("User with username " + username + " doesnt exist!");
             }
             Produto produto = em.find(Produto.class,produtoID);
@@ -75,14 +82,17 @@ public class PagamentoBean {
                 throw new MyEntityNotFoundException("Produto with id " + id + " doesnt exist!");
             }
 
-            pagamento.setUtilizador(user);
-            pagamento.setProduto(produto);
             pagamento.setDataLancamento(dataLancamento);
             pagamento.setQuantidade(quantidade);
             pagamento.setPrecoFinal(precoFinal);
             pagamento.setEstado(estado);
-        }catch(MyEntityNotFoundException e){
-            throw e;
+//            if(username != pagamento.getUtilizador().getUsername()){
+//                pagamento.getUtilizador().removePagamento(pagamento);
+//                pagamento.setUtilizador(user);
+//                user.addPagamento(pagamento);
+//            }
+            pagamento.setSocio(socio);
+            pagamento.setProduto(produto);
         }
         catch (Exception e){
             throw new EJBException("ERROR_UPDATING_PAGAMENTO -> " + e.getMessage());

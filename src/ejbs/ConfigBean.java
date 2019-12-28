@@ -1,14 +1,13 @@
 package ejbs;
 
-import entities.*;
+import entities.TipoProduto;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.annotation.PostConstruct;
 import java.time.DayOfWeek;
-import java.util.Date;
 
 
 @Singleton(name = "ConfigEJB")
@@ -45,8 +44,8 @@ public class ConfigBean {
             produtoBean.create(1, TipoProduto.ARTIGO_DESPORTIVO,"descricao",25);
             produtoBean.create(2, TipoProduto.AULA,"descricao 2",2);
 
-            pagamentoBean.create(1,"1111111",1,new Date(),2,99.99f, Estado.PAGO);
-            pagamentoBean.create(2,"2222222",1,new Date(),2,99.99f, Estado.PAGO);
+            //pagamentoBean.create(1,"1111111",1,new Date(),2,99.99f, Estado.PAGO);
+            //pagamentoBean.create(2,"2222222",1,new Date(),2,99.99f, Estado.PAGO);
 
             socioBean.create("socio1", "Socio1", "socio1", "socio1@gmail.com");
             socioBean.create("socio2", "socio2", "socio2", "socio2@gmail.com");

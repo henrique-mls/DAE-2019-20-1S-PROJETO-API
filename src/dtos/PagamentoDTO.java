@@ -30,6 +30,9 @@ public class PagamentoDTO implements Serializable {
         //this.recibo = recibo;
     }
 
+    public PagamentoDTO() {
+    }
+
     public int getId() {
         return id;
     }
