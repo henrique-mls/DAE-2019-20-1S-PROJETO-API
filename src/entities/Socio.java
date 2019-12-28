@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 public class Socio extends User {
     private List<String> mensagens;
-    //@OneToMany(mappedBy = "socio",cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "socio",cascade = CascadeType.REMOVE)
     private List<Pagamento> pagamentos;
 
     public Socio(String username, String name, String password, String email) {

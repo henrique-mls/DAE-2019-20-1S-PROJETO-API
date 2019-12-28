@@ -7,9 +7,7 @@
         <element id="directory" name="classes">
           <element id="module-output" name="DAE-2019-20-1S-PROJETO-API" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="javax.mail" />
-        </element>
+        <element id="directory" name="lib" />
       </element>
     </root>
   </artifact>

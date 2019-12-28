@@ -27,6 +27,8 @@ public class ConfigBean {
     private PagamentoBean pagamentoBean;
     @EJB
     private SocioBean socioBean;
+    @EJB
+    private AtletaBean atletaBean;
 
     @PostConstruct
     public void populateDB() {
@@ -46,6 +48,9 @@ public class ConfigBean {
 
             socioBean.create("socio1", "Socio1", "socio1", "socio1@gmail.com");
             socioBean.create("socio2", "socio2", "socio2", "socio2@gmail.com");
+
+            atletaBean.create("atleta1", "Atleta1", "atleta1", "atleta1@gmail.com");
+            atletaBean.create("atleta2", "Atleta2", "atleta2", "atleta2@gmail.com");
 
             pagamentoBean.create(1,"socio1",1,new Date(),2,99.99f, Estado.PAGO);
             //pagamentoBean.create(2,"2222222",1,new Date(),2,99.99f, Estado.PAGO);

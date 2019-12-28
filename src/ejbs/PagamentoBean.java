@@ -91,8 +91,8 @@ public class PagamentoBean {
 //                pagamento.setUtilizador(user);
 //                user.addPagamento(pagamento);
 //            }
-//            pagamento.setSocio(socio);
-//            pagamento.setProduto(produto);
+            pagamento.setSocio(socio);
+            pagamento.setProduto(produto);
         }
         catch (Exception e){
             throw new EJBException("ERROR_UPDATING_PAGAMENTO -> " + e.getMessage());

@@ -5,42 +5,37 @@
 # * 'gtrp' and 'gtr' create a GET request with or without query parameters;
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
-GET http://localhost:8080/projeto/api/pagamentos
+
+### GET ALL Atletas
+GET http://localhost:8080/projeto/api/atletas
 Accept: application/json
+
 ###
-GET http://localhost:8080/projeto/api/pagamentos/1
+#GET Atleta  WITH username = ....
+GET http://localhost:8080/projeto/api/atletas/atleta1
 Accept: application/json
+
 ###
-###
-POST http://localhost:8080/projeto/api/pagamentos
+POST http://localhost:8080/projeto/api/atletas
 Content-Type: application/json
 
 {
-  "dataLancamento": "2019-12-28T16:52:21.487Z[UTC]",
-  "estado": "PAGO",
-  "id": 4,
-  "precoFinal": 99.99,
-  "quantidade": 2,
-  "produtoID" : 1 ,
-  "username": "socio1"
+  "username": "atleta3",
+  "name": "Atleta 3",
+  "password": "atleta3",
+  "email": "atleta3@gmail.com"
 }
 ###
-
-###
-PUT http://localhost:8080/projeto/api/pagamentos/4
+PUT http://localhost:8080/projeto/api/atletas/atleta3
 Content-Type: application/json
 
 {
-  "dataLancamento": "2019-12-28T16:52:21.487Z[UTC]",
-  "estado": "PAGO",
-  "id": 4,
-  "precoFinal": 1009.99,
-  "quantidade": 33,
-  "produtoID" : 1 ,
-  "username": "socio2"
+  "name": "Atleta 3 PUT",
+  "password": "atleta3put",
+  "email": "atleta3put@gmail.com"
 }
 
 ###
-DELETE http://localhost:8080/projeto/api/pagamentos/4
+DELETE http://localhost:8080/projeto/api/atletas/atleta3
 Content-Type: application/json
 ###
