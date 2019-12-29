@@ -140,6 +140,7 @@ public class AtletaBean {
                 throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o atleta com o username " + username + "!");
             }
             modalidade.addAtleta(atleta);
+            atleta.addModalidade(modalidade);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
         } catch (Exception e){
@@ -161,6 +162,7 @@ public class AtletaBean {
                 throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o atleta com o username" + username + "!");
             }
             modalidade.removeAtleta(atleta);
+            atleta.removeModalidade(modalidade);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
         } catch (Exception e){

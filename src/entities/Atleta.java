@@ -86,6 +86,19 @@ public class Atleta extends Socio {
         this.modalidades = modalidades;
     }
 
+    public void addModalidade(Modalidade modalidade){
+        if(modalidade == null || modalidades.contains(modalidade)){
+            return;
+        }
+        modalidades.add(modalidade);
+    }
+
+    public void removeModalidade(Modalidade modalidade){
+        if(modalidade == null || !modalidades.contains(modalidade)){
+            return;
+        }
+        modalidades.remove(modalidade);
+    }
     public void addHorario(Horario horario){
         if(horario == null || horarios.contains(horario)){
             return;

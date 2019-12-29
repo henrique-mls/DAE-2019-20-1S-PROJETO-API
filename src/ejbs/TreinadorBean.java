@@ -140,6 +140,7 @@ public class TreinadorBean extends UserBean {
                 throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o treinador com o username " + username + "!");
             }
             modalidade.addTreinador(treinador);
+            treinador.addModalidade(modalidade);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
         } catch (Exception e){
@@ -161,6 +162,7 @@ public class TreinadorBean extends UserBean {
                 throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o treinador com o username" + username + "!");
             }
             modalidade.removeTreinador(treinador);
+            treinador.removeModalidade(modalidade);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
         } catch (Exception e){
