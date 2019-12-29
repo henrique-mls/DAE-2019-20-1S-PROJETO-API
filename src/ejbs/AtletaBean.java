@@ -1,12 +1,7 @@
 package ejbs;
 
-import entities.Atleta;
-import entities.Socio;
-import entities.User;
-import exceptions.MyConstraintViolationException;
-import exceptions.MyEntityExistsException;
-import exceptions.MyEntityNotFoundException;
-import exceptions.Utils;
+import entities.*;
+import exceptions.*;
 
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
@@ -87,6 +82,89 @@ public class AtletaBean {
         }
         catch (Exception e){
             throw new EJBException("ERROR_REMOVING_ATLETA -> " + e.getMessage());
+        }
+    }
+    public void enrollAtletaInHorario(String username, int horarioID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Atleta atleta = em.find(Atleta.class,username);
+            Horario horario = em.find(Horario.class, horarioID);
+            if(username == null){
+                throw  new MyEntityNotFoundException("Atleta com o username " + username + " não existe!");
+            }
+            if(horario == null) {
+                throw new MyEntityNotFoundException("Horario com o ID " + horarioID + " não existe!");
+            }
+            if(atleta.getHorarios().contains(horario)){
+                throw new MyIllegalArgumentException("A Atleta com o ID " + username + " já tem o horario com o ID " + horarioID + "!");
+            }
+            atleta.addHorario(horario);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
+        }
+    }
+
+    public void unrollAtletaInHorario(String username, int horarioID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Atleta atleta = em.find(Atleta.class,username);
+            Horario horario = em.find(Horario.class, horarioID);
+            if(username == null){
+                throw  new MyEntityNotFoundException("Atleta com o username " + username + " não existe!");
+            }
+            if(horario == null) {
+                throw new MyEntityNotFoundException("Horario com o ID " + horarioID + " não existe!");
+            }
+            if(!atleta.getHorarios().contains(horario)){
+                throw new MyIllegalArgumentException("A Atleta com o ID " + username + " não tem o horario com o ID " + horarioID + "!");
+            }
+            atleta.removeHorario(horario);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
+        }
+    }
+
+    public void enrollAtletaInModalidade( String username,int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
+            Atleta atleta = em.find(Atleta.class, username);
+            if(modalidade == null){
+                throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
+            }
+            if(atleta == null) {
+                throw new MyEntityNotFoundException("Atleta com o ID " + username + " não existe!");
+            }
+            if(modalidade.getHorario().contains(atleta)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o atleta com o username " + username + "!");
+            }
+            modalidade.addAtleta(atleta);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
+        }
+    }
+
+    public void unrollAtletaInModalidade(String username ,int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
+            Atleta atleta = em.find(Atleta.class,username);
+            if(modalidade == null){
+                throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
+            }
+            if(atleta == null) {
+                throw new MyEntityNotFoundException("Atleta com o usernamne " + username + " não existe!");
+            }
+            if(!modalidade.getAtletas().contains(atleta)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o atleta com o username" + username + "!");
+            }
+            modalidade.removeAtleta(atleta);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
         }
     }
 }

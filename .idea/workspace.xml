@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e02e22-dde6-4a98-9dd6-56adb2422981" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/javax.mail.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Atletas.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejbs/AtletaBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ws/AtletaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/projeto_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/projeto_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/projeto.war/WEB-INF/classes/ejbs/ConfigBean.class" afterDir="false" />
@@ -19,10 +15,21 @@
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/ejbs/ConfigBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/providers/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DAE-2019-20-1S-PROJETO-API/providers/CorsFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pagamentos.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pagamentos.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/ProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/ProdutoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejbs/AtletaBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/AtletaBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ejbs/ConfigBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/ConfigBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejbs/ModalidadeBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/ModalidadeBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ejbs/PagamentoBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/PagamentoBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejbs/ProdutoBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/ProdutoBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejbs/SocioBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/SocioBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejbs/TreinadorBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejbs/TreinadorBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Atleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Atleta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Pagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Pagamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Produto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Socio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Socio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Treinador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Treinador.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,11 +51,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="dae-projeto" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="dae-projeto" type="feb32156:DbDataSourceImpl" />
-        <item name="DAE-PROJETO: database" type="2aa06773:H2ImplModel$Database" />
-      </path>
     </expand>
     <select />
   </component>
@@ -67,6 +69,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/entities/Modalidade.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\Asus\Desktop\Projetos\DAE\DAE-2019-20-1S-PROJETO-API\.idea" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1SqNst4LikkqeOKJhZYBz5jReji" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -103,6 +112,128 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/produtos" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/socios" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/atletas" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;dataLancamento&quot;: &quot;2019-12-28T16:52:21.487Z[UTC]&quot;,&#10;  &quot;estado&quot;: &quot;PAGO&quot;,&#10;  &quot;precoFinal&quot;: 1009.99,&#10;  &quot;quantidade&quot;: 33,&#10;  &quot;produtoID&quot; : 1 ,&#10;  &quot;username&quot;: &quot;socio2&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;dataLancamento&quot;: &quot;2019-12-28T16:52:21.487Z[UTC]&quot;,&#10;  &quot;estado&quot;: &quot;PAGO&quot;,&#10;  &quot;id&quot;: 2,&#10;  &quot;precoFinal&quot;: 99.99,&#10;  &quot;quantidade&quot;: 2,&#10;  &quot;produtoID&quot; : 1 ,&#10;  &quot;username&quot;: &quot;socio1&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="PUT" />
           <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/4" />
@@ -149,21 +280,6 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;  &quot;dataLancamento&quot;: &quot;2019-12-28T16:52:21.487Z[UTC]&quot;,&#10;  &quot;estado&quot;: &quot;PAGO&quot;,&#10;  &quot;id&quot;: 4,&#10;  &quot;precoFinal&quot;: 99.99,&#10;  &quot;quantidade&quot;: 2,&#10;  &quot;produtoID&quot; : 1 ,&#10;  &quot;username&quot;: &quot;socio2&quot;&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -214,36 +330,6 @@
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/1" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="DELETE" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/1" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
           <option name="httpMethod" value="PUT" />
           <option name="urlBase" value="http://localhost:8080/projeto/api/pagamentos/1" />
           <option name="urlPath" value="" />
@@ -289,21 +375,6 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;  &quot;id&quot; : 2,&#10;  &quot;username&quot;: &quot;socio2&quot;,&#10;  &quot;produtoID&quot;: 2,&#10;  &quot;dataLancamento&quot;: &quot;2019-12-26&quot;,&#10;  &quot;quantidade&quot;: 2,&#10;  &quot;precoFinal&quot;: 99,&#10;  &quot;estado&quot;: &quot;PAGO&quot;&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/socios" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -724,21 +795,6 @@
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/produtos" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
           <option name="httpMethod" value="PUT" />
           <option name="urlBase" value="http://localhost:8080/projeto/api/produtos/3" />
           <option name="urlPath" value="" />
@@ -896,70 +952,35 @@
           <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="PUT" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/modalidades/3" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;  &quot;descricao&quot;: &quot;descricao teste com put&quot;&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/produtos" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;  &quot;id&quot;: &quot;4&quot;,&#10;  &quot;tipo&quot; : &quot;ARTIGO_DESPORTIVO&quot;,&#10;  &quot;valorBase&quot;: &quot;10&quot;,&#10;  &quot;descricao&quot;: &quot;descricao teste&quot;&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:8080/projeto/api/produtos/2" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
   </component>
   <component name="RunManager" selected="JBoss Server.JBoss 17.0.1.Final">
-    <configuration name="Pagamentos#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Pagamentos.http" runType="Run single request">
+    <configuration name="Atletas#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Atletas.http">
       <method v="2" />
     </configuration>
-    <configuration name="Pagamentos#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Pagamentos.http" index="2" runType="Run single request">
+    <configuration name="Pagamentos#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Pagamentos.http">
       <method v="2" />
     </configuration>
-    <configuration name="Pagamentos#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Pagamentos.http" index="3" runType="Run single request">
+    <configuration name="Pagamentos#5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Pagamentos.http" index="5">
       <method v="2" />
     </configuration>
-    <configuration name="Pagamentos#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Pagamentos.http" index="4" runType="Run single request">
+    <configuration name="Produtos#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Produtos.http">
       <method v="2" />
     </configuration>
-    <configuration name="Pagamentos#5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Pagamentos.http" index="5" runType="Run single request">
+    <configuration name="Socios#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/Socios.http">
       <method v="2" />
     </configuration>
     <configuration name="JBoss 17.0.1.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 17.0.1.Final" ALTERNATIVE_JRE_ENABLED="false">
@@ -1035,43 +1056,21 @@
     </configuration>
     <list>
       <item itemvalue="HTTP Request.Pagamentos#1" />
-      <item itemvalue="HTTP Request.Pagamentos#4" />
-      <item itemvalue="HTTP Request.Pagamentos#3" />
-      <item itemvalue="HTTP Request.Pagamentos#2" />
-      <item itemvalue="JBoss Server.JBoss 17.0.1.Final" />
       <item itemvalue="HTTP Request.Pagamentos#5" />
+      <item itemvalue="JBoss Server.JBoss 17.0.1.Final" />
+      <item itemvalue="HTTP Request.Atletas#1" />
+      <item itemvalue="HTTP Request.Socios#1" />
+      <item itemvalue="HTTP Request.Produtos#1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.Pagamentos#4" />
+        <item itemvalue="HTTP Request.Produtos#1" />
+        <item itemvalue="HTTP Request.Socios#1" />
+        <item itemvalue="HTTP Request.Atletas#1" />
         <item itemvalue="HTTP Request.Pagamentos#1" />
-        <item itemvalue="HTTP Request.Pagamentos#3" />
         <item itemvalue="HTTP Request.Pagamentos#5" />
-        <item itemvalue="HTTP Request.Pagamentos#2" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="JBoss Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="JBoss Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -1112,6 +1111,7 @@
       <workItem from="1577395296951" duration="6246000" />
       <workItem from="1577446450768" duration="2563000" />
       <workItem from="1577544128396" duration="13130000" />
+      <workItem from="1577631502846" duration="8942000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor and POST &quot;/api/administrators&quot;">
       <created>1572895613314</created>
@@ -1261,5 +1261,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="771" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1577553070037" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/entities/Produto.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

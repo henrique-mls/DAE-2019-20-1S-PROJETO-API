@@ -126,4 +126,6 @@ public class ModalidadeBean {
             throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
         }
     }
+
+
 }

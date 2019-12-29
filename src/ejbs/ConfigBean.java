@@ -2,6 +2,7 @@ package ejbs;
 
 import entities.Estado;
 import entities.TipoProduto;
+import entities.Treinador;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -29,6 +30,8 @@ public class ConfigBean {
     private SocioBean socioBean;
     @EJB
     private AtletaBean atletaBean;
+    @EJB
+    private TreinadorBean treinadorBean;
 
     @PostConstruct
     public void populateDB() {
@@ -42,6 +45,8 @@ public class ConfigBean {
 
             modalidadeBean.create(1,"Esport");
             modalidadeBean.enrollModalidadeInHorario(1,1);
+            modalidadeBean.create(2,"Basket");
+            modalidadeBean.enrollModalidadeInHorario(2,1);
 
             produtoBean.create(1, TipoProduto.ARTIGO_DESPORTIVO,"descricao",25);
             produtoBean.create(2, TipoProduto.AULA,"descricao 2",2);
@@ -52,9 +57,17 @@ public class ConfigBean {
             atletaBean.create("atleta1", "Atleta1", "atleta1", "atleta1@gmail.com");
             atletaBean.create("atleta2", "Atleta2", "atleta2", "atleta2@gmail.com");
 
-            pagamentoBean.create(1,"socio1",1,new Date(),2,99.99f, Estado.PAGO);
-            //pagamentoBean.create(2,"2222222",1,new Date(),2,99.99f, Estado.PAGO);
+            treinadorBean.create("treinador1","treinador1","treinador1","treinador1@gmail.com");
 
+            treinadorBean.enrollTreinadorInModalidade("treinador1",2);
+
+            treinadorBean.enrollTreinadorInHorario("treinador1",1);
+            atletaBean.enrollAtletaInHorario("atleta1",1);
+
+            atletaBean.enrollAtletaInModalidade("atleta1",1);
+
+            pagamentoBean.create(1,"socio1",1,new Date(),2,99.99f, Estado.PAGO);
+            pagamentoBean.create(2,"socio1",1,new Date(),3,100.99f, Estado.NAO_PAGO);
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());

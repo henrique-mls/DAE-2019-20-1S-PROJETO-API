@@ -1,9 +1,6 @@
 package ejbs;
 
-import entities.Horario;
-import entities.Socio;
-import entities.Treinador;
-import entities.User;
+import entities.*;
 import exceptions.*;
 
 import javax.ejb.EJB;
@@ -86,6 +83,48 @@ public class SocioBean {
         }
         catch (Exception e){
             throw new EJBException("ERROR_REMOVING_SOCIO -> " + e.getMessage());
+        }
+    }
+
+    public void enrollSocioInPagamento(String username, int pagamentoID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Socio socio = em.find(Socio.class,username);
+            Pagamento pagamento = em.find(Pagamento.class, pagamentoID);
+            if(socio == null){
+                throw  new MyEntityNotFoundException("Socio com o username " + username + " não existe!");
+            }
+            if(pagamento == null) {
+                throw new MyEntityNotFoundException("Pagamento com o ID " + pagamentoID + " não existe!");
+            }
+            if(socio.getPagamentos().contains(pagamento)){
+                throw new MyIllegalArgumentException("Socio com o username " + username + " já tem o pagamento com o ID " + pagamentoID + "!");
+            }
+            socio.addPagamento(pagamento);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
+        }
+    }
+
+    public void unrollSocioInPagamento(String username, int pagamentoID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Socio socio = em.find(Socio.class,username);
+            Pagamento pagamento = em.find(Pagamento.class, pagamentoID);
+            if(socio == null){
+                throw  new MyEntityNotFoundException("Socio com o username " + username + " não existe!");
+            }
+            if(pagamento == null) {
+                throw new MyEntityNotFoundException("Pagamento com o ID " + pagamentoID + " não existe!");
+            }
+            if(!socio.getPagamentos().contains(pagamento)){
+                throw new MyIllegalArgumentException("O Socio com o ID " + username + " não tem o pagamento com o ID " + pagamentoID + "!");
+            }
+            socio.removePagamento(pagamento);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
         }
     }
 

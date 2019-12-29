@@ -26,7 +26,7 @@ public class Produto implements Serializable {
     private String descricao;
     @NotNull
     private float valorBase;
-    @OneToMany(mappedBy = "produto",cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "produto")
     private List<Pagamento> pagamentos;
 
     public Produto() {
@@ -56,7 +56,7 @@ public class Produto implements Serializable {
         pagamentos.add(pagamento);
     }
 
-    public void removePagamentos(Pagamento pagamento){
+    public void removePagamento(Pagamento pagamento){
         if(pagamento == null || !pagamentos.contains(pagamento)){
             return;
         }

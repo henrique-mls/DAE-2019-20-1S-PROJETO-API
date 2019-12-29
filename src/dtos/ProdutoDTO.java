@@ -1,10 +1,13 @@
 package dtos;
 
+import entities.Pagamento;
 import entities.TipoProduto;
 
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ProdutoDTO implements Serializable {
 
@@ -12,9 +15,11 @@ public class ProdutoDTO implements Serializable {
     private TipoProduto tipo;
     private String descricao;
     private float valorBase;
+    private List<Pagamento> pagamentos;
+
 
     public ProdutoDTO() {
-
+        this.pagamentos = new LinkedList<>();
     }
 
     public ProdutoDTO(int id, TipoProduto tipo, String descricao, float valorBase) {
@@ -22,12 +27,21 @@ public class ProdutoDTO implements Serializable {
         this.tipo = tipo;
         this.descricao = descricao;
         this.valorBase = valorBase;
+        this.pagamentos = new LinkedList<>();
+
     }
 
     public ProdutoDTO(TipoProduto tipo, String descricao, float valorBase) {
         this(-1,tipo,descricao,valorBase);
     }
 
+    public List<Pagamento> getPagamentos() {
+        return pagamentos;
+    }
+
+    public void setPagamentos(List<Pagamento> pagamentos) {
+        this.pagamentos = pagamentos;
+    }
 
     public int getId() {
         return id;

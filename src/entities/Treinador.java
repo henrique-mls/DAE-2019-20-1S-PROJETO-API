@@ -19,13 +19,15 @@ public class Treinador extends User {
     private List<Modalidade> modalidades;
     @OneToMany
     private List<Escalao> escaloes;
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "TREINADOR_HORARIOS",
+            joinColumns = @JoinColumn(name = "TREINADOR_USERNAME", referencedColumnName = "USERNAME"),
+            inverseJoinColumns = @JoinColumn(name = "HORARIO_ID", referencedColumnName = "ID"))
     private List<Horario> horarios;
     @ManyToMany
     @JoinTable(name = "TREINADOR_ATLETAS",
             joinColumns = @JoinColumn(name = "TREINADOR_USERNAME", referencedColumnName = "USERNAME"),
-            inverseJoinColumns = @JoinColumn(name = "ATLETA_USERNAME", referencedColumnName =
-                    "USERNAME"))
+            inverseJoinColumns = @JoinColumn(name = "ATLETA_USERNAME", referencedColumnName = "USERNAME"))
     private List<Atleta> atletas;
 
 

@@ -18,7 +18,7 @@ Content-Type: application/json
 {
   "dataLancamento": "2019-12-28T16:52:21.487Z[UTC]",
   "estado": "PAGO",
-  "id": 4,
+  "id": 2,
   "precoFinal": 99.99,
   "quantidade": 2,
   "produtoID" : 1 ,
@@ -27,13 +27,12 @@ Content-Type: application/json
 ###
 
 ###
-PUT http://localhost:8080/projeto/api/pagamentos/4
+PUT http://localhost:8080/projeto/api/pagamentos/1
 Content-Type: application/json
 
 {
   "dataLancamento": "2019-12-28T16:52:21.487Z[UTC]",
   "estado": "PAGO",
-  "id": 4,
   "precoFinal": 1009.99,
   "quantidade": 33,
   "produtoID" : 1 ,
@@ -41,6 +40,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/projeto/api/pagamentos/4
+DELETE http://localhost:8080/projeto/api/pagamentos/1
 Content-Type: application/json
 ###

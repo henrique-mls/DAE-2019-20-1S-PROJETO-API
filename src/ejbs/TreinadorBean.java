@@ -1,9 +1,6 @@
 package ejbs;
 
-import entities.Horario;
-import entities.Modalidade;
-import entities.Treinador;
-import entities.User;
+import entities.*;
 import exceptions.*;
 
 import javax.ejb.EJBException;
@@ -122,6 +119,48 @@ public class TreinadorBean extends UserBean {
                 throw new MyIllegalArgumentException("A Treinador com o ID " + treinadorUsername + " não tem o horario com o ID " + horarioID + "!");
             }
             treinador.removeHorario(horario);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
+        }
+    }
+
+    public void enrollTreinadorInModalidade( String username,int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
+            Treinador treinador = em.find(Treinador.class, username);
+            if(modalidade == null){
+                throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
+            }
+            if(treinador == null) {
+                throw new MyEntityNotFoundException("Treinador com o ID " + username + " não existe!");
+            }
+            if(modalidade.getHorario().contains(treinador)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o treinador com o username " + username + "!");
+            }
+            modalidade.addTreinador(treinador);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
+        }
+    }
+
+    public void unrollTreinadorInModalidade(String username ,int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
+            Treinador treinador = em.find(Treinador.class,username);
+            if(modalidade == null){
+                throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
+            }
+            if(treinador == null) {
+                throw new MyEntityNotFoundException("Treinador com o usernamne " + username + " não existe!");
+            }
+            if(!modalidade.getAtletas().contains(treinador)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o treinador com o username" + username + "!");
+            }
+            modalidade.removeTreinador(treinador);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
         } catch (Exception e){

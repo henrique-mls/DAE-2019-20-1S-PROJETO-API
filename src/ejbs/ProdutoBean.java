@@ -1,11 +1,10 @@
 package ejbs;
 
+import entities.Pagamento;
 import entities.Produto;
+import entities.Socio;
 import entities.TipoProduto;
-import exceptions.MyConstraintViolationException;
-import exceptions.MyEntityExistsException;
-import exceptions.MyEntityNotFoundException;
-import exceptions.Utils;
+import exceptions.*;
 
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
@@ -88,6 +87,48 @@ public class ProdutoBean {
         }
         catch (Exception e){
             throw new EJBException("ERROR_REMOVING_PRODUTO -> " + e.getMessage());
+        }
+    }
+
+    public void enrollProdutoInPagamento(int produtoID, int pagamentoID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Produto produto = em.find(Produto.class,produtoID);
+            Pagamento pagamento = em.find(Pagamento.class, pagamentoID);
+            if(produto == null){
+                throw  new MyEntityNotFoundException("Produto com o produtoID " + produtoID + " não existe!");
+            }
+            if(pagamento == null) {
+                throw new MyEntityNotFoundException("Pagamento com o ID " + pagamentoID + " não existe!");
+            }
+            if(produto.getPagamentos().contains(pagamento)){
+                throw new MyIllegalArgumentException("Produto com o produtoID " + produtoID + " já tem o pagamento com o ID " + pagamentoID + "!");
+            }
+            produto.addPagamento(pagamento);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
+        }
+    }
+
+    public void unrollProdutoInPagamento(int produtoID, int pagamentoID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        try{
+            Produto produto = em.find(Produto.class,produtoID);
+            Pagamento pagamento = em.find(Pagamento.class, pagamentoID);
+            if(produto == null){
+                throw  new MyEntityNotFoundException("Produto com o produtoID " + produtoID + " não existe!");
+            }
+            if(pagamento == null) {
+                throw new MyEntityNotFoundException("Pagamento com o ID " + pagamentoID + " não existe!");
+            }
+            if(!produto.getPagamentos().contains(pagamento)){
+                throw new MyIllegalArgumentException("O Produto com o ID " + produtoID + " não tem o pagamento com o ID " + pagamentoID + "!");
+            }
+            produto.removePagamento(pagamento);
+        }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
+            throw e;
+        } catch (Exception e){
+            throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
         }
     }
 }

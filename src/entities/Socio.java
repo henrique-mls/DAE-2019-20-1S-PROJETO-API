@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 public class Socio extends User {
     private List<String> mensagens;
-    @OneToMany(mappedBy = "socio",cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "socio")
     private List<Pagamento> pagamentos;
 
     public Socio(String username, String name, String password, String email) {
@@ -29,7 +29,19 @@ public class Socio extends User {
         this.pagamentos = new LinkedList<>();
 
     }
+    public void addPagamento(Pagamento pagamento){
+        if(pagamento == null || pagamentos.contains(pagamento)){
+            return;
+        }
+        pagamentos.add(pagamento);
+    }
 
+    public void removePagamento(Pagamento pagamento){
+        if(pagamento == null || !pagamentos.contains(pagamento)){
+            return;
+        }
+        pagamentos.remove(pagamento);
+    }
 
     public List<String> getMensagens() {
         return mensagens;

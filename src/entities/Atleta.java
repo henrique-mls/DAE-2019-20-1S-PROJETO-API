@@ -21,7 +21,10 @@ public class Atleta extends Socio {
     private List<Treinador> treinadores;
     @OneToMany
     private List<Graduacao> graduacoes;
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "ATLETA_HORARIOS",
+            joinColumns = @JoinColumn(name = "ATLETA_USERNAME", referencedColumnName = "USERNAME"),
+            inverseJoinColumns = @JoinColumn(name = "HORARIO_ID", referencedColumnName = "ID"))
     private List<Horario> horarios;
 
 
@@ -81,5 +84,33 @@ public class Atleta extends Socio {
 
     public void setModalidades(List<Modalidade> modalidades) {
         this.modalidades = modalidades;
+    }
+
+    public void addHorario(Horario horario){
+        if(horario == null || horarios.contains(horario)){
+            return;
+        }
+        horarios.add(horario);
+    }
+
+    public void removeHorario(Horario horario){
+        if(horario == null || !horarios.contains(horario)){
+            return;
+        }
+        horarios.remove(horario);
+    }
+
+    public void addEscalao(Escalao escalao){
+        if(escalao == null || escaloes.contains(escalao)){
+            return;
+        }
+        escaloes.add(escalao);
+    }
+
+    public void removeEscalao(Escalao escalao){
+        if(escalao == null || !escaloes.contains(escalao)){
+            return;
+        }
+        escaloes.remove(escalao);
     }
 }

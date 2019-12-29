@@ -86,13 +86,18 @@ public class PagamentoBean {
             pagamento.setQuantidade(quantidade);
             pagamento.setPrecoFinal(precoFinal);
             pagamento.setEstado(estado);
-//            if(username != pagamento.getUtilizador().getUsername()){
-//                pagamento.getUtilizador().removePagamento(pagamento);
-//                pagamento.setUtilizador(user);
-//                user.addPagamento(pagamento);
-//            }
-            pagamento.setSocio(socio);
-            pagamento.setProduto(produto);
+            if(username != pagamento.getSocio().getUsername()){
+                pagamento.getSocio().removePagamento(pagamento);
+                pagamento.setSocio(socio);
+                socio.addPagamento(pagamento);
+            }
+            if(produtoID != pagamento.getProduto().getId()){
+                pagamento.getProduto().removePagamento(pagamento);
+                pagamento.setProduto(produto);
+                produto.addPagamento(pagamento);
+            }
+            //pagamento.setSocio(socio);
+            //pagamento.setProduto(produto);
         }
         catch (Exception e){
             throw new EJBException("ERROR_UPDATING_PAGAMENTO -> " + e.getMessage());

@@ -2,7 +2,9 @@ package entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @NamedQueries({
         @NamedQuery(
@@ -33,8 +35,8 @@ public class Pagamento {
     private int quantidade;
     private float precoFinal;
     private Estado estado;//Pago, nao pago , parcial
-//    @OneToMany(mappedBy = "pagamento")
-//    private List<Recibo> recibos;//caso já tenham sido pagos
+    @OneToMany(mappedBy = "pagamento")
+    private List<Recibo> recibos;//caso já tenham sido pagos
 
     public Pagamento(int id, Socio socio, Produto produto, Date dataLancamento, int quantidade, float precoFinal, Estado estado) {
         this.id =  id;
@@ -44,7 +46,7 @@ public class Pagamento {
         this.quantidade = quantidade;
         this.precoFinal = precoFinal;
         this.estado = estado;
-        //this.recibos = new ArrayList<>();
+        this.recibos = new ArrayList<>();
     }
 
     public Pagamento() {
@@ -60,7 +62,13 @@ public class Pagamento {
         this.id = id;
     }
 
+    public List<Recibo> getRecibos() {
+        return recibos;
+    }
 
+    public void setRecibos(List<Recibo> recibos) {
+        this.recibos = recibos;
+    }
 
     public Socio getSocio() {
         return socio;
