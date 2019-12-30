@@ -33,7 +33,7 @@ Content-Type: application/json
 
 ###
 ###
-PUT http://localhost:8080/projeto/api/atletas/atleta1/modalidades/unroll/2
+PUT http://localhost:8080/projeto/api/atletas/atleta2/modalidades/unroll/1
 Content-Type: application/json
 
 ###

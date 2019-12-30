@@ -138,7 +138,7 @@ public class TreinadorBean extends UserBean {
             if(treinador == null) {
                 throw new MyEntityNotFoundException("Treinador com o ID " + username + " não existe!");
             }
-            if(modalidade.getHorario().contains(treinador)){
+            if(modalidade.getTreinadores().contains(treinador)){
                 throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o treinador com o username " + username + "!");
             }
             modalidade.addTreinador(treinador);

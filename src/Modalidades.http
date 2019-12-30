@@ -28,8 +28,7 @@ PUT http://localhost:8080/projeto/api/modalidades/4
 Content-Type: application/json
 
 {
-  "nome": "put2",
-  "horario": "agora"
+  "nome": "put2"
 }
 
 ###

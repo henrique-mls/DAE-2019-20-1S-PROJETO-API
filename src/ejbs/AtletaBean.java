@@ -136,7 +136,7 @@ public class AtletaBean {
             if(atleta == null) {
                 throw new MyEntityNotFoundException("Atleta com o ID " + username + " não existe!");
             }
-            if(modalidade.getHorario().contains(atleta)){
+            if(modalidade.getAtletas().contains(atleta)){
                 throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o atleta com o username " + username + "!");
             }
             modalidade.addAtleta(atleta);
