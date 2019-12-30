@@ -8,6 +8,7 @@ import entities.Socio;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
+import exceptions.MyIllegalArgumentException;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
@@ -79,6 +80,20 @@ public class AtletaController {
     @Path("{username}")
     public Response deleteAtleta(@PathParam("username") String username, AtletaDTO atletaDTO) throws MyEntityNotFoundException{
         atletaBean.remove(username);
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @PUT
+    @Path("{username}/modalidades/enroll/{id}")
+    public Response enrollAtleta(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        atletaBean.enrollAtletaInModalidade(username,id);
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @PUT
+    @Path("{username}/modalidades/unroll/{id}")
+    public Response unrollAtleta(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        atletaBean.unrollAtletaInModalidade(username,id);
         return Response.status(Response.Status.OK).build();
     }
 }

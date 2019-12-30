@@ -60,10 +60,9 @@ public class ConfigBean {
             treinadorBean.create("treinador1","treinador1","treinador1","treinador1@gmail.com");
 
             treinadorBean.enrollTreinadorInModalidade("treinador1",2);
-
             treinadorBean.enrollTreinadorInHorario("treinador1",1);
-            atletaBean.enrollAtletaInHorario("atleta1",1);
 
+            atletaBean.enrollAtletaInHorario("atleta1",1);
             atletaBean.enrollAtletaInModalidade("atleta1",1);
 
             pagamentoBean.create(1,"socio1",1,new Date(),2,99.99f, Estado.PAGO);

@@ -12,6 +12,7 @@ import javax.ejb.EJBException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,7 +75,7 @@ public class PagamentoController {
         pagamentoBean.create(pagamentoDTO.getId(),
                 pagamentoDTO.getUsername(),
                 pagamentoDTO.getProdutoID(),
-                pagamentoDTO.getDataLancamento(),
+                new Date(),
                 pagamentoDTO.getQuantidade(),
                 pagamentoDTO.getPrecoFinal(),
                 pagamentoDTO.getEstado()/*,pagamentoDTO.getRecibo()*/);
@@ -88,7 +89,6 @@ public class PagamentoController {
         pagamentoBean.update(id,
                 pagamentoDTO.getUsername(),
                 pagamentoDTO.getProdutoID(),
-                pagamentoDTO.getDataLancamento(),
                 pagamentoDTO.getQuantidade(),
                 pagamentoDTO.getPrecoFinal(),
                 pagamentoDTO.getEstado());

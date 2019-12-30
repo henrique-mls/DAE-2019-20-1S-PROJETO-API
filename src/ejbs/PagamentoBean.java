@@ -66,7 +66,7 @@ public class PagamentoBean {
         }
     }
 
-    public void update(int id, String username, int produtoID, Date dataLancamento, int quantidade, float precoFinal, Estado estado)
+    public void update(int id, String username, int produtoID, int quantidade, float precoFinal, Estado estado)
             throws MyEntityNotFoundException {
         try{
             Pagamento pagamento = em.find(Pagamento.class, id);
@@ -81,8 +81,6 @@ public class PagamentoBean {
             if(produto == null){
                 throw new MyEntityNotFoundException("Produto with id " + id + " doesnt exist!");
             }
-
-            pagamento.setDataLancamento(dataLancamento);
             pagamento.setQuantidade(quantidade);
             pagamento.setPrecoFinal(precoFinal);
             pagamento.setEstado(estado);
@@ -96,8 +94,6 @@ public class PagamentoBean {
                 pagamento.setProduto(produto);
                 produto.addPagamento(pagamento);
             }
-            //pagamento.setSocio(socio);
-            //pagamento.setProduto(produto);
         }
         catch (Exception e){
             throw new EJBException("ERROR_UPDATING_PAGAMENTO -> " + e.getMessage());

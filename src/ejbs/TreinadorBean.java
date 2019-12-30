@@ -119,6 +119,7 @@ public class TreinadorBean extends UserBean {
             if(!treinador.getHorarios().contains(horario)){
                 throw new MyIllegalArgumentException("A Treinador com o ID " + treinadorUsername + " não tem o horario com o ID " + horarioID + "!");
             }
+
             treinador.removeHorario(horario);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
@@ -159,8 +160,8 @@ public class TreinadorBean extends UserBean {
             if(treinador == null) {
                 throw new MyEntityNotFoundException("Treinador com o usernamne " + username + " não existe!");
             }
-            if(!modalidade.getAtletas().contains(treinador)){
-                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o treinador com o username" + username + "!");
+            if(!modalidade.getTreinadores().contains(treinador)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o treinador com o username " + username + "!");
             }
             modalidade.removeTreinador(treinador);
             treinador.removeModalidade(modalidade);

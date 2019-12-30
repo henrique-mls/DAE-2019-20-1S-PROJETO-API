@@ -10,6 +10,7 @@ import entities.User;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
+import exceptions.MyIllegalArgumentException;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
@@ -84,6 +85,20 @@ public class TreinadorController {
     @Path("{username}")
     public Response deleteTreinador(@PathParam("username") String username, TreinadorDTO treinadorDTO) throws MyEntityNotFoundException{
         treinadorBean.remove(username);
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @PUT
+    @Path("{username}/modalidades/enroll/{id}")
+    public Response enrollTreinador(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        treinadorBean.enrollTreinadorInModalidade(username,id);
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @PUT
+    @Path("{username}/modalidades/unroll/{id}")
+    public Response unrollTreinador(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        treinadorBean.unrollTreinadorInModalidade(username,id);
         return Response.status(Response.Status.OK).build();
     }
 }
