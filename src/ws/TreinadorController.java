@@ -26,7 +26,7 @@ public class TreinadorController {
     @EJB
     TreinadorBean treinadorBean;
 
-    TreinadorDTO toDTO(Treinador treinador) {
+    public static TreinadorDTO toDTO(Treinador treinador) {
         return new TreinadorDTO(
                 treinador.getUsername(),
                 treinador.getName(),
@@ -35,8 +35,8 @@ public class TreinadorController {
         );
     }
 
-    List<TreinadorDTO> toDTOs(List<Treinador> treinadores) {
-        return treinadores.stream().map(this::toDTO).collect(Collectors.toList());
+    public static List<TreinadorDTO> toDTOs(List<Treinador> treinadores) {
+        return treinadores.stream().map(TreinadorController::toDTO).collect(Collectors.toList());
     }
 
 

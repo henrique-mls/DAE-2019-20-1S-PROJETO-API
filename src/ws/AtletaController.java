@@ -24,15 +24,15 @@ public class AtletaController {
     @EJB
     AtletaBean atletaBean;
 
-    AtletaDTO toDTO(Atleta atleta){
+    public static AtletaDTO toDTO(Atleta atleta){
         return new AtletaDTO(atleta.getUsername(),
                 atleta.getName(),
                 atleta.getPassword(),
                 atleta.getEmail());
     }
 
-    List<AtletaDTO> toDTOs(List<Atleta> atletas) {
-        return atletas.stream().map(this::toDTO).collect(Collectors.toList());
+    public static List<AtletaDTO> toDTOs(List<Atleta> atletas) {
+        return atletas.stream().map(AtletaController::toDTO).collect(Collectors.toList());
     }
 
     @GET

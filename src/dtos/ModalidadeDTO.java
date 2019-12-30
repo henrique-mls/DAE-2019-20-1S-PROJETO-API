@@ -6,6 +6,7 @@ import entities.Horario;
 import entities.Treinador;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModalidadeDTO implements Serializable {
@@ -13,17 +14,24 @@ public class ModalidadeDTO implements Serializable {
     private int id;
     private String nome;
     private List<Escalao> escaloes;
-    private List<Atleta> atletas;
-    private List<Treinador> treinadores;
+    private List<AtletaDTO> atletas;
+    private List<TreinadorDTO> treinadores;
     private List<Horario> horarios;
 
-    public ModalidadeDTO(int id, String nome, List<Horario> horario) {
+    public ModalidadeDTO(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.horarios = horario;
+        this.horarios = new ArrayList<>();
+        this.treinadores = new ArrayList<>();
+        this.atletas = new ArrayList<>();
+        this.escaloes = new ArrayList<>();
     }
 
     public ModalidadeDTO() {
+        this.horarios = new ArrayList<>();
+        this.treinadores = new ArrayList<>();
+        this.atletas = new ArrayList<>();
+        this.escaloes = new ArrayList<>();
     }
 
     public int getId() {
@@ -50,19 +58,19 @@ public class ModalidadeDTO implements Serializable {
         this.escaloes = escaloes;
     }
 
-    public List<Atleta> getAtletas() {
+    public List<AtletaDTO> getAtletas() {
         return atletas;
     }
 
-    public void setAtletas(List<Atleta> atletas) {
+    public void setAtletas(List<AtletaDTO> atletas) {
         this.atletas = atletas;
     }
 
-    public List<Treinador> getTreinadores() {
+    public List<TreinadorDTO> getTreinadores() {
         return treinadores;
     }
 
-    public void setTreinadores(List<Treinador> treinadores) {
+    public void setTreinadores(List<TreinadorDTO> treinadores) {
         this.treinadores = treinadores;
     }
 

@@ -25,10 +25,6 @@ Content-Type: application/json
   "descricao": "descricao teste"
 }
 
-
-
-
-
 ###
 PUT http://localhost:8080/projeto/api/produtos/3
 Content-Type: application/json

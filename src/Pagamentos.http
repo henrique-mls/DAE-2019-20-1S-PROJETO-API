@@ -18,7 +18,7 @@ Content-Type: application/json
 {
   "dataLancamento": "2019-12-28T16:52:21.487Z[UTC]",
   "estado": "PAGO",
-  "id": 2,
+  "id": 3,
   "precoFinal": 99.99,
   "quantidade": 2,
   "produtoID" : 1 ,
@@ -40,6 +40,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/projeto/api/pagamentos/1
+DELETE http://localhost:8080/projeto/api/pagamentos/2
 Content-Type: application/json
 ###

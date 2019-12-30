@@ -36,6 +36,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/projeto/api/socios/socio3
+DELETE http://localhost:8080/projeto/api/socios/socio1
 Content-Type: application/json
 ###

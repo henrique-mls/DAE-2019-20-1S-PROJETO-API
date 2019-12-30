@@ -14,6 +14,7 @@ import java.util.List;
 public class TreinadorBean extends UserBean {
     @PersistenceContext
     EntityManager em;
+
     public TreinadorBean() {
     }
     public void create(String username, String name, String password, String email)

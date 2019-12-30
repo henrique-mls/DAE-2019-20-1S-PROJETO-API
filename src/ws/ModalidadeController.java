@@ -1,7 +1,9 @@
 package ws;
 
 import dtos.AdministratorDTO;
+import dtos.AtletaDTO;
 import dtos.ModalidadeDTO;
+import dtos.TreinadorDTO;
 import ejbs.ModalidadeBean;
 import entities.Horario;
 import entities.Modalidade;
@@ -27,11 +29,26 @@ public class ModalidadeController {
     ModalidadeBean modalidadeBean;
 
     ModalidadeDTO toDTO(Modalidade modalidade) {
-        return new ModalidadeDTO(
+        ModalidadeDTO modalidadeDTO = new  ModalidadeDTO(
                 modalidade.getId(),
-                modalidade.getNome(),
-                modalidade.getHorario()
+                modalidade.getNome()
         );
+
+        return modalidadeDTO;
+    }
+
+    ModalidadeDTO toDTOWithLists(Modalidade modalidade) {
+        ModalidadeDTO modalidadeDTO = new  ModalidadeDTO(
+                modalidade.getId(),
+                modalidade.getNome()
+        );
+        modalidadeDTO.setHorarios(modalidade.getHorario());
+        List<TreinadorDTO> treinadorDTOS = TreinadorController.toDTOs(modalidade.getTreinadores());
+        List<AtletaDTO> atletaDTOS = AtletaController.toDTOs(modalidade.getAtletas());
+        modalidadeDTO.setEscaloes(modalidade.getEscaloes());
+        modalidadeDTO.setTreinadores(treinadorDTOS);
+        modalidadeDTO.setAtletas(atletaDTOS);
+        return modalidadeDTO;
     }
 
     List<ModalidadeDTO> toDTOs(List<Modalidade> modalidades) {
@@ -54,7 +71,7 @@ public class ModalidadeController {
         try{
             Modalidade modalidade = modalidadeBean.findModalidade(id);
             if(modalidade !=null){
-                return Response.status(Response.Status.OK).entity(toDTO(modalidade)).build();
+                return Response.status(Response.Status.OK).entity(toDTOWithLists(modalidade)).build();
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){
