@@ -31,12 +31,11 @@ PUT http://localhost:8080/projeto/api/pagamentos/1
 Content-Type: application/json
 
 {
-  "dataLancamento": "2019-12-28T16:52:21.487Z[UTC]",
   "estado": "PAGO",
   "precoFinal": 1009.99,
   "quantidade": 33,
-  "produtoID" : 1 ,
-  "username": "socio2"
+  "produtoID" : 2 ,
+  "username": "socio1"
 }
 
 ###

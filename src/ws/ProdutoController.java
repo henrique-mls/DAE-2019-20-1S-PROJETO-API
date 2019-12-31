@@ -1,7 +1,9 @@
 package ws;
 
 
+import dtos.PagamentoDTO;
 import dtos.ProdutoDTO;
+import dtos.TreinadorDTO;
 import ejbs.ProdutoBean;
 import entities.Produto;
 import exceptions.MyConstraintViolationException;
@@ -33,6 +35,19 @@ public class ProdutoController {
                 produto.getValorBase()
         );
     }
+    ProdutoDTO toDTOWithPagamentos(Produto produto) {
+        ProdutoDTO produtoDTO =  new ProdutoDTO(
+                produto.getId(),
+                produto.getTipo(),
+                produto.getDescricao(),
+                produto.getValorBase()
+        );
+
+        List<PagamentoDTO> pagamentoDTOS = PagamentoController.toDTOs(produto.getPagamentos());
+        produtoDTO.setPagamentos(pagamentoDTOS);
+
+        return  produtoDTO;
+    }
 
     List<ProdutoDTO> toDTOs(List<Produto> produtos) {
         return produtos.stream().map(this::toDTO).collect(Collectors.toList());
@@ -54,7 +69,7 @@ public class ProdutoController {
         try{
             Produto produto = produtoBean.findProduto(id);
             if(produto !=null){
-                return Response.status(Response.Status.OK).entity(toDTO(produto)).build();
+                return Response.status(Response.Status.OK).entity(toDTOWithPagamentos(produto)).build();
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){

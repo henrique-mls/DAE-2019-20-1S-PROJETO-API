@@ -11,7 +11,7 @@ Accept: application/json
 
 ###
 #GET MODALIDADE  WITH ID = ....
-GET http://localhost:8080/projeto/api/produtos/3
+GET http://localhost:8080/projeto/api/produtos/1
 Accept: application/json
 
 ###
@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/projeto/api/produtos/3
+PUT http://localhost:8080/projeto/api/produtos/1
 Content-Type: application/json
 
 {

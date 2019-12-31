@@ -15,7 +15,7 @@ public class ProdutoDTO implements Serializable {
     private TipoProduto tipo;
     private String descricao;
     private float valorBase;
-    private List<Pagamento> pagamentos;
+    private List<PagamentoDTO> pagamentos;
 
 
     public ProdutoDTO() {
@@ -35,11 +35,11 @@ public class ProdutoDTO implements Serializable {
         this(-1,tipo,descricao,valorBase);
     }
 
-    public List<Pagamento> getPagamentos() {
+    public List<PagamentoDTO> getPagamentos() {
         return pagamentos;
     }
 
-    public void setPagamentos(List<Pagamento> pagamentos) {
+    public void setPagamentos(List<PagamentoDTO> pagamentos) {
         this.pagamentos = pagamentos;
     }
 

@@ -28,7 +28,7 @@ public class PagamentoController {
     @EJB
     PagamentoBean pagamentoBean;
 
-    PagamentoDTO toDTO(Pagamento pagamento) {
+    public static PagamentoDTO toDTO(Pagamento pagamento) {
         return new PagamentoDTO(
                 pagamento.getId(),
                 pagamento.getSocio().getUsername(),
@@ -41,8 +41,8 @@ public class PagamentoController {
         );
     }
 
-    List<PagamentoDTO> toDTOs(List<Pagamento> pagamentos) {
-        return pagamentos.stream().map(this::toDTO).collect(Collectors.toList());
+    public static List<PagamentoDTO> toDTOs(List<Pagamento> pagamentos) {
+        return pagamentos.stream().map(PagamentoController::toDTO).collect(Collectors.toList());
     }
 
     @GET

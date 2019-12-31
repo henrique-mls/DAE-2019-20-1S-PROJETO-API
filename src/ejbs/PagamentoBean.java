@@ -37,9 +37,11 @@ public class PagamentoBean {
             if(produto == null){
                 throw new MyEntityNotFoundException("Produto with id " + produtoID + " doesnt exist!");
             }
+
             pagamento = new Pagamento(id,socio,produto,dataLancamento,quantidade,precoFinal,estado);
             em.persist(pagamento);
-
+            produto.addPagamento(pagamento);
+            socio.addPagamento(pagamento);
         }catch(ConstraintViolationException e){
             throw new MyConstraintViolationException(Utils.getConstraintViolationMessages(e));
         }catch(MyEntityExistsException | MyEntityNotFoundException e){
