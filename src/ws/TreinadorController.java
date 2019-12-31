@@ -39,6 +39,17 @@ public class TreinadorController {
         );
     }
 
+    public static TreinadorDTO toDTOWithLists(Treinador treinador) {
+        TreinadorDTO treinadorDTO =  new TreinadorDTO(
+                treinador.getUsername(),
+                treinador.getName(),
+                treinador.getPassword(),
+                treinador.getEmail()
+        );
+
+        return treinadorDTO;
+    }
+
     public static List<TreinadorDTO> toDTOs(List<Treinador> treinadores) {
         return treinadores.stream().map(TreinadorController::toDTO).collect(Collectors.toList());
     }
