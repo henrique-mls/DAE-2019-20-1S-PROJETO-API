@@ -9,6 +9,7 @@ import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
 import exceptions.MyIllegalArgumentException;
+import jwt.Jwt;
 
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;

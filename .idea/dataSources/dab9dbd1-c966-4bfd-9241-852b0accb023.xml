@@ -176,75 +176,96 @@
     <collation id="161" parent="2" name="UKRAINIAN_UKRAINE"/>
     <collation id="162" parent="2" name="VIETNAMESE"/>
     <collation id="163" parent="2" name="VIETNAMESE_VIETNAM"/>
-    <table id="164" parent="4" name="ESCALAO">
-      <ObjectId>15</ObjectId>
-    </table>
-    <table id="165" parent="4" name="GRADUACAO">
-      <ObjectId>6</ObjectId>
-    </table>
-    <table id="166" parent="4" name="HORARIO">
-      <ObjectId>18</ObjectId>
-    </table>
-    <table id="167" parent="4" name="MODALIDADE">
-      <ObjectId>12</ObjectId>
-    </table>
-    <table id="168" parent="4" name="MODALIDADES_ATLETAS">
-      <ObjectId>33</ObjectId>
-    </table>
-    <table id="169" parent="4" name="MODALIDADES_TREINADORES">
+    <table id="164" parent="4" name="ATLETA_HORARIOS">
       <ObjectId>39</ObjectId>
     </table>
-    <table id="170" parent="4" name="MODALIDADE_ESCALAO">
-      <ObjectId>42</ObjectId>
+    <table id="165" parent="4" name="ESCALAO">
+      <ObjectId>12</ObjectId>
     </table>
-    <table id="171" parent="4" name="MODALIDADE_USERS">
-      <ObjectId>9</ObjectId>
+    <table id="166" parent="4" name="GRADUACAO">
+      <ObjectId>6</ObjectId>
     </table>
-    <table id="172" parent="4" name="PRODUTO">
+    <table id="167" parent="4" name="HORARIO">
+      <ObjectId>15</ObjectId>
+    </table>
+    <table id="168" parent="4" name="MODALIDADE">
       <ObjectId>21</ObjectId>
     </table>
-    <table id="173" parent="4" name="TREINADOR_ATLETAS">
-      <ObjectId>36</ObjectId>
+    <table id="169" parent="4" name="MODALIDADES_ATLETAS">
+      <ObjectId>42</ObjectId>
     </table>
-    <table id="174" parent="4" name="USERS">
-      <ObjectId>3</ObjectId>
+    <table id="170" parent="4" name="MODALIDADES_TREINADORES">
+      <ObjectId>54</ObjectId>
     </table>
-    <table id="175" parent="4" name="USERS_ESCALAO">
+    <table id="171" parent="4" name="MODALIDADE_ESCALAO">
+      <ObjectId>57</ObjectId>
+    </table>
+    <table id="172" parent="4" name="MODALIDADE_HORARIO">
+      <ObjectId>60</ObjectId>
+    </table>
+    <table id="173" parent="4" name="MODALIDADE_USERS">
+      <ObjectId>9</ObjectId>
+    </table>
+    <table id="174" parent="4" name="PAGAMENTO">
       <ObjectId>24</ObjectId>
     </table>
-    <table id="176" parent="4" name="USERS_GRADUACAO">
+    <table id="175" parent="4" name="PRODUTO">
       <ObjectId>27</ObjectId>
     </table>
-    <table id="177" parent="4" name="USERS_HORARIO">
+    <table id="176" parent="4" name="RECIBO">
+      <ObjectId>18</ObjectId>
+    </table>
+    <table id="177" parent="4" name="SEQUENCE">
+      <ObjectId>91</ObjectId>
+    </table>
+    <table id="178" parent="4" name="TREINADOR_ATLETAS">
+      <ObjectId>45</ObjectId>
+    </table>
+    <table id="179" parent="4" name="TREINADOR_HORARIOS">
+      <ObjectId>51</ObjectId>
+    </table>
+    <table id="180" parent="4" name="USERS">
+      <ObjectId>3</ObjectId>
+    </table>
+    <table id="181" parent="4" name="USERS_ESCALAO">
       <ObjectId>30</ObjectId>
     </table>
-    <column id="178" parent="174" name="USERNAME">
+    <table id="182" parent="4" name="USERS_GRADUACAO">
+      <ObjectId>33</ObjectId>
+    </table>
+    <table id="183" parent="4" name="USERS_HORARIO">
+      <ObjectId>36</ObjectId>
+    </table>
+    <table id="184" parent="4" name="USERS_PAGAMENTO">
+      <ObjectId>48</ObjectId>
+    </table>
+    <column id="185" parent="180" name="USERNAME">
       <Position>1</Position>
       <DataType>VARCHAR|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="179" parent="174" name="DTYPE">
+    <column id="186" parent="180" name="DTYPE">
       <Position>2</Position>
       <DataType>VARCHAR(31)|12s</DataType>
     </column>
-    <column id="180" parent="174" name="EMAIL">
+    <column id="187" parent="180" name="EMAIL">
       <Position>3</Position>
       <DataType>VARCHAR|12s</DataType>
     </column>
-    <column id="181" parent="174" name="NAME">
+    <column id="188" parent="180" name="NAME">
       <Position>4</Position>
       <DataType>VARCHAR|12s</DataType>
     </column>
-    <column id="182" parent="174" name="PASSWORD">
+    <column id="189" parent="180" name="PASSWORD">
       <Position>5</Position>
       <DataType>VARCHAR|12s</DataType>
     </column>
-    <index id="183" parent="174" name="PRIMARY_KEY_4">
+    <index id="190" parent="180" name="PRIMARY_KEY_4">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USERNAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="184" parent="174" name="CONSTRAINT_4">
+    <key id="191" parent="180" name="CONSTRAINT_4">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USERNAME</ColNames>
       <Primary>1</Primary>

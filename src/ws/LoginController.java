@@ -1,6 +1,7 @@
 package ws;
 import com.nimbusds.jwt.JWT;
 import com.nimbusds.jwt.JWTParser;
+import dtos.AuthDTO;
 import ejbs.UserBean;
 import entities.User;
 import jwt.Jwt;
@@ -21,14 +22,14 @@ public class LoginController {
     JwtBean jwtBean;
     @EJB
     UserBean userBean;
+
     @POST
     @Path("/token")
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response authenticateUser(@FormParam("username") String username,
-                                     @FormParam("password") String password) {
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response authenticateUser(AuthDTO authDTO) {
         try {
-            User user = userBean.authenticate(username, password);
+            User user = userBean.authenticate(authDTO.getUsername(),  authDTO.getPassword());
             if (user != null) {
                 if (user.getUsername() != null) {
                     log.info("Generating JWT for user " + user.getUsername());
@@ -42,6 +43,7 @@ public class LoginController {
         }
         return Response.status(Response.Status.UNAUTHORIZED).build();
     }
+
     @GET
     @Path("/claims")
     public Response demonstrateClaims(@HeaderParam("Authorization") String auth) {

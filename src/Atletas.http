@@ -10,6 +10,7 @@
 GET http://localhost:8080/projeto/api/atletas
 Accept: application/json
 
+
 ###
 #GET Atleta  WITH username = ....
 GET http://localhost:8080/projeto/api/atletas/atleta1

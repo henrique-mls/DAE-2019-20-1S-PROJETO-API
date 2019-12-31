@@ -3,3 +3,5 @@
 /httpRequests/
 # Default ignored files
 /shelf/
+# Datasource local storage ignored files
+/dataSources/
