@@ -7,6 +7,8 @@ import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ws.rs.*;
@@ -15,6 +17,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@DeclareRoles("Administrador")
 @Path("/administradores") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
@@ -36,6 +39,7 @@ public class AdministradorController {
         return administradors.stream().map(this::toDTO).collect(Collectors.toList());
     }
 
+    @RolesAllowed("Administrador")
     @GET
     @Path("/") //"/api/administrators/"
     public List<AdministratorDTO> all() {
@@ -46,6 +50,7 @@ public class AdministradorController {
         }
     }
 
+    @RolesAllowed("Administrador")
     @GET
     @Path("{username}")
     public Response getAdministratorDetails(@PathParam("username") String username){
@@ -60,6 +65,7 @@ public class AdministradorController {
         }
     }
 
+    @RolesAllowed("Administrador")
     @POST
     @Path("/") //"/api/administrators/"
     public Response createNewAdministrator(AdministratorDTO administratorDTO) throws MyEntityExistsException, MyConstraintViolationException {
@@ -69,7 +75,7 @@ public class AdministradorController {
             return Response.status(Response.Status.CREATED).entity(toDTO(administrador)).build();
     }
 
-
+    @RolesAllowed("Administrador")
     @PUT
     @Path("{username}")
     public Response updateAdministrator(@PathParam("username") String username, AdministratorDTO administratorDTO) throws MyEntityNotFoundException{
@@ -81,6 +87,7 @@ public class AdministradorController {
         return Response.status(Response.Status.OK).entity(toDTO(administrador)).build();
     }
 
+    @RolesAllowed("Administrador")
     @DELETE
     @Path("{username}")
     public Response deleteAdministrator(@PathParam("username") String username, AdministratorDTO administratorDTO) throws MyEntityNotFoundException{

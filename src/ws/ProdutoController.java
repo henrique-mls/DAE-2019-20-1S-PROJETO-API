@@ -10,6 +10,8 @@ import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ws.rs.*;
@@ -18,6 +20,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@DeclareRoles("Administrador")
 @Path("/produtos") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
@@ -53,6 +56,7 @@ public class ProdutoController {
         return produtos.stream().map(this::toDTO).collect(Collectors.toList());
     }
 
+    @RolesAllowed("Administrador")
     @GET
     @Path("/") //"/api/produtos/"
     public List<ProdutoDTO> all() {
@@ -63,6 +67,7 @@ public class ProdutoController {
         }
     }
 
+    @RolesAllowed("Administrador")
     @GET
     @Path("{id}")
     public Response getProdutosDetails(@PathParam("id") int id){
@@ -77,6 +82,7 @@ public class ProdutoController {
         }
     }
 
+    @RolesAllowed("Administrador")
     @POST
     @Path("/") //"/api/produtos/"
     public Response createNewProduto(ProdutoDTO produtoDTO) throws MyEntityExistsException, MyConstraintViolationException {
@@ -86,6 +92,7 @@ public class ProdutoController {
     }
 
 
+    @RolesAllowed("Administrador")
     @PUT
     @Path("{id}")
     public Response updateProduto(@PathParam("id") int id, ProdutoDTO produtoDTO) throws MyEntityNotFoundException {
@@ -97,6 +104,7 @@ public class ProdutoController {
         return Response.status(Response.Status.OK).entity(toDTO(produto)).build();
     }
 
+    @RolesAllowed("Administrador")
     @DELETE
     @Path("{id}")
     public Response deleteProduto(@PathParam("id") int id,ProdutoDTO produtoDTO) throws MyEntityNotFoundException{

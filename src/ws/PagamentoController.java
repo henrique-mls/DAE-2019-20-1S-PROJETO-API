@@ -7,6 +7,8 @@ import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ws.rs.*;
@@ -16,6 +18,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@DeclareRoles("Administrador")
 @Path("/pagamentos") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
@@ -45,16 +48,18 @@ public class PagamentoController {
         return pagamentos.stream().map(PagamentoController::toDTO).collect(Collectors.toList());
     }
 
+    @RolesAllowed("Administrador")
     @GET
-    @Path("/") //"/api/produtos/"
+    @Path("/") //"/api/pagamentos/"
     public List<PagamentoDTO> all() {
         try {
             return toDTOs(pagamentoBean.all());
         } catch (Exception e) {
-            throw new EJBException("ERROR_GET_PRODUTOS", e);
+            throw new EJBException("ERROR_GET_PAGAMENTOS", e);
         }
     }
 
+    @RolesAllowed("Administrador")
     @GET
     @Path("{id}")
     public Response getPagamentoDetails(@PathParam("id") int id){
@@ -69,6 +74,7 @@ public class PagamentoController {
         }
     }
 
+    @RolesAllowed("Administrador")
     @POST
     @Path("/")
     public Response createNewPagamento(PagamentoDTO pagamentoDTO) throws MyEntityExistsException, MyConstraintViolationException, MyEntityNotFoundException {
@@ -83,6 +89,7 @@ public class PagamentoController {
         return Response.status(Response.Status.CREATED).entity(toDTO(pagamento)).build();
     }
 
+    @RolesAllowed("Administrador")
     @PUT
     @Path("{id}")
     public Response updatePagamento(@PathParam("id") int id, PagamentoDTO pagamentoDTO) throws MyEntityNotFoundException {
@@ -96,6 +103,7 @@ public class PagamentoController {
         return Response.status(Response.Status.OK).entity(toDTO(pagamento)).build();
     }
 
+    @RolesAllowed("Administrador")
     @DELETE
     @Path("{id}")
     public Response deletePagamento(@PathParam("id") int id) throws MyEntityNotFoundException{

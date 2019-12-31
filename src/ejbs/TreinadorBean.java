@@ -126,6 +126,7 @@ public class TreinadorBean extends UserBean {
         } catch (Exception e){
             throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
         }
+
     }
 
     public void enrollTreinadorInModalidade( String username,int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {

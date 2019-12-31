@@ -10,6 +10,8 @@ import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
 import exceptions.MyIllegalArgumentException;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ws.rs.*;
@@ -18,6 +20,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@DeclareRoles({"Administrador", "Atleta"})
 @Path("/atletas") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
@@ -36,6 +39,7 @@ public class AtletaController {
         return atletas.stream().map(AtletaController::toDTO).collect(Collectors.toList());
     }
 
+    @RolesAllowed("Administrador")
     @GET
     @Path("/") //"/api/atletas/"
     public List<AtletaDTO> all() {
@@ -46,6 +50,7 @@ public class AtletaController {
         }
     }
 
+    @RolesAllowed({"Administrador", "Atleta"})
     @GET
     @Path("{username}")
     public Response getAtletaDetails(@PathParam("username") String username){
@@ -60,6 +65,7 @@ public class AtletaController {
         }
     }
 
+    @RolesAllowed("Administrador")
     @POST
     @Path("/") //"/api/socios/"
     public Response createNewAtleta(AtletaDTO atletaDTO) throws MyEntityExistsException, MyConstraintViolationException {
@@ -68,6 +74,7 @@ public class AtletaController {
         return Response.status(Response.Status.CREATED).entity(toDTO(atleta)).build();
     }
 
+    @RolesAllowed("Administrador")
     @PUT
     @Path("{username}")
     public Response updateAtleta(@PathParam("username") String username, AtletaDTO atletaDTO) throws MyEntityNotFoundException {
@@ -76,6 +83,7 @@ public class AtletaController {
         return Response.status(Response.Status.OK).entity(toDTO(atleta)).build();
     }
 
+    @RolesAllowed("Administrador")
     @DELETE
     @Path("{username}")
     public Response deleteAtleta(@PathParam("username") String username, AtletaDTO atletaDTO) throws MyEntityNotFoundException{
@@ -83,6 +91,7 @@ public class AtletaController {
         return Response.status(Response.Status.OK).build();
     }
 
+    @RolesAllowed("Administrador")
     @PUT
     @Path("{username}/modalidades/enroll/{id}")
     public Response enrollAtleta(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {
@@ -90,6 +99,7 @@ public class AtletaController {
         return Response.status(Response.Status.OK).build();
     }
 
+    @RolesAllowed("Administrador")
     @PUT
     @Path("{username}/modalidades/unroll/{id}")
     public Response unrollAtleta(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {

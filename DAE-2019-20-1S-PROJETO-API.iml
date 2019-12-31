@@ -52,5 +52,7 @@
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6 (2)" level="project" />
     <orderEntry type="library" name="javax.mail" level="project" />
+    <orderEntry type="library" name="nimbus-jose-jwt-7.0.1" level="project" />
+    <orderEntry type="library" name="javax.json.processing-1.0" level="project" />
   </component>
 </module>

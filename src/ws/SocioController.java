@@ -9,6 +9,8 @@ import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ws.rs.*;
@@ -17,6 +19,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@DeclareRoles({"Administrador", "Socio"})
 @Path("/socios") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
@@ -37,6 +40,7 @@ public class SocioController {
         return socios.stream().map(this::toDTO).collect(Collectors.toList());
     }
 
+    @RolesAllowed("Administrador")
     @GET
     @Path("/") //"/api/socios/"
     public List<SocioDTO> all() {
@@ -47,6 +51,7 @@ public class SocioController {
         }
     }
 
+    @RolesAllowed({"Administrador", "Socio"})
     @GET
     @Path("{username}")
     public Response getSocioDetails(@PathParam("username") String username){
@@ -61,6 +66,7 @@ public class SocioController {
         }
     }
 
+    @RolesAllowed("Administrador")
     @POST
     @Path("/") //"/api/socios/"
     public Response createNewSocio(SocioDTO socioDTO) throws MyEntityExistsException, MyConstraintViolationException {
@@ -69,6 +75,7 @@ public class SocioController {
         return Response.status(Response.Status.CREATED).entity(toDTO(socio)).build();
     }
 
+    @RolesAllowed("Administrador")
     @PUT
     @Path("{username}")
     public Response updateSocio(@PathParam("username") String username, SocioDTO socioDTO) throws MyEntityNotFoundException {
@@ -77,6 +84,7 @@ public class SocioController {
         return Response.status(Response.Status.OK).entity(toDTO(socio)).build();
     }
 
+    @RolesAllowed("Administrador")
     @DELETE
     @Path("{username}")
     public Response deleteSocio(@PathParam("username") String username, SocioDTO socioDTO) throws MyEntityNotFoundException{
