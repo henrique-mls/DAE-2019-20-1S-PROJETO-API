@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="com.nimbusds:nimbus-jose-jwt:7.0.1" type="repository">
+    <properties maven-id="com.nimbusds:nimbus-jose-jwt:7.0.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/nimbus-jose-jwt-7.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jcip-annotations-1.0-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-smart-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/accessors-smart-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/asm-5.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
