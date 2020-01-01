@@ -93,14 +93,14 @@ public class TreinadorController {
             if(security.isUserInRole("Socio")){
                 if(security.getUserPrincipal().getName().equals(username)){
                     if(treinador !=null){
-                        return Response.status(Response.Status.OK).entity(toDTO(treinador)).build();
+                        return Response.status(Response.Status.OK).entity(toDTOWithLists(treinador)).build();
                     }
                 }else{
                     return Response.status(Response.Status.UNAUTHORIZED).build();
                 }
             }else{
                 if(treinador !=null){
-                    return Response.status(Response.Status.OK).entity(toDTO(treinador)).build();
+                    return Response.status(Response.Status.OK).entity(toDTOWithLists(treinador)).build();
                 }
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();

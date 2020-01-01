@@ -44,7 +44,9 @@ public class SocioBean {
                 throw new MyEntityNotFoundException("Socio with username " + username + " does not exist!");
             }
             socio.setName(name);
-            socio.setPassword(User.hashPassword(password));
+            if(password!=null){
+                socio.setPassword(User.hashPassword(password));
+            }
             socio.setEmail(email);
 
         }catch(MyEntityNotFoundException e){

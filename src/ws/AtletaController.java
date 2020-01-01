@@ -1,16 +1,15 @@
 package ws;
 
-import dtos.AtletaDTO;
-import dtos.SocioDTO;
+import dtos.*;
 import ejbs.AtletaBean;
-import entities.Atleta;
-import entities.Socio;
+import entities.*;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
 import exceptions.MyIllegalArgumentException;
 import jwt.Jwt;
 
+import javax.accessibility.AccessibleText;
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
@@ -20,6 +19,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +38,32 @@ public class AtletaController {
                 atleta.getName(),
                 atleta.getPassword(),
                 atleta.getEmail());
+    }
+    public static AtletaDTO toDTOWithLists(Atleta atleta) {
+        AtletaDTO atletaDTO =  new AtletaDTO(
+                atleta.getUsername(),
+                atleta.getName(),
+                atleta.getPassword(),
+                atleta.getEmail()
+        );
+        List<ModalidadeDTO> modalidadeDTOS = ModalidadeController.toDTOs(atleta.getModalidades());
+        List<PagamentoDTO> pagamentoDTOS = PagamentoController.toDTOs(atleta.getPagamentos());
+        List<Treinador> treinadores = new ArrayList<>();
+        List<Horario> horarios = new ArrayList<>();
+
+        for (Escalao escalao : atleta.getEscaloes()) {
+            treinadores.addAll(escalao.getTreinadores());
+            horarios.addAll(escalao.getHorarios());
+        }
+        List<EscalaoDTO> escalaoDTOS = EscalaoController.toDTOs(atleta.getEscaloes());
+        List<TreinadorDTO> treinadorDTOS = TreinadorController.toDTOs(treinadores);
+        atletaDTO.setModalidades(modalidadeDTOS);
+        atletaDTO.setTreinadores(treinadorDTOS);
+        atletaDTO.setHorarios(horarios);
+        atletaDTO.setEscaloes(escalaoDTOS);
+        atletaDTO.setPagamentos(pagamentoDTOS);
+
+        return atletaDTO;
     }
 
     public static List<AtletaDTO> toDTOs(List<Atleta> atletas) {
@@ -64,14 +90,14 @@ public class AtletaController {
             if(security.isUserInRole("Atleta")){
                 if(security.getUserPrincipal().getName().equals(username)){
                     if(atleta !=null){
-                        return Response.status(Response.Status.OK).entity(toDTO(atleta)).build();
+                        return Response.status(Response.Status.OK).entity(toDTOWithLists(atleta)).build();
                     }
                 }else{
                     return Response.status(Response.Status.UNAUTHORIZED).build();
                 }
             }else{
                 if(atleta !=null){
-                    return Response.status(Response.Status.OK).entity(toDTO(atleta)).build();
+                    return Response.status(Response.Status.OK).entity(toDTOWithLists(atleta)).build();
                 }
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();

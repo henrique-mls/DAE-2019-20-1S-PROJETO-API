@@ -7,9 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class AtletaDTO extends SocioDTO implements Serializable {
-    private List<Modalidade> modalidades;
-    private List<Escalao> escaloes;
-    private List<Treinador> treinadores;
+    private List<ModalidadeDTO> modalidades;
+    private List<EscalaoDTO> escaloes;
+    private List<TreinadorDTO> treinadores;
     private List<Graduacao> graduacoes;
     private List<Horario> horarios;
 
@@ -31,27 +31,28 @@ public class AtletaDTO extends SocioDTO implements Serializable {
         this.horarios = new LinkedList<>();
     }
 
-    public List<Modalidade> getModalidades() {
+
+    public List<ModalidadeDTO> getModalidades() {
         return modalidades;
     }
 
-    public void setModalidades(List<Modalidade> modalidades) {
+    public void setModalidades(List<ModalidadeDTO> modalidades) {
         this.modalidades = modalidades;
     }
 
-    public List<Escalao> getEscaloes() {
+    public List<EscalaoDTO> getEscaloes() {
         return escaloes;
     }
 
-    public void setEscaloes(List<Escalao> escaloes) {
+    public void setEscaloes(List<EscalaoDTO> escaloes) {
         this.escaloes = escaloes;
     }
 
-    public List<Treinador> getTreinadores() {
+    public List<TreinadorDTO> getTreinadores() {
         return treinadores;
     }
 
-    public void setTreinadores(List<Treinador> treinadores) {
+    public void setTreinadores(List<TreinadorDTO> treinadores) {
         this.treinadores = treinadores;
     }
 

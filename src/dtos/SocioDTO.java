@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SocioDTO extends UserDTO implements Serializable {
     private List<String> mensagens;
-    private List<Pagamento> pagamentos;
+    private List<PagamentoDTO> pagamentos;
     private List<Recibo> recibos;
 
     public SocioDTO(String username, String name, String password, String email) {
@@ -34,11 +34,11 @@ public class SocioDTO extends UserDTO implements Serializable {
         this.mensagens = mensagens;
     }
 
-    public List<Pagamento> getPagamentos() {
+    public List<PagamentoDTO> getPagamentos() {
         return pagamentos;
     }
 
-    public void setPagamentos(List<Pagamento> pagamentos) {
+    public void setPagamentos(List<PagamentoDTO> pagamentos) {
         this.pagamentos = pagamentos;
     }
 

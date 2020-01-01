@@ -43,7 +43,9 @@ public class TreinadorBean extends UserBean {
                 throw new MyEntityNotFoundException("Treinador with username " + username + " does not exist!");
             }
             treinador.setName(name);
-            treinador.setPassword(User.hashPassword(password));
+            if(password!=null){
+                treinador.setPassword(User.hashPassword(password));
+            }
             treinador.setEmail(email);
 
         }catch(MyEntityNotFoundException e){
@@ -180,6 +182,7 @@ public class TreinadorBean extends UserBean {
                 throw new MyIllegalArgumentException("O Escalao com o ID " + modalidadeID + " não tem o treinador com o username " + username + "!");
             }
             escalao.removeTreinador(treinador);
+            treinador.removeEscalao(escalao);
             boolean hasEscaloesModalidade = false;
             for (Escalao treinadorEsca : treinador.getEscaloes()) {
                 for (Escalao modalidadeEsca : modalidade.getEscaloes()){
@@ -191,7 +194,6 @@ public class TreinadorBean extends UserBean {
             if(!hasEscaloesModalidade){
                 treinador.removeModalidade(modalidade);
             }
-            treinador.removeEscalao(escalao);
             escalao.removeTreinador(treinador);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;

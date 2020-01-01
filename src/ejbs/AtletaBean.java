@@ -43,7 +43,9 @@ public class AtletaBean {
                 throw new MyEntityNotFoundException("Atleta with username " + username + " does not exist!");
             }
             atleta.setName(name);
-            atleta.setPassword(User.hashPassword(password));
+            if(password!=null){
+                atleta.setPassword(User.hashPassword(password));
+            }
             atleta.setEmail(email);
 
         }catch(MyEntityNotFoundException e){
@@ -177,6 +179,7 @@ public class AtletaBean {
                 throw new MyIllegalArgumentException("O Escalao com o ID " + modalidadeID + " não tem o atleta com o username " + username + "!");
             }
             escalao.removeAtleta(atleta);
+            atleta.removeEscalao(escalao);
             boolean hasEscaloesModalidade = false;
             for (Escalao atletaEsca : atleta.getEscaloes()) {
                 for (Escalao modalidadeEsca : modalidade.getEscaloes()){
@@ -188,7 +191,7 @@ public class AtletaBean {
             if(!hasEscaloesModalidade){
                 atleta.removeModalidade(modalidade);
             }
-            atleta.removeEscalao(escalao);
+
             escalao.removeAtleta(atleta);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;

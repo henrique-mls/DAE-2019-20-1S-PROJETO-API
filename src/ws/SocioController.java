@@ -1,11 +1,8 @@
 package ws;
 
-import dtos.SocioDTO;
-import dtos.TreinadorDTO;
+import dtos.*;
 import ejbs.SocioBean;
-import entities.Atleta;
-import entities.Socio;
-import entities.Treinador;
+import entities.*;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
@@ -19,6 +16,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +38,18 @@ public class SocioController {
                 socio.getEmail()
         );
     }
+    public static SocioDTO toDTOWithLists(Socio socio) {
+        SocioDTO socioDTO =  new SocioDTO(
+                socio.getUsername(),
+                socio.getName(),
+                socio.getPassword(),
+                socio.getEmail()
+        );
+        List<PagamentoDTO> pagamentoDTOS = PagamentoController.toDTOs(socio.getPagamentos());
+        socioDTO.setPagamentos(pagamentoDTOS);
+        return socioDTO;
+    }
+
 
     List<SocioDTO> toDTOs(List<Socio> socios) {
         return socios.stream().map(this::toDTO).collect(Collectors.toList());
@@ -65,14 +75,14 @@ public class SocioController {
             if(security.isUserInRole("Socio")){
                 if(security.getUserPrincipal().getName().equals(username)){
                     if(socio !=null){
-                        return Response.status(Response.Status.OK).entity(toDTO(socio)).build();
+                        return Response.status(Response.Status.OK).entity(toDTOWithLists(socio)).build();
                     }
                 }else{
                     return Response.status(Response.Status.UNAUTHORIZED).build();
                 }
             }else{
                 if(socio !=null){
-                    return Response.status(Response.Status.OK).entity(toDTO(socio)).build();
+                    return Response.status(Response.Status.OK).entity(toDTOWithLists(socio)).build();
                 }
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();

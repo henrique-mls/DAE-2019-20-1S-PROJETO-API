@@ -46,7 +46,9 @@ public class AdministradorBean {
                 throw new MyEntityNotFoundException("Administrator with username " + username + " does not exist!");
             }
             //em.lock(administrator, LockModeType.OPTIMISTIC);
-            administrador.setPassword(User.hashPassword(password));
+            if(password!=null){
+                administrador.setPassword(User.hashPassword(password));
+            }
             administrador.setName(name);
             administrador.setEmail(email);
 
