@@ -3,6 +3,7 @@ package ws;
 import dtos.SocioDTO;
 import dtos.TreinadorDTO;
 import ejbs.SocioBean;
+import entities.Atleta;
 import entities.Socio;
 import entities.Treinador;
 import exceptions.MyConstraintViolationException;
@@ -14,8 +15,10 @@ import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,6 +29,8 @@ import java.util.stream.Collectors;
 public class SocioController {
     @EJB
     SocioBean socioBean;
+    @Context
+    private SecurityContext security;
 
     SocioDTO toDTO(Socio socio){
         return new SocioDTO(
@@ -57,8 +62,18 @@ public class SocioController {
     public Response getSocioDetails(@PathParam("username") String username){
         try{
             Socio socio = socioBean.findSocio(username);
-            if(socio !=null){
-                return Response.status(Response.Status.OK).entity(toDTO(socio)).build();
+            if(security.isUserInRole("Socio")){
+                if(security.getUserPrincipal().getName().equals(username)){
+                    if(socio !=null){
+                        return Response.status(Response.Status.OK).entity(toDTO(socio)).build();
+                    }
+                }else{
+                    return Response.status(Response.Status.UNAUTHORIZED).build();
+                }
+            }else{
+                if(socio !=null){
+                    return Response.status(Response.Status.OK).entity(toDTO(socio)).build();
+                }
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){

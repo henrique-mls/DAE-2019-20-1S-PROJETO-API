@@ -16,8 +16,10 @@ import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +30,8 @@ import java.util.stream.Collectors;
 public class AtletaController {
     @EJB
     AtletaBean atletaBean;
+    @Context
+    private SecurityContext security;
 
     public static AtletaDTO toDTO(Atleta atleta){
         return new AtletaDTO(atleta.getUsername(),
@@ -57,8 +61,18 @@ public class AtletaController {
     public Response getAtletaDetails(@PathParam("username") String username){
         try{
             Atleta atleta = atletaBean.findAtleta(username);
-            if(atleta !=null){
-                return Response.status(Response.Status.OK).entity(toDTO(atleta)).build();
+            if(security.isUserInRole("Atleta")){
+                if(security.getUserPrincipal().getName().equals(username)){
+                    if(atleta !=null){
+                        return Response.status(Response.Status.OK).entity(toDTO(atleta)).build();
+                    }
+                }else{
+                    return Response.status(Response.Status.UNAUTHORIZED).build();
+                }
+            }else{
+                if(atleta !=null){
+                    return Response.status(Response.Status.OK).entity(toDTO(atleta)).build();
+                }
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){
