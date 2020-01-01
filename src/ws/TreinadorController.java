@@ -16,8 +16,10 @@ import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,6 +31,8 @@ import java.util.stream.Collectors;
 public class TreinadorController {
     @EJB
     TreinadorBean treinadorBean;
+    @Context
+    private SecurityContext security;
 
     public static TreinadorDTO toDTO(Treinador treinador) {
         return new TreinadorDTO(
@@ -85,8 +89,18 @@ public class TreinadorController {
     public Response getTreinadorDetails(@PathParam("username") String username){
         try{
             Treinador treinador = treinadorBean.findTreinador(username);
-            if(treinador !=null){
-                return Response.status(Response.Status.OK).entity(toDTOWithLists(treinador)).build();
+            if(security.isUserInRole("Socio")){
+                if(security.getUserPrincipal().getName().equals(username)){
+                    if(treinador !=null){
+                        return Response.status(Response.Status.OK).entity(toDTO(treinador)).build();
+                    }
+                }else{
+                    return Response.status(Response.Status.UNAUTHORIZED).build();
+                }
+            }else{
+                if(treinador !=null){
+                    return Response.status(Response.Status.OK).entity(toDTO(treinador)).build();
+                }
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){
