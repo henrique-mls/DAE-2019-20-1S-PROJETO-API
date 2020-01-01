@@ -1,12 +1,11 @@
 package ws;
 
+import dtos.AtletaDTO;
 import dtos.ModalidadeDTO;
 import dtos.TreinadorDTO;
 import ejbs.ModalidadeBean;
 import ejbs.TreinadorBean;
-import entities.Modalidade;
-import entities.Treinador;
-import entities.User;
+import entities.*;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
@@ -19,6 +18,7 @@ import javax.ejb.EJBException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,6 +46,20 @@ public class TreinadorController {
                 treinador.getPassword(),
                 treinador.getEmail()
         );
+        List<ModalidadeDTO> modalidadeDTOS = ModalidadeController.toDTOs(treinador.getModalidades());
+        List<Atleta> atletas = new ArrayList<>();
+        List<Horario> horarios = new ArrayList<>();
+        List<Escalao> escalaos = new ArrayList<>();
+        for (Modalidade modalidade : treinador.getModalidades()) {
+            atletas.addAll(modalidade.getAtletas());
+            horarios.addAll(modalidade.getHorario());
+            escalaos.addAll(modalidade.getEscaloes());
+        }
+        List<AtletaDTO> atletaDTOS = AtletaController.toDTOs(atletas);
+        treinadorDTO.setModalidades(modalidadeDTOS);
+        treinadorDTO.setAtletas(atletaDTOS);
+        treinadorDTO.setHorarios(horarios);
+        treinadorDTO.setEscaloes(escalaos);
 
         return treinadorDTO;
     }
@@ -72,7 +86,7 @@ public class TreinadorController {
         try{
             Treinador treinador = treinadorBean.findTreinador(username);
             if(treinador !=null){
-                return Response.status(Response.Status.OK).entity(toDTO(treinador)).build();
+                return Response.status(Response.Status.OK).entity(toDTOWithLists(treinador)).build();
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){

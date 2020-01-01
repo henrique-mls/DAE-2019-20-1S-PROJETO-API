@@ -10,10 +10,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class TreinadorDTO extends UserDTO implements Serializable{
-    private List<Modalidade> modalidades;
+    private List<ModalidadeDTO> modalidades;
     private List<Escalao> escaloes;
     private List<Horario> horarios;
-    private List<Atleta> atletas;
+    private List<AtletaDTO> atletas;
 
     public TreinadorDTO(String username, String name, String password, String email) {
         super(username, name, password, email);
@@ -31,11 +31,11 @@ public class TreinadorDTO extends UserDTO implements Serializable{
         this.atletas = new LinkedList<>();
     }
 
-    public List<Modalidade> getModalidades() {
+    public List<ModalidadeDTO> getModalidades() {
         return modalidades;
     }
 
-    public void setModalidades(List<Modalidade> modalidades) {
+    public void setModalidades(List<ModalidadeDTO> modalidades) {
         this.modalidades = modalidades;
     }
 
@@ -55,11 +55,11 @@ public class TreinadorDTO extends UserDTO implements Serializable{
         this.horarios = horarios;
     }
 
-    public List<Atleta> getAtletas() {
+    public List<AtletaDTO> getAtletas() {
         return atletas;
     }
 
-    public void setAtletas(List<Atleta> atletas) {
+    public void setAtletas(List<AtletaDTO> atletas) {
         this.atletas = atletas;
     }
 }

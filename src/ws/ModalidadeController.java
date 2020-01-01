@@ -30,7 +30,7 @@ public class ModalidadeController {
     @EJB
     ModalidadeBean modalidadeBean;
 
-    ModalidadeDTO toDTO(Modalidade modalidade) {
+    public static ModalidadeDTO toDTO(Modalidade modalidade) {
         ModalidadeDTO modalidadeDTO = new  ModalidadeDTO(
                 modalidade.getId(),
                 modalidade.getNome()
@@ -53,8 +53,8 @@ public class ModalidadeController {
         return modalidadeDTO;
     }
 
-    List<ModalidadeDTO> toDTOs(List<Modalidade> modalidades) {
-        return modalidades.stream().map(this::toDTO).collect(Collectors.toList());
+    public  static List<ModalidadeDTO> toDTOs(List<Modalidade> modalidades) {
+        return modalidades.stream().map(ModalidadeController::toDTO).collect(Collectors.toList());
     }
 
     @RolesAllowed("Administrador")
