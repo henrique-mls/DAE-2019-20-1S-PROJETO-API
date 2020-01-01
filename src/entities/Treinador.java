@@ -17,7 +17,7 @@ public class Treinador extends User {
     //Modalidades, Escalões, Horários e Lista de Atletas das Modalidades (para saber as suas atividades no Clube)
     @ManyToMany(mappedBy = "treinadores")
     private List<Modalidade> modalidades;
-    @OneToMany
+    @ManyToMany(mappedBy = "treinadores")
     private List<Escalao> escaloes;
     @ManyToMany
     @JoinTable(name = "TREINADOR_HORARIOS",

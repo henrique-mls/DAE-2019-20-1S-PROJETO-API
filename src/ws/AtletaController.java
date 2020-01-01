@@ -108,17 +108,17 @@ public class AtletaController {
 
     @RolesAllowed("Administrador")
     @PUT
-    @Path("{username}/modalidades/enroll/{id}")
-    public Response enrollAtleta(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {
-        atletaBean.enrollAtletaInModalidade(username,id);
+    @Path("{username}/modalidades/enroll/{modalidadeId}/escalao/{escalaoId}")
+    public Response enrollAtleta(@PathParam("username") String username, @PathParam("modalidadeId") int modalidadeId,@PathParam("escalaoId") int escalaoID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        atletaBean.enrollAtletaInEscalaoInModalidade(username,escalaoID,modalidadeId);
         return Response.status(Response.Status.OK).build();
     }
 
     @RolesAllowed("Administrador")
     @PUT
-    @Path("{username}/modalidades/unroll/{id}")
-    public Response unrollAtleta(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {
-        atletaBean.unrollAtletaInModalidade(username,id);
+    @Path("{username}/modalidades/unroll/{modalidadeId}/escalao/{escalaoId}")
+    public Response unrollAtleta(@PathParam("username") String username, @PathParam("modalidadeId") int modalidadeId, @PathParam("escalaoId") int escalaoId) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        atletaBean.unrollAtletaInEscalaoInModalidade(username,escalaoId,modalidadeId);
         return Response.status(Response.Status.OK).build();
     }
 }

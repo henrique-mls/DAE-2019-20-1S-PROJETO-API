@@ -126,21 +126,29 @@ public class AtletaBean {
         }
     }
 
-    public void enrollAtletaInModalidade( String username,int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+    public void enrollAtletaInEscalaoInModalidade(String username,int escalaoID,int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
         try{
             Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
             Atleta atleta = em.find(Atleta.class, username);
+            Escalao escalao = em.find(Escalao.class,escalaoID);
             if(modalidade == null){
                 throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
             }
             if(atleta == null) {
                 throw new MyEntityNotFoundException("Atleta com o ID " + username + " não existe!");
             }
-            if(modalidade.getAtletas().contains(atleta)){
-                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o atleta com o username " + username + "!");
+            if(escalao == null){
+                throw  new MyEntityNotFoundException("Escalao com o ID " + escalaoID + " não existe!");
             }
-            modalidade.addAtleta(atleta);
+            if(!modalidade.getEscaloes().contains(escalao)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " nao tem o escalao com o id " + escalaoID + "!");
+            }
+            if(escalao.getAtletas().contains(atleta)){
+                throw new MyIllegalArgumentException("A O Escalao com o ID " + escalaoID + "já tem o atleta com o username " + username + "!");
+            }
+            escalao.addAtleta(atleta);
             atleta.addModalidade(modalidade);
+            atleta.addEscalao(escalao);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
         } catch (Exception e){
@@ -148,21 +156,40 @@ public class AtletaBean {
         }
     }
 
-    public void unrollAtletaInModalidade(String username ,int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+    public void unrollAtletaInEscalaoInModalidade(String username ,int escalaoID,int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
         try{
             Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
             Atleta atleta = em.find(Atleta.class,username);
+            Escalao escalao = em.find(Escalao.class,escalaoID);
             if(modalidade == null){
                 throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
             }
             if(atleta == null) {
                 throw new MyEntityNotFoundException("Atleta com o usernamne " + username + " não existe!");
             }
-            if(!modalidade.getAtletas().contains(atleta)){
-                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o atleta com o username" + username + "!");
+            if(escalao == null) {
+                throw new MyEntityNotFoundException("Escalao com o id " + username + " não existe!");
             }
-            modalidade.removeAtleta(atleta);
-            atleta.removeModalidade(modalidade);
+            if(!modalidade.getEscaloes().contains(escalao)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " nao tem o escalao com o id " + escalaoID + "!");
+            }
+            if(!escalao.getAtletas().contains(atleta)){
+                throw new MyIllegalArgumentException("O Escalao com o ID " + modalidadeID + " não tem o atleta com o username " + username + "!");
+            }
+            escalao.removeAtleta(atleta);
+            boolean hasEscaloesModalidade = false;
+            for (Escalao atletaEsca : atleta.getEscaloes()) {
+                for (Escalao modalidadeEsca : modalidade.getEscaloes()){
+                    if(modalidadeEsca.getId() == atletaEsca.getId()){
+                        hasEscaloesModalidade = true;
+                    }
+                }
+            }
+            if(!hasEscaloesModalidade){
+                atleta.removeModalidade(modalidade);
+            }
+            atleta.removeEscalao(escalao);
+            escalao.removeAtleta(atleta);
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
         } catch (Exception e){

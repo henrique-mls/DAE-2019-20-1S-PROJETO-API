@@ -1,6 +1,7 @@
 package ws;
 
 import dtos.AtletaDTO;
+import dtos.EscalaoDTO;
 import dtos.ModalidadeDTO;
 import dtos.TreinadorDTO;
 import ejbs.ModalidadeBean;
@@ -53,17 +54,17 @@ public class TreinadorController {
         List<ModalidadeDTO> modalidadeDTOS = ModalidadeController.toDTOs(treinador.getModalidades());
         List<Atleta> atletas = new ArrayList<>();
         List<Horario> horarios = new ArrayList<>();
-        List<Escalao> escalaos = new ArrayList<>();
-        for (Modalidade modalidade : treinador.getModalidades()) {
-            atletas.addAll(modalidade.getAtletas());
-            horarios.addAll(modalidade.getHorario());
-            escalaos.addAll(modalidade.getEscaloes());
+
+        for (Escalao escalao : treinador.getEscaloes()) {
+            atletas.addAll(escalao.getAtletas());
+            horarios.addAll(escalao.getHorarios());
         }
+        List<EscalaoDTO> escalaoDTOS = EscalaoController.toDTOs(treinador.getEscaloes());
         List<AtletaDTO> atletaDTOS = AtletaController.toDTOs(atletas);
         treinadorDTO.setModalidades(modalidadeDTOS);
         treinadorDTO.setAtletas(atletaDTOS);
         treinadorDTO.setHorarios(horarios);
-        treinadorDTO.setEscaloes(escalaos);
+        treinadorDTO.setEscaloes(escalaoDTOS);
 
         return treinadorDTO;
     }
@@ -135,17 +136,17 @@ public class TreinadorController {
 
     @RolesAllowed("Administrador")
     @PUT
-    @Path("{username}/modalidades/enroll/{id}")
-    public Response enrollTreinador(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {
-        treinadorBean.enrollTreinadorInModalidade(username,id);
+    @Path("{username}/modalidades/enroll/{modalidadeId}/escalao/{escalaoId}")
+    public Response enrollTreinadorInEscalaoInModalidade(@PathParam("username") String username, @PathParam("escalaoId") int escalaoId,@PathParam("modalidadeId") int modalidadeId) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        treinadorBean.enrollTreinadorInEscalaoInModalidade(username,escalaoId,modalidadeId);
         return Response.status(Response.Status.OK).build();
     }
 
     @RolesAllowed("Administrador")
     @PUT
-    @Path("{username}/modalidades/unroll/{id}")
-    public Response unrollTreinador(@PathParam("username") String username, @PathParam("id") int id) throws MyEntityNotFoundException, MyIllegalArgumentException {
-        treinadorBean.unrollTreinadorInModalidade(username,id);
+    @Path("{username}/modalidades/unroll/{modalidadeId}/escalao/{escalaoId}")
+    public Response unrollTreinador(@PathParam("username") String username, @PathParam("modalidadeId") int modalidadeId,@PathParam("escalaoId") int escalaoId) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        treinadorBean.unrollTreinadorInEscalaoInModalidade(username,escalaoId,modalidadeId);
         return Response.status(Response.Status.OK).build();
     }
 }

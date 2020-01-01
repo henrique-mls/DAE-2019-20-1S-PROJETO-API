@@ -20,60 +20,34 @@ public class Modalidade{
     @Id
     private int id;
     private String nome;
-    @OneToMany
-    private List<Horario> horarios;
-    @OneToMany
+    @OneToMany(mappedBy = "modalidade", cascade = CascadeType.REMOVE)
     private List<Escalao> escaloes;
     @ManyToMany
-    @JoinTable(name = "MODALIDADES_ATLETAS",
+    @JoinTable(name = "MODALIDADE_ATLETAS",
             joinColumns = @JoinColumn(name = "MODALIDADE_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "ATLETA_USERNAME", referencedColumnName =
                     "USERNAME"))
     private List<Atleta> atletas;
     @ManyToMany
-    @JoinTable(name = "MODALIDADES_TREINADORES",
+    @JoinTable(name = "MODALIDADE_TREINADORES",
             joinColumns = @JoinColumn(name = "MODALIDADE_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "TREINADOR_USERNAME", referencedColumnName =
                     "USERNAME"))
     private List<Treinador> treinadores;
 
+
     public Modalidade(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.horarios = new LinkedList<>();;
         this.escaloes = new LinkedList<>();
-        this.atletas = new LinkedList<>();
         this.treinadores = new LinkedList<>();
+        this.atletas = new LinkedList<>();
     }
 
     public Modalidade() {
         this.escaloes = new LinkedList<>();
-        this.atletas = new LinkedList<>();
         this.treinadores = new LinkedList<>();
-    }
-
-    public List<Atleta> getAtletas() {
-        return atletas;
-    }
-
-    public void setAtletas(List<Atleta> atletas) {
-        this.atletas = atletas;
-    }
-
-    public List<Treinador> getTreinadores() {
-        return treinadores;
-    }
-
-    public void setTreinadores(List<Treinador> treinadores) {
-        this.treinadores = treinadores;
-    }
-
-    public List<Horario> getHorario() {
-        return horarios;
-    }
-
-    public void setHorario(List<Horario> horario) {
-        this.horarios = horario;
+        this.atletas = new LinkedList<>();
     }
 
     public int getId() {
@@ -100,34 +74,6 @@ public class Modalidade{
         this.escaloes = escaloes;
     }
 
-    public void addTreinador(Treinador treinador){
-        if(treinador == null || treinadores.contains(treinador)){
-            return;
-        }
-        treinadores.add(treinador);
-    }
-
-    public void removeTreinador(Treinador treinador){
-        if(treinador == null || !treinadores.contains(treinador)){
-            return;
-        }
-        treinadores.remove(treinador);
-    }
-
-    public void addAtleta(Atleta atleta){
-        if(atleta == null || atletas.contains(atleta)){
-            return;
-        }
-        atletas.add(atleta);
-    }
-
-    public void removeAtleta(Atleta atleta){
-        if(atleta == null || !atletas.contains(atleta)){
-            return;
-        }
-        atletas.remove(atleta);
-    }
-
     public void addEscalao(Escalao escalao){
         if(escalao == null || escaloes.contains(escalao)){
             return;
@@ -141,19 +87,4 @@ public class Modalidade{
         }
         escaloes.remove(escalao);
     }
-
-    public void addHorario(Horario horario){
-        if(horario == null || horarios.contains(horario)){
-            return;
-        }
-        horarios.add(horario);
-    }
-
-    public void removeHorario(Horario horario){
-        if(horario == null || !horarios.contains(horario)){
-            return;
-        }
-        horarios.remove(horario);
-    }
-
 }

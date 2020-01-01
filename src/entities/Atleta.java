@@ -15,7 +15,7 @@ public class Atleta extends Socio {
     //Dados pessoais, escalões,modalidade, treinadores, graduações, mensagens, horários, pagamentos e recibos
     @ManyToMany(mappedBy = "atletas")
     private List<Modalidade> modalidades;
-    @OneToMany
+    @ManyToMany(mappedBy = "atletas")
     private List<Escalao> escaloes;
     @ManyToMany(mappedBy = "atletas")
     private List<Treinador> treinadores;

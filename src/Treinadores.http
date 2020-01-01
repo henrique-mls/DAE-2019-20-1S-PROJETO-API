@@ -15,12 +15,12 @@ Accept: application/json
 GET http://localhost:8080/projeto/api/treinadores/treinador1
 Accept: application/json
 ###
-PUT http://localhost:8080/projeto/api/treinadores/treinador4/modalidades/enroll/2
+PUT http://localhost:8080/projeto/api/treinadores/treinador4/modalidades/enroll/1/escalao/1
 Content-Type: application/json
 
 ###
 ###
-PUT http://localhost:8080/projeto/api/treinadores/treinador1/modalidades/unroll/2
+PUT http://localhost:8080/projeto/api/treinadores/treinador4/modalidades/unroll/1/escalao/1
 Content-Type: application/json
 
 ###

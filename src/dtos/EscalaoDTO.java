@@ -1,37 +1,41 @@
 package dtos;
 
 import entities.Atleta;
-import entities.Escalao;
 import entities.Horario;
+import entities.Modalidade;
 import entities.Treinador;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModalidadeDTO implements Serializable {
+public class EscalaoDTO implements Serializable {
 
     private int id;
     private String nome;
-    private List<EscalaoDTO> escaloes;
+    private int modalidadeID;
+    private List<Horario> horarios;
     private List<AtletaDTO> atletas;
     private List<TreinadorDTO> treinadores;
-    private List<Horario> horarios;
 
-    public ModalidadeDTO(int id, String nome) {
+    public EscalaoDTO(int id, String nome, int modalidadeID) {
         this.id = id;
         this.nome = nome;
+        this.modalidadeID = modalidadeID;
+        this.atletas = new ArrayList<>();
         this.horarios = new ArrayList<>();
         this.treinadores = new ArrayList<>();
-        this.atletas = new ArrayList<>();
-        this.escaloes = new ArrayList<>();
     }
 
-    public ModalidadeDTO() {
-        this.horarios = new ArrayList<>();
-        this.treinadores = new ArrayList<>();
-        this.atletas = new ArrayList<>();
-        this.escaloes = new ArrayList<>();
+    public EscalaoDTO() {
+    }
+
+    public int getModalidadeID() {
+        return modalidadeID;
+    }
+
+    public void setModalidadeID(int modalidadeID) {
+        this.modalidadeID = modalidadeID;
     }
 
     public int getId() {
@@ -50,12 +54,12 @@ public class ModalidadeDTO implements Serializable {
         this.nome = nome;
     }
 
-    public List<EscalaoDTO> getEscaloes() {
-        return escaloes;
+    public List<Horario> getHorarios() {
+        return horarios;
     }
 
-    public void setEscaloes(List<EscalaoDTO> escaloes) {
-        this.escaloes = escaloes;
+    public void setHorarios(List<Horario> horarios) {
+        this.horarios = horarios;
     }
 
     public List<AtletaDTO> getAtletas() {
@@ -72,13 +76,5 @@ public class ModalidadeDTO implements Serializable {
 
     public void setTreinadores(List<TreinadorDTO> treinadores) {
         this.treinadores = treinadores;
-    }
-
-    public List<Horario> getHorarios() {
-        return horarios;
-    }
-
-    public void setHorarios(List<Horario> horarios) {
-        this.horarios = horarios;
     }
 }

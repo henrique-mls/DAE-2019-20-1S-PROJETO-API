@@ -1,6 +1,6 @@
 package ejbs;
 
-import entities.Horario;
+import entities.*;
 import entities.Modalidade;
 import exceptions.*;
 
@@ -85,20 +85,22 @@ public class ModalidadeBean {
         }
     }
 
-    public void enrollModalidadeInHorario(int modalidadeID, int horarioID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+    public void enrollEscalaoInModalidade(int escalaoID, int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
         try{
-            Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
-            Horario horario = em.find(Horario.class, horarioID);
-            if(modalidade == null){
-                throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
+            Escalao escalao = em.find(Escalao.class,escalaoID);
+            Modalidade modalidade = em.find(Modalidade.class, modalidadeID);
+            if(escalao == null){
+                throw  new MyEntityNotFoundException("Escalao com o ID " + escalaoID + " não existe!");
             }
-            if(horario == null) {
-                throw new MyEntityNotFoundException("Horario com o ID " + horarioID + " não existe!");
+            if(modalidade == null) {
+                throw new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
             }
-            if(modalidade.getHorario().contains(horario)){
-                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o horario com o ID " + horarioID + "!");
+            if(modalidade.getEscaloes().contains(escalao)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " já tem o Escalao com o ID " + escalaoID + "!");
             }
-            modalidade.addHorario(horario);
+            modalidade.addEscalao(escalao);
+            escalao.setModalidade(modalidade);
+
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
         } catch (Exception e){
@@ -106,26 +108,26 @@ public class ModalidadeBean {
         }
     }
 
-    public void unrollModalidadeInHorario(int modalidadeID, int horarioID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+    public void unrollEscalaoInModalidade(int escalaoId, int modalidadeID) throws MyEntityNotFoundException, MyIllegalArgumentException {
         try{
+            Escalao escalao = em.find(Escalao.class,escalaoId);
             Modalidade modalidade = em.find(Modalidade.class,modalidadeID);
-            Horario horario = em.find(Horario.class, horarioID);
-            if(modalidade == null){
-                throw  new MyEntityNotFoundException("Modalidade com o ID " + modalidadeID + " não existe!");
+            if(escalao == null){
+                throw  new MyEntityNotFoundException("Escalao com o id " + escalaoId + " não existe!");
             }
-            if(horario == null) {
-                throw new MyEntityNotFoundException("Horario com o ID " + horarioID + " não existe!");
+            if(modalidade == null) {
+                throw new MyEntityNotFoundException("Escalao com o ID " + escalaoId + " não existe!");
             }
-            if(!modalidade.getHorario().contains(horario)){
-                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o horario com o ID " + horarioID + "!");
+            if(!modalidade.getEscaloes().contains(escalao)){
+                throw new MyIllegalArgumentException("A Modalidade com o ID " + modalidadeID + " não tem o escalao com o ID " + escalaoId + "!");
             }
-            modalidade.removeHorario(horario);
+            modalidade.removeEscalao(escalao);
+            escalao.invalidateModalidade();
         }catch (MyEntityNotFoundException | MyIllegalArgumentException e){
             throw e;
         } catch (Exception e){
             throw new EJBException("ERROR_RETRIEVING_ENTITIES -> " + e.getMessage());
         }
+
     }
-
-
 }

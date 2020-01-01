@@ -32,6 +32,8 @@ public class ConfigBean {
     private AtletaBean atletaBean;
     @EJB
     private TreinadorBean treinadorBean;
+    @EJB
+    private EscalaoBean escalaoBean;
 
     @PostConstruct
     public void populateDB() {
@@ -40,13 +42,14 @@ public class ConfigBean {
             administradorBean.create("2222222", "2222222", "2222222", "2222222@gmail.com");
             administradorBean.create("3333333", "3333333", "3333333", "3333333@gmail.com");
             administradorBean.create("4444444", "4444444", "4444444", "4444444@gmail.com");
+            administradorBean.create("admin1", "4444444", "123", "4444444@gmail.com");
 
             horarioBean.create(1,DayOfWeek.FRIDAY,3,2);
 
             modalidadeBean.create(1,"Esport");
-            modalidadeBean.enrollModalidadeInHorario(1,1);
+            //modalidadeBean.enrollModalidadeInHorario(1,1);
             modalidadeBean.create(2,"Basket");
-            modalidadeBean.enrollModalidadeInHorario(2,1);
+            //modalidadeBean.enrollModalidadeInHorario(2,1);
 
             produtoBean.create(1, TipoProduto.ARTIGO_DESPORTIVO,"descricao",25);
             produtoBean.create(2, TipoProduto.AULA,"descricao 2",2);
@@ -59,14 +62,18 @@ public class ConfigBean {
 
             treinadorBean.create("treinador1","treinador1","treinador1","treinador1@gmail.com");
 
-            treinadorBean.enrollTreinadorInModalidade("treinador1",2);
+            pagamentoBean.create(1,"socio1",1,new Date(),2,99.99f, Estado.PAGO);
+            pagamentoBean.create(2,"socio1",1,new Date(),3,100.99f, Estado.NAO_PAGO);
+
+            escalaoBean.create(1,"juniores",1);
+            escalaoBean.enrollHorarioInEscalao(1,1);
+
+            //modalidadeBean.enrollEscalaoInModalidade(1,1);
+            treinadorBean.enrollTreinadorInEscalaoInModalidade("treinador1",1,1);
             treinadorBean.enrollTreinadorInHorario("treinador1",1);
 
             atletaBean.enrollAtletaInHorario("atleta1",1);
-            atletaBean.enrollAtletaInModalidade("atleta1",1);
-
-            pagamentoBean.create(1,"socio1",1,new Date(),2,99.99f, Estado.PAGO);
-            pagamentoBean.create(2,"socio1",1,new Date(),3,100.99f, Estado.NAO_PAGO);
+            //atletaBean.enrollAtletaInModalidade("atleta1",1);
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());

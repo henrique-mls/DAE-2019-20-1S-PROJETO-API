@@ -1,15 +1,14 @@
 package ws;
 
-import dtos.AdministratorDTO;
-import dtos.AtletaDTO;
-import dtos.ModalidadeDTO;
-import dtos.TreinadorDTO;
+import dtos.*;
 import ejbs.ModalidadeBean;
+import entities.Escalao;
 import entities.Horario;
 import entities.Modalidade;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
+import exceptions.MyIllegalArgumentException;
 
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
@@ -18,6 +17,7 @@ import javax.ejb.EJBException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,10 +44,15 @@ public class ModalidadeController {
                 modalidade.getId(),
                 modalidade.getNome()
         );
-        modalidadeDTO.setHorarios(modalidade.getHorario());
-        List<TreinadorDTO> treinadorDTOS = TreinadorController.toDTOs(modalidade.getTreinadores());
-        List<AtletaDTO> atletaDTOS = AtletaController.toDTOs(modalidade.getAtletas());
-        modalidadeDTO.setEscaloes(modalidade.getEscaloes());
+        List<TreinadorDTO> treinadorDTOS = new ArrayList<>();
+        List<AtletaDTO> atletaDTOS = new ArrayList<>();
+        for (Escalao escalao : modalidade.getEscaloes()) {
+            modalidadeDTO.setHorarios(escalao.getHorarios());
+            treinadorDTOS.addAll(TreinadorController.toDTOs(escalao.getTreinadores()));
+            atletaDTOS.addAll(AtletaController.toDTOs(escalao.getAtletas()));
+        }
+        List<EscalaoDTO> escalaoDTOS = EscalaoController.toDTOs(modalidade.getEscaloes());
+        modalidadeDTO.setEscaloes(escalaoDTOS);
         modalidadeDTO.setTreinadores(treinadorDTOS);
         modalidadeDTO.setAtletas(atletaDTOS);
         return modalidadeDTO;
@@ -107,6 +112,22 @@ public class ModalidadeController {
     @Path("{id}")
     public Response deleteModalidade(@PathParam("id") int id,ModalidadeDTO modalidadeDTO) throws MyEntityNotFoundException{
         modalidadeBean.remove(id);
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @RolesAllowed("Administrador")
+    @PUT
+    @Path("{modalidadeId}/escaloes/enroll/{escalaoId}")
+    public Response enrollEscalaoInModalidade(@PathParam("escalaoId") int escalaoId,@PathParam("modalidadeId") int modalidadeId) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        modalidadeBean.enrollEscalaoInModalidade(escalaoId,modalidadeId);
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @RolesAllowed("Administrador")
+    @PUT
+    @Path("{modalidadeId}/escaloes/unroll/{escalaoId}")
+    public Response unrollEscalaoInModalidade(@PathParam("modalidadeId") int modalidadeId,@PathParam("escalaoId") int escalaoId) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        modalidadeBean.unrollEscalaoInModalidade(escalaoId,modalidadeId);
         return Response.status(Response.Status.OK).build();
     }
 }

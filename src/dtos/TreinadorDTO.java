@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TreinadorDTO extends UserDTO implements Serializable{
     private List<ModalidadeDTO> modalidades;
-    private List<Escalao> escaloes;
+    private List<EscalaoDTO> escaloes;
     private List<Horario> horarios;
     private List<AtletaDTO> atletas;
 
@@ -39,11 +39,11 @@ public class TreinadorDTO extends UserDTO implements Serializable{
         this.modalidades = modalidades;
     }
 
-    public List<Escalao> getEscaloes() {
+    public List<EscalaoDTO> getEscaloes() {
         return escaloes;
     }
 
-    public void setEscaloes(List<Escalao> escaloes) {
+    public void setEscaloes(List<EscalaoDTO> escaloes) {
         this.escaloes = escaloes;
     }
 
