@@ -1,9 +1,6 @@
 package dtos;
 
-import entities.Atleta;
-import entities.Horario;
-import entities.Modalidade;
-import entities.Treinador;
+import entities.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,6 +14,8 @@ public class EscalaoDTO implements Serializable {
     private List<Horario> horarios;
     private List<AtletaDTO> atletas;
     private List<TreinadorDTO> treinadores;
+    private List<PresencasDTO> presencas;
+
 
     public EscalaoDTO(int id, String nome, int modalidadeID) {
         this.id = id;
@@ -25,9 +24,18 @@ public class EscalaoDTO implements Serializable {
         this.atletas = new ArrayList<>();
         this.horarios = new ArrayList<>();
         this.treinadores = new ArrayList<>();
+        this.presencas = new ArrayList<>();
     }
 
     public EscalaoDTO() {
+    }
+
+    public List<PresencasDTO> getPresencas() {
+        return presencas;
+    }
+
+    public void setPresencas(List<PresencasDTO> presencas) {
+        this.presencas = presencas;
     }
 
     public int getModalidadeID() {

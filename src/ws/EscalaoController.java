@@ -2,6 +2,7 @@ package ws;
 
 import dtos.AtletaDTO;
 import dtos.EscalaoDTO;
+import dtos.PresencasDTO;
 import dtos.TreinadorDTO;
 import ejbs.EscalaoBean;
 import entities.Escalao;
@@ -49,8 +50,10 @@ public class EscalaoController {
         escalaoDTO.setHorarios(escalao.getHorarios());
         List<TreinadorDTO> treinadorDTOS = TreinadorController.toDTOs(escalao.getTreinadores());
         List<AtletaDTO> atletaDTOS = AtletaController.toDTOs(escalao.getAtletas());
+        List<PresencasDTO> presencasDTOS = PresencaController.toDTOs(escalao.getPresencas());
         escalaoDTO.setTreinadores(treinadorDTOS);
         escalaoDTO.setAtletas(atletaDTOS);
+        escalaoDTO.setPresencas(presencasDTOS);
         return escalaoDTO;
     }
 
@@ -58,7 +61,7 @@ public class EscalaoController {
         return escalaos.stream().map(EscalaoController::toDTO).collect(Collectors.toList());
     }
 
-    @RolesAllowed("Administrador")
+    //@RolesAllowed("Administrador")
     @GET
     @Path("/") //"/api/escalaos/"
     public List<EscalaoDTO> all() {

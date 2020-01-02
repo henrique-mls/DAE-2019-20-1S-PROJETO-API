@@ -1,6 +1,7 @@
 package ejbs;
 
 import entities.Estado;
+import entities.Presencas;
 import entities.TipoProduto;
 import entities.Treinador;
 
@@ -34,6 +35,8 @@ public class ConfigBean {
     private TreinadorBean treinadorBean;
     @EJB
     private EscalaoBean escalaoBean;
+    @EJB
+    private PresencasBean presencasBean;
 
     @PostConstruct
     public void populateDB() {
@@ -74,6 +77,12 @@ public class ConfigBean {
 
             atletaBean.enrollAtletaInHorario("atleta1",1);
             //atletaBean.enrollAtletaInModalidade("atleta1",1);
+
+            presencasBean.create(1,"2020-01-02",1);
+
+            presencasBean.addOrUpdatePresencaInPresencas(1,"atleta1",true);
+            presencasBean.addOrUpdatePresencaInPresencas(1,"atleta2",false);
+
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());

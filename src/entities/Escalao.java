@@ -1,5 +1,7 @@
 package entities;
 
+import ws.PresencaController;
+
 import javax.persistence.*;
 import javax.validation.constraints.Null;
 import java.util.ArrayList;
@@ -33,6 +35,9 @@ public class Escalao {
     @ManyToOne
     private Modalidade modalidade;
 
+    @OneToMany(mappedBy = "escalao", cascade = CascadeType.REMOVE)
+    private List<Presencas> presencas;
+
     public Escalao(int id, String nome,Modalidade modalidade) {
         this.id = id;
         this.nome = nome;
@@ -40,12 +45,22 @@ public class Escalao {
         this.horarios = new ArrayList<>();
         this.treinadores = new ArrayList<>();
         this.atletas = new ArrayList<>();
+        this.presencas = new ArrayList<>();
     }
 
     public Escalao() {
         this.horarios = new ArrayList<>();
         this.treinadores = new ArrayList<>();
         this.atletas = new ArrayList<>();
+        this.presencas = new ArrayList<>();
+    }
+
+    public List<Presencas> getPresencas() {
+        return presencas;
+    }
+
+    public void setPresencas(List<Presencas> presencas) {
+        this.presencas = presencas;
     }
 
     public Modalidade getModalidade() {
@@ -139,5 +154,19 @@ public class Escalao {
 
     public void invalidateModalidade(){
         this.modalidade = null;
+    }
+
+    public void addPresencas(Presencas presenca){
+        if(presenca == null || presencas.contains(presenca)){
+            return;
+        }
+        presencas.add(presenca);
+    }
+
+    public void removePresenca(Presencas presenca){
+        if(presenca == null || !presencas.contains(presenca)){
+            return;
+        }
+        presencas.remove(presenca);
     }
 }
