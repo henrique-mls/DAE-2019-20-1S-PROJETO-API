@@ -2,6 +2,8 @@ package ws;
 
 import dtos.*;
 import ejbs.AtletaBean;
+import ejbs.EmailBean;
+import ejbs.TreinadorBean;
 import entities.*;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
@@ -14,6 +16,7 @@ import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
+import javax.mail.MessagingException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -23,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@DeclareRoles({"Administrador", "Atleta"})
+@DeclareRoles({"Administrador", "Atleta", "Treinador"})
 @Path("/atletas") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
@@ -32,6 +35,10 @@ public class AtletaController {
     AtletaBean atletaBean;
     @Context
     private SecurityContext security;
+    @EJB
+    EmailBean emailBean;
+    @EJB
+    TreinadorBean treinadorBean;
 
     public static AtletaDTO toDTO(Atleta atleta){
         return new AtletaDTO(atleta.getUsername(),
@@ -146,5 +153,31 @@ public class AtletaController {
     public Response unrollAtleta(@PathParam("username") String username, @PathParam("modalidadeId") int modalidadeId, @PathParam("escalaoId") int escalaoId) throws MyEntityNotFoundException, MyIllegalArgumentException {
         atletaBean.unrollAtletaInEscalaoInModalidade(username,escalaoId,modalidadeId);
         return Response.status(Response.Status.OK).build();
+    }
+
+    @RolesAllowed({"Administrador", "Treinador"})
+    @POST
+    @Path("{username}/email/send")
+    public Response sendEmailToAtleta(@PathParam("username") String username, EmailDTO emailDTO) throws MessagingException {
+        Atleta atleta = atletaBean.findAtleta(username);
+        if(atleta != null){
+            if(security.isUserInRole("Treinador")){
+                Treinador treinador = treinadorBean.findTreinador(security.getUserPrincipal().getName());
+                if(treinador != null){
+                    for (Escalao escalao : treinador.getEscaloes()) {
+                        if(escalao.getAtletas().contains(atleta)){
+                            emailBean.send(atleta.getEmail(), emailDTO.getSubject(), emailDTO.getMessage());
+                            return Response.status(Response.Status.OK).build();
+                        }
+                    }
+                }else{
+                    return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Treinador with username " + username + " not found.").build();
+                }
+            }else{
+                emailBean.send(atleta.getEmail(), emailDTO.getSubject(), emailDTO.getMessage());
+                return Response.status(Response.Status.OK).build();
+            }
+        }
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Atleta with username " + username + " not found.").build();
     }
 }

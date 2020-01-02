@@ -1,9 +1,7 @@
 package ws;
 
-import dtos.AtletaDTO;
-import dtos.EscalaoDTO;
-import dtos.ModalidadeDTO;
-import dtos.TreinadorDTO;
+import dtos.*;
+import ejbs.EmailBean;
 import ejbs.ModalidadeBean;
 import ejbs.TreinadorBean;
 import entities.*;
@@ -16,6 +14,7 @@ import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
+import javax.mail.MessagingException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -34,6 +33,8 @@ public class TreinadorController {
     TreinadorBean treinadorBean;
     @Context
     private SecurityContext security;
+    @EJB
+    EmailBean emailBean;
 
     public static TreinadorDTO toDTO(Treinador treinador) {
         return new TreinadorDTO(
@@ -90,7 +91,7 @@ public class TreinadorController {
     public Response getTreinadorDetails(@PathParam("username") String username){
         try{
             Treinador treinador = treinadorBean.findTreinador(username);
-            if(security.isUserInRole("Socio")){
+            if(security.isUserInRole("Treinador")){
                 if(security.getUserPrincipal().getName().equals(username)){
                     if(treinador !=null){
                         return Response.status(Response.Status.OK).entity(toDTOWithLists(treinador)).build();
@@ -148,5 +149,17 @@ public class TreinadorController {
     public Response unrollTreinador(@PathParam("username") String username, @PathParam("modalidadeId") int modalidadeId,@PathParam("escalaoId") int escalaoId) throws MyEntityNotFoundException, MyIllegalArgumentException {
         treinadorBean.unrollTreinadorInEscalaoInModalidade(username,escalaoId,modalidadeId);
         return Response.status(Response.Status.OK).build();
+    }
+
+    @RolesAllowed("Administrador")
+    @POST
+    @Path("{username}/email/send")
+    public Response sendEmailToTreinador(@PathParam("username") String username, EmailDTO emailDTO) throws MessagingException {
+        Treinador treinador = treinadorBean.findTreinador(username);
+        if (treinador != null) {
+            emailBean.send(treinador.getEmail(), emailDTO.getSubject(), emailDTO.getMessage());
+            return Response.status(Response.Status.OK).build();
+        }
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Treinador with username " + username + " not found.").build();
     }
 }
