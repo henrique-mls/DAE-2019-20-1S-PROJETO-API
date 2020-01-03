@@ -7,14 +7,13 @@ public class GraduacaoDTO implements Serializable {
     private String nome;
     private String descricao;
 
-    public GraduacaoDTO(int id, String nome, String descricao) {
+    public GraduacaoDTO(int id,String nome, String descricao) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
     }
 
-    public GraduacaoDTO(String nome, String descricao) {
-        this(-1,nome,descricao);
+    public GraduacaoDTO() {
     }
 
     public int getId() {

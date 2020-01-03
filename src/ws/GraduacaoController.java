@@ -4,6 +4,7 @@ import dtos.AtletaDTO;
 import dtos.GraduacaoDTO;
 import ejbs.GraduacaoBean;
 import entities.Atleta;
+import entities.Escalao;
 import entities.Graduacao;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
@@ -49,8 +50,8 @@ public class GraduacaoController {
 
     @POST
     @Path("/")
-    public Response createNewGraduacao(GraduacaoDTO graduacaoDTO) throws MyEntityExistsException, MyConstraintViolationException {
-        graduacaoBean.create(graduacaoDTO.getNome(),graduacaoDTO.getDescricao());
+    public Response newGraduacao(GraduacaoDTO graduacaoDTO) throws MyEntityExistsException, MyConstraintViolationException {
+        graduacaoBean.create(graduacaoDTO.getId(),graduacaoDTO.getNome(),graduacaoDTO.getDescricao());
         Graduacao graduacao = graduacaoBean.findGraduacao(graduacaoDTO.getId());
         return Response.status(Response.Status.CREATED).entity(toDTO(graduacao)).build();
     }

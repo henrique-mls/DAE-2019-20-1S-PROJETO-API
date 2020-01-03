@@ -85,8 +85,13 @@ public class ConfigBean {
             presencasBean.addOrUpdatePresencaInPresencas(1,"atleta1",true);
             presencasBean.addOrUpdatePresencaInPresencas(1,"atleta2",false);
 
+            graduacaoBean.create(1,"graduacao1","desc1");
+            graduacaoBean.create(2,"graduacao2","desc2");
+            graduacaoBean.create(3,"graduacao3","desc3");
+            graduacaoBean.create(4,"graduacao4","desc4");
+            graduacaoBean.create(5,"graduacao5","desc5");
 
-            graduacaoBean.create("nome","desc");
+            graduacaoBean.enrollAtletaInGraduacao("atleta1",1);
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());

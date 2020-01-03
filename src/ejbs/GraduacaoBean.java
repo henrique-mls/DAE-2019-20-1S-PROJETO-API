@@ -1,7 +1,6 @@
 package ejbs;
 
-import entities.Atleta;
-import entities.Graduacao;
+import entities.*;
 import entities.Graduacao;
 import entities.Graduacao;
 import exceptions.*;
@@ -22,11 +21,15 @@ public class GraduacaoBean {
     public GraduacaoBean() {
     }
 
-    public void create(String nome, String descricao)
+    public void create(int id, String nome, String descricao)
             throws MyEntityExistsException, MyConstraintViolationException
     {
         try {
-            Graduacao graduacao = new Graduacao(nome,descricao);
+            Graduacao graduacao =  em.find(Graduacao.class,id);
+            if(graduacao != null){
+                throw  new MyEntityExistsException("Graduacao with id " + id + " already exists!");
+            }
+            graduacao = new Graduacao(id,nome,descricao);
             em.persist(graduacao);
         }catch(ConstraintViolationException e){
             throw new MyConstraintViolationException(Utils.getConstraintViolationMessages(e));

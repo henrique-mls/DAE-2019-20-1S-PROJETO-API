@@ -67,6 +67,7 @@ public class AtletaController {
         atletaDTO.setModalidades(modalidadeDTOS);
         atletaDTO.setTreinadores(treinadorDTOS);
         atletaDTO.setHorarios(horarios);
+        atletaDTO.setGraduacoes(atleta.getGraduacoes());
         atletaDTO.setEscaloes(escalaoDTOS);
         atletaDTO.setPagamentos(pagamentoDTOS);
 

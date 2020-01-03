@@ -11,12 +11,12 @@ import java.io.Serializable;
 
 public class Graduacao implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nome;
     private String descricao;
 
-    public Graduacao( String nome, String descricao) {
+    public Graduacao(int id, String nome, String descricao) {
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
     }
