@@ -37,6 +37,8 @@ public class ConfigBean {
     private EscalaoBean escalaoBean;
     @EJB
     private PresencasBean presencasBean;
+    @EJB
+    private GraduacaoBean graduacaoBean;
 
     @PostConstruct
     public void populateDB() {
@@ -83,6 +85,8 @@ public class ConfigBean {
             presencasBean.addOrUpdatePresencaInPresencas(1,"atleta1",true);
             presencasBean.addOrUpdatePresencaInPresencas(1,"atleta2",false);
 
+
+            graduacaoBean.create("nome","desc");
 
         } catch (Exception e) {
             throw new EJBException("Error: " + e.getMessage());

@@ -126,4 +126,18 @@ public class Atleta extends Socio {
         }
         escaloes.remove(escalao);
     }
+
+    public void addGraduacao(Graduacao graduacao){
+        if(graduacao == null || graduacoes.contains(graduacao)){
+            return;
+        }
+        graduacoes.add(graduacao);
+    }
+
+    public void removeGraduacao(Graduacao graduacao){
+        if(graduacao == null || !graduacoes.contains(graduacao)){
+            return;
+        }
+        graduacoes.remove(graduacao);
+    }
 }

@@ -1,28 +1,20 @@
-package entities;
+package dtos;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@NamedQueries({
-        @NamedQuery(name = "getAllGraduacoes", query = "SELECT g FROM Graduacao g order by g.id"),
-        @NamedQuery(name = "getGraduacao", query = "SELECT g FROM Graduacao g WHERE g.id = :id")
-})
-
-public class Graduacao implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class GraduacaoDTO implements Serializable {
     private int id;
     private String nome;
     private String descricao;
 
-    public Graduacao( String nome, String descricao) {
+    public GraduacaoDTO(int id, String nome, String descricao) {
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
     }
 
-    public Graduacao() {
-
+    public GraduacaoDTO(String nome, String descricao) {
+        this(-1,nome,descricao);
     }
 
     public int getId() {

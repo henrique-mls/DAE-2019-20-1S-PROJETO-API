@@ -9,6 +9,7 @@ import entities.Escalao;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
+import exceptions.MyIllegalArgumentException;
 
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
@@ -112,6 +113,21 @@ public class EscalaoController {
     @Path("{id}")
     public Response deleteEscalao(@PathParam("id") int id) throws MyEntityNotFoundException{
         escalaoBean.remove(id);
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @RolesAllowed("Administrador")
+    @PUT
+    @Path("{id}/horarios/enroll/{horarioID}")
+    public Response enrollHorarioInEscalao(@PathParam("id") int id,@PathParam("horarioID") int horarioID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        escalaoBean.enrollHorarioInEscalao(id,horarioID);
+        return Response.status(Response.Status.OK).build();
+    }
+    @RolesAllowed("Administrador")
+    @PUT
+    @Path("{id}/horarios/unroll/{horarioID}")
+    public Response unrollHorarioInEscalao(@PathParam("id") int id,@PathParam("horarioID") int horarioID) throws MyEntityNotFoundException, MyIllegalArgumentException {
+        escalaoBean.unrollHorarioInEscalao(id,horarioID);
         return Response.status(Response.Status.OK).build();
     }
 }

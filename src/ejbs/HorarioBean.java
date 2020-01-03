@@ -1,9 +1,11 @@
 package ejbs;
 
+import entities.Atleta;
 import entities.Horario;
 import entities.Modalidade;
 import exceptions.MyConstraintViolationException;
 import exceptions.MyEntityExistsException;
+import exceptions.MyEntityNotFoundException;
 import exceptions.Utils;
 import org.hibernate.validator.internal.engine.resolver.JPATraversableResolver;
 
@@ -41,6 +43,29 @@ public class HorarioBean {
             throw e;
         }catch (Exception e) {
             throw new EJBException(e.getMessage());
+        }
+    }
+
+    public Horario findHorario(int id) {
+        try{
+            return em.find(Horario.class,id);
+        } catch (Exception e) {
+            throw new EJBException("ERROR_FINDING_HORARIO-> " + e.getMessage());
+        }
+    }
+
+    public void remove(int id) throws MyEntityNotFoundException {
+        try{
+            Horario horario = em.find(Horario.class,id);
+            if(horario == null){
+                throw  new MyEntityNotFoundException("Horario with id " + id + " does not exist!");
+            }
+            em.remove(horario);
+        }catch (MyEntityNotFoundException e){
+            throw e;
+        }
+        catch (Exception e){
+            throw new EJBException("ERROR_REMOVING_HORARIO -> " + e.getMessage());
         }
     }
 }

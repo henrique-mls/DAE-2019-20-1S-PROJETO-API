@@ -180,4 +180,7 @@ public class AtletaController {
         }
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Atleta with username " + username + " not found.").build();
     }
+
+
+
 }

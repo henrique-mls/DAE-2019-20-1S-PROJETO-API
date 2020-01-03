@@ -1,0 +1,37 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection) or
+# paste cURL into the file and request will be converted to HTTP Request format.
+#
+# Following HTTP Request Live Templates a´xre available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+### GET ALL MODALIDADES
+GET http://localhost:8080/projeto/api/graduacoes
+Accept: application/json
+
+###
+#GET MODALIDADE  WITH ID = ....
+GET http://localhost:8080/projeto/api/graduacoes/1
+Accept: application/json
+
+###
+
+
+
+POST http://localhost:8080/projeto/api/graduacoes
+Content-Type: application/json
+
+{
+  "descricao": "desc",
+  "nome": "nome"
+}
+
+
+
+
+
+###
+DELETE http://localhost:8080/projeto/api/graduacoes/1
+Content-Type: application/json
+###
