@@ -11,6 +11,7 @@ import exceptions.MyEntityExistsException;
 import exceptions.MyEntityNotFoundException;
 import exceptions.MyIllegalArgumentException;
 
+import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
@@ -29,25 +30,26 @@ public class GraduacaoController {
     GraduacaoBean graduacaoBean;
 
     public static GraduacaoDTO toDTO(Graduacao graduacao) {
-        GraduacaoDTO escalaoDTO = new  GraduacaoDTO(graduacao.getId(),graduacao.getNome(),graduacao.getDescricao());
-        return escalaoDTO;
+        GraduacaoDTO graduacaoDTO = new GraduacaoDTO(graduacao.getId(),graduacao.getNome(),graduacao.getDescricao());
+        return graduacaoDTO;
     }
 
 
-    public static List<GraduacaoDTO> toDTOs(List<Graduacao> graduacaos) {
-        return graduacaos.stream().map(GraduacaoController::toDTO).collect(Collectors.toList());
+    public static List<GraduacaoDTO> toDTOs(List<Graduacao> graduacoes) {
+        return graduacoes.stream().map(GraduacaoController::toDTO).collect(Collectors.toList());
     }
 
     @GET
-    @Path("/") //"/api/atletas/"
+    @Path("/") //"/api/graduacoes/"
     public List<GraduacaoDTO> all() {
         try {
             return toDTOs(graduacaoBean.all());
         } catch (Exception e) {
-            throw new EJBException("ERROR_GET_ATLETAS", e);
+            throw new EJBException("ERROR_GET_GRADUACOES", e);
         }
     }
 
+    @PermitAll
     @POST
     @Path("/")
     public Response newGraduacao(GraduacaoDTO graduacaoDTO) throws MyEntityExistsException, MyConstraintViolationException {

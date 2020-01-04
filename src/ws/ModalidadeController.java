@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@DeclareRoles("Administrador")
+@DeclareRoles({"Administrador", "Treinador"})
 @Path("/modalidades") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
@@ -73,7 +73,7 @@ public class ModalidadeController {
         }
     }
 
-    @RolesAllowed("Administrador")
+    @RolesAllowed({"Administrador", "Treinador"})
     @GET
     @Path("{id}")
     public Response getModalidadesDetails(@PathParam("id") int id){

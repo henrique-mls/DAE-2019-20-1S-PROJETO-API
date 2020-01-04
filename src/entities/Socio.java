@@ -59,4 +59,18 @@ public class Socio extends User {
         this.pagamentos = pagamentos;
     }
 
+    public void addMensagem(String mensagem){
+        if(mensagem == null){
+            return;
+        }
+        mensagens.add(mensagem);
+    }
+
+    public void removeMensagem(String mensagem){
+        if(mensagem == null || !mensagens.contains(mensagem)){
+            return;
+        }
+        mensagens.remove(mensagem);
+    }
+
 }

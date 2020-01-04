@@ -23,11 +23,11 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//@DeclareRoles({"Treinador", "Administrador"})
 @Path("/presencas") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
 public class PresencaController {
-
     @EJB
     PresencasBean presencasBean;
 
@@ -43,15 +43,17 @@ public class PresencaController {
         return presencas.stream().map(PresencaController::toDTO).collect(Collectors.toList());
     }
 
+
     @GET
-    @Path("/") //"/api/escalaos/"
+    @Path("/") //"/api/presencas/"
     public List<PresencasDTO> all() {
         try {
             return toDTOs(presencasBean.all());
         } catch (Exception e) {
-            throw new EJBException("ERROR_GET_MODALIDADES", e);
+            throw new EJBException("ERROR_GET_PRESENCAS", e);
         }
     }
+
     @GET
     @Path("{id}")
     public Response getPresencasDetails(@PathParam("id") int id){
@@ -62,7 +64,7 @@ public class PresencaController {
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){
-            throw new EJBException("ERROR_GET_MODALIDADE_DETAILS", e);
+            throw new EJBException("ERROR_GET_PRESENCAS_DETAILS", e);
         }
     }
     @POST

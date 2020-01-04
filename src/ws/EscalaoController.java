@@ -21,7 +21,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@DeclareRoles("Administrador")
+@DeclareRoles({"Administrador", "Treinador"})
 @Path("/escaloes") // relative url web path of this controller
 @Produces({MediaType.APPLICATION_JSON}) // injects header “Content-Type: application/json”
 @Consumes({MediaType.APPLICATION_JSON}) // injects header “Accept: application/json”
@@ -62,9 +62,9 @@ public class EscalaoController {
         return escalaos.stream().map(EscalaoController::toDTO).collect(Collectors.toList());
     }
 
-    //@RolesAllowed("Administrador")
+    @RolesAllowed("Administrador")
     @GET
-    @Path("/") //"/api/escalaos/"
+    @Path("/") //"/api/escaloes/"
     public List<EscalaoDTO> all() {
         try {
             return toDTOs(escalaoBean.all());
@@ -73,7 +73,7 @@ public class EscalaoController {
         }
     }
 
-    @RolesAllowed("Administrador")
+    @RolesAllowed({"Administrador", "Treinador"})
     @GET
     @Path("{id}")
     public Response getEscalaosDetails(@PathParam("id") int id){
@@ -84,7 +84,7 @@ public class EscalaoController {
             }
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }catch (Exception e){
-            throw new EJBException("ERROR_GET_MODALIDADE_DETAILS", e);
+            throw new EJBException("ERROR_GET_ESCALAO_DETAILS", e);
         }
     }
 

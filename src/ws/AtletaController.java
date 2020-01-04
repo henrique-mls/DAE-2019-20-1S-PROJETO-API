@@ -13,6 +13,7 @@ import jwt.Jwt;
 
 import javax.accessibility.AccessibleText;
 import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
@@ -70,6 +71,7 @@ public class AtletaController {
         atletaDTO.setGraduacoes(atleta.getGraduacoes());
         atletaDTO.setEscaloes(escalaoDTOS);
         atletaDTO.setPagamentos(pagamentoDTOS);
+        atletaDTO.setMensagens(atleta.getMensagens());
 
         return atletaDTO;
     }
@@ -166,9 +168,12 @@ public class AtletaController {
                 Treinador treinador = treinadorBean.findTreinador(security.getUserPrincipal().getName());
                 if(treinador != null){
                     for (Escalao escalao : treinador.getEscaloes()) {
-                        if(escalao.getAtletas().contains(atleta)){
-                            emailBean.send(atleta.getEmail(), emailDTO.getSubject(), emailDTO.getMessage());
-                            return Response.status(Response.Status.OK).build();
+                        for(Atleta athlete : escalao.getAtletas()){
+                            if(athlete.getUsername().compareTo(atleta.getUsername()) == 0){
+                                emailBean.send(atleta.getEmail(), emailDTO.getSubject(), emailDTO.getMessage());
+                                atleta.addMensagem(emailDTO.getMessage());
+                                return Response.status(Response.Status.OK).build();
+                            }
                         }
                     }
                 }else{

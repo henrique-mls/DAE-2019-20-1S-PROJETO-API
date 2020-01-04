@@ -51,3 +51,13 @@ Content-Type: application/json
 DELETE http://localhost:8080/projeto/api/atletas/atleta3
 Content-Type: application/json
 ###
+
+###
+POST http://localhost:8080/projeto/api/atletas/atleta1/email/send
+Content-Type: application/json
+
+{ "subject": "This is a subject",
+  "message": "This is a message"
+}
+
+###
