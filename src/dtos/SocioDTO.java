@@ -1,5 +1,6 @@
 package dtos;
 
+import entities.Mensagem;
 import entities.Pagamento;
 import entities.Recibo;
 
@@ -8,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SocioDTO extends UserDTO implements Serializable {
-    private List<String> mensagens;
+    private List<Mensagem> mensagens;
     private List<PagamentoDTO> pagamentos;
     private List<Recibo> recibos;
 
@@ -26,11 +27,11 @@ public class SocioDTO extends UserDTO implements Serializable {
         this.recibos = new LinkedList<>();
     }
 
-    public List<String> getMensagens() {
+    public List<Mensagem> getMensagens() {
         return mensagens;
     }
 
-    public void setMensagens(List<String> mensagens) {
+    public void setMensagens(List<Mensagem> mensagens) {
         this.mensagens = mensagens;
     }
 

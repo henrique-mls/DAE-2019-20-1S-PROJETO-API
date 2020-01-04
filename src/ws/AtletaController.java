@@ -3,6 +3,7 @@ package ws;
 import dtos.*;
 import ejbs.AtletaBean;
 import ejbs.EmailBean;
+import ejbs.MensagemBean;
 import ejbs.TreinadorBean;
 import entities.*;
 import exceptions.MyConstraintViolationException;
@@ -40,6 +41,8 @@ public class AtletaController {
     EmailBean emailBean;
     @EJB
     TreinadorBean treinadorBean;
+    @EJB
+    MensagemBean mensagemBean;
 
     public static AtletaDTO toDTO(Atleta atleta){
         return new AtletaDTO(atleta.getUsername(),
@@ -91,7 +94,7 @@ public class AtletaController {
         }
     }
 
-    @RolesAllowed({"Administrador", "Atleta"})
+    //@RolesAllowed({"Administrador", "Atleta"})
     @GET
     @Path("{username}")
     public Response getAtletaDetails(@PathParam("username") String username){
@@ -161,7 +164,7 @@ public class AtletaController {
     @RolesAllowed({"Administrador", "Treinador"})
     @POST
     @Path("{username}/email/send")
-    public Response sendEmailToAtleta(@PathParam("username") String username, EmailDTO emailDTO) throws MessagingException {
+    public Response sendEmailToAtleta(@PathParam("username") String username, EmailDTO emailDTO) throws MessagingException, MyEntityExistsException, MyConstraintViolationException {
         Atleta atleta = atletaBean.findAtleta(username);
         if(atleta != null){
             if(security.isUserInRole("Treinador")){
@@ -171,7 +174,7 @@ public class AtletaController {
                         for(Atleta athlete : escalao.getAtletas()){
                             if(athlete.getUsername().compareTo(atleta.getUsername()) == 0){
                                 emailBean.send(atleta.getEmail(), emailDTO.getSubject(), emailDTO.getMessage());
-                                atleta.addMensagem(emailDTO.getMessage());
+                                mensagemBean.create(atleta.getUsername(), emailDTO.getSubject(), emailDTO.getMessage());
                                 return Response.status(Response.Status.OK).build();
                             }
                         }

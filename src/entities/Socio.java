@@ -1,5 +1,6 @@
 package entities;
 
+import javax.jms.Message;
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +14,8 @@ import java.util.List;
 
 @Entity
 public class Socio extends User {
-    private List<String> mensagens;
+    @OneToMany
+    private List<Mensagem> mensagens;
     @OneToMany(mappedBy = "socio", cascade = CascadeType.REMOVE)
     private List<Pagamento> pagamentos;
 
@@ -43,11 +45,11 @@ public class Socio extends User {
         pagamentos.remove(pagamento);
     }
 
-    public List<String> getMensagens() {
+    public List<Mensagem> getMensagens() {
         return mensagens;
     }
 
-    public void setMensagens(List<String> mensagens) {
+    public void setMensagens(List<Mensagem> mensagens) {
         this.mensagens = mensagens;
     }
 
@@ -59,14 +61,14 @@ public class Socio extends User {
         this.pagamentos = pagamentos;
     }
 
-    public void addMensagem(String mensagem){
+    public void addMensagem(Mensagem mensagem){
         if(mensagem == null){
             return;
         }
         mensagens.add(mensagem);
     }
 
-    public void removeMensagem(String mensagem){
+    public void removeMensagem(Mensagem mensagem){
         if(mensagem == null || !mensagens.contains(mensagem)){
             return;
         }
