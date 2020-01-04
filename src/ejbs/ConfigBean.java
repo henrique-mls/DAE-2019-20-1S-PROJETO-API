@@ -44,6 +44,7 @@ public class ConfigBean {
     public void populateDB() {
         try {
             administradorBean.create("admin1", "Admin1", "123", "admin1@gmail.com");
+            administradorBean.create("admin2", "Admin2", "123", "admin2@gmail.com");
 
             horarioBean.create(1,DayOfWeek.FRIDAY,3,2);
 

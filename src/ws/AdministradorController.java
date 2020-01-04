@@ -12,8 +12,10 @@ import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +27,8 @@ import java.util.stream.Collectors;
 public class AdministradorController {
     @EJB
     AdministradorBean administradorBean;
+    @Context
+    private SecurityContext security;
 
     AdministratorDTO toDTO(Administrador administrador) {
         return new AdministratorDTO(
@@ -91,6 +95,9 @@ public class AdministradorController {
     @DELETE
     @Path("{username}")
     public Response deleteAdministrator(@PathParam("username") String username, AdministratorDTO administratorDTO) throws MyEntityNotFoundException{
+        if(security.getUserPrincipal().getName().equals(username)) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
         administradorBean.remove(username);
         return Response.status(Response.Status.OK).build();
     }
