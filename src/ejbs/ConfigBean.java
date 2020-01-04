@@ -43,34 +43,28 @@ public class ConfigBean {
     @PostConstruct
     public void populateDB() {
         try {
-            administradorBean.create("1111111", "1111111", "1111111", "1111111@gmail.com");
-            administradorBean.create("2222222", "2222222", "2222222", "2222222@gmail.com");
-            administradorBean.create("3333333", "3333333", "3333333", "3333333@gmail.com");
-            administradorBean.create("4444444", "4444444", "4444444", "4444444@gmail.com");
-            administradorBean.create("admin1", "4444444", "123", "4444444@gmail.com");
+            administradorBean.create("admin1", "Admin1", "123", "admin1@gmail.com");
 
             horarioBean.create(1,DayOfWeek.FRIDAY,3,2);
 
-            modalidadeBean.create(1,"Esport");
-            //modalidadeBean.enrollModalidadeInHorario(1,1);
-            modalidadeBean.create(2,"Basket");
-            //modalidadeBean.enrollModalidadeInHorario(2,1);
+            modalidadeBean.create(1,"Futebol");
+            modalidadeBean.create(2,"Esports");
 
-            produtoBean.create(1, TipoProduto.ARTIGO_DESPORTIVO,"descricao",25);
-            produtoBean.create(2, TipoProduto.AULA,"descricao 2",2);
+            produtoBean.create(1, TipoProduto.ARTIGO_DESPORTIVO,"Artigo Desportivo!",12);
+            produtoBean.create(2, TipoProduto.AULA,"Aula de Ballet",25);
 
-            socioBean.create("socio1", "Socio1", "socio1", "socio1@gmail.com");
-            socioBean.create("socio2", "socio2", "socio2", "socio2@gmail.com");
+            socioBean.create("socio1", "Socio1", "123", "socio1@gmail.com");
+            socioBean.create("socio2", "socio2", "123", "socio2@gmail.com");
 
-            atletaBean.create("atleta1", "Atleta1", "atleta1", "atleta1@gmail.com");
-            atletaBean.create("atleta2", "Atleta2", "atleta2", "atleta2@gmail.com");
+            atletaBean.create("atleta1", "Atleta1", "123", "atleta1@gmail.com");
+            atletaBean.create("atleta2", "Atleta2", "123", "atleta2@gmail.com");
 
             treinadorBean.create("treinador1","treinador1","treinador1","treinador1@gmail.com");
 
             pagamentoBean.create(1,"socio1",1,new Date(),2,99.99f, Estado.PAGO);
             pagamentoBean.create(2,"socio1",1,new Date(),3,100.99f, Estado.NAO_PAGO);
 
-            escalaoBean.create(1,"juniores",1);
+            escalaoBean.create(1,"Juniores",1);
             escalaoBean.enrollHorarioInEscalao(1,1);
 
             //modalidadeBean.enrollEscalaoInModalidade(1,1);
@@ -78,7 +72,7 @@ public class ConfigBean {
             treinadorBean.enrollTreinadorInHorario("treinador1",1);
 
             atletaBean.enrollAtletaInHorario("atleta1",1);
-            //atletaBean.enrollAtletaInModalidade("atleta1",1);
+            atletaBean.enrollAtletaInEscalaoInModalidade("atleta1",1,1);
 
             presencasBean.create(1,"2020-01-02",1);
 
